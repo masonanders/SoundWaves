@@ -1,0 +1,96 @@
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:14:35 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/5242a53417651295/variables" for 127.0.0.1 at 2018-08-07 12:14:36 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:14:44 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/f51875d72ed284de/variables" for 127.0.0.1 at 2018-08-07 12:14:45 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:19:34 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/de26e8fe40a0cdeb/variables" for 127.0.0.1 at 2018-08-07 12:19:34 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:19:50 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/7c63453bb4d1d119/variables" for 127.0.0.1 at 2018-08-07 12:19:51 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:22:19 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/316b6ae0c2858e69/variables" for 127.0.0.1 at 2018-08-07 12:22:20 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:23:07 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/72478ef81aadc3ae/variables" for 127.0.0.1 at 2018-08-07 12:23:07 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 12:24:40 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/44bf0fbeafa9f50c/variables" for 127.0.0.1 at 2018-08-07 12:24:41 -0700
+Started GET "/static_pages/root" for 127.0.0.1 at 2018-08-07 13:15:20 -0700
+
+PG::ConnectionBad - FATAL:  database "SoundWaves_development" does not exist
+:
+
+Started POST "/__better_errors/08f0c07801d62e4c/variables" for 127.0.0.1 at 2018-08-07 13:15:20 -0700
+  [1m[35m (558.1ms)[0m  [1m[35mCREATE DATABASE "SoundWaves_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (412.6ms)[0m  [1m[35mCREATE DATABASE "SoundWaves_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/static_pages/root" for 127.0.0.1 at 2018-08-07 13:20:23 -0700
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/83fb5cae54225c41/variables" for 127.0.0.1 at 2018-08-07 13:20:23 -0700
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(895027911307952625)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20180807201626)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180807201626_create_users.rb:3
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20180807201626_create_users.rb:11
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20180807201626_create_users.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20180807201626_create_users.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180807201626"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (5.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-08-07 20:20:33.406716"], ["updated_at", "2018-08-07 20:20:33.406716"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(895027911307952625)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9

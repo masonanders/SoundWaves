@@ -1,4 +1,5 @@
 {
+  "webpack": "webpack --watch",
   "name": "SoundWaves",
   "private": true,
   "dependencies": {
@@ -23,7 +24,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
