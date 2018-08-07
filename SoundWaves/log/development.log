@@ -211,3 +211,18 @@ Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 0.0ms)
   [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "XPw0fz-9dOtiyply_4THhg"], ["updated_at", "2018-08-07 21:03:22.489594"], ["id", 1]]
   [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2018-08-07 14:12:04 -0700
+
+NameError - undefined local variable or method `default' for #<ActionDispatch::Routing::Mapper:0x007fa2523dc128>
+Did you mean?  defaults:
+  config/routes.rb:2:in `block in <main>'
+  config/routes.rb:1:in `<main>'
+
+Started POST "/__better_errors/9a64b8480feff48a/variables" for 127.0.0.1 at 2018-08-07 14:12:04 -0700
+Started GET "/" for 127.0.0.1 at 2018-08-07 14:12:40 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 301ms (Views: 300.8ms | ActiveRecord: 0.0ms)
+
+
