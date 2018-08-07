@@ -7,8 +7,9 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       #TODO redirect to user show with @user
+      render json: {user: @user} # TODO render user show instead
     else
-      render json: ['Invalid username or password!']
+      render json: {errors: ['Invalid username or password!'] }
     end
   end
 
@@ -17,7 +18,7 @@ class Api::SessionsController < ApplicationController
     result = {}
     result.errors = ['Already logged out!'] unless session_open
     code = session_open ? 200 : 404
-    logout if session_open
+    logout!
     render json: result, status: code
   end
 end
