@@ -25,7 +25,6 @@ class Api::UsersController < ApplicationController
 
   def destroy
     logout!
-    redirect_to new_session_url # TODO make sure this is the correct session_url
   end
 
   private
