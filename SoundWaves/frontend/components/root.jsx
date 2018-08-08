@@ -1,20 +1,13 @@
 import React from 'react';
-import { Route, HashRouter } from 'react-router-dom';
-import Splash from './splash/splash_container';
-import App from './app';
+import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-
+import Splash from './splash/splash_container';
 
 const Root = (props) => {
-  let component;
-  const loggedIn = () => props.store.getState().session.loggedIn;
-
-
   return (
     <Provider store={props.store}>
       <div>
-        {loggedIn() ? (<App />) : (<Splash />)}
+        <Splash />
       </div>
     </Provider>
   );

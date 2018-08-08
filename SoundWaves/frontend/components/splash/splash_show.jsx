@@ -1,7 +1,11 @@
 import React from 'react';
+import App from '../app';
 
-class Splash extends React.Component {
-  render() {
+const Splash = (props) => {
+  const loggedIn = props.state.session.loggedIn;
+  if (loggedIn) {
+    return (<App />);
+  } else {
     return (
       <div>
         <h1>Splish Splash</h1>
@@ -9,6 +13,6 @@ class Splash extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default Splash;
