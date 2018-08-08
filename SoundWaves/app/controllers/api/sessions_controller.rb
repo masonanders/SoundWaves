@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       #TODO redirect to user show with @user
-      render json: {user: @user} # TODO render user show instead
+      render json: @user # TODO render user show instead
     else
       render json: {errors: ['Invalid username or password!'] }
     end
