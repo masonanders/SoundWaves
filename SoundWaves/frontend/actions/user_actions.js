@@ -26,5 +26,5 @@ export const updateUser = updUser => dispatch => (
 );
 
 export const deleteUser = userId => dispatch => (
-  UserAPIUtil.deleteUser(userId).then(id => dispatch(removeUser(id)))
+  UserAPIUtil.deleteUser(userId).then(id => console.log(id))
 );

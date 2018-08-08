@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
     if @user == current_user
       logout!
       @user.delete
-      render json: {userId: @user.id}, status: 200
+      render json: @user.id, status: 200
     else
       render json: { errors: ['Something went wrong...'] }, status: 500
     end
