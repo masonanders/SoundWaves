@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { beginSession } from '../actions/session_actions';
-import { createUser } from '../actions/user_actions';
+import { beginSession } from '../../actions/session_actions';
+import { createUser } from '../../actions/user_actions';
 import SplashShow from './splash_show';
 
 const mapStateToProps = state => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   createUser: (user) => dispatch(createUser(user))
 });
 
-export default (mapStateToProps, mapDispatchToProps)(SplashShow);
+export default connect(mapStateToProps, mapDispatchToProps)(SplashShow);

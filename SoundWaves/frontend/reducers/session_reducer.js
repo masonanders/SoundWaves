@@ -9,7 +9,8 @@ import {
 } from '../actions/user_actions';
 
 const _nullUser = {
-  currentUser: null
+  currentUser: null,
+  loggedIn: false
 };
 
 const SessionReducer = (oldState = _nullUser, action) => {
@@ -17,7 +18,10 @@ const SessionReducer = (oldState = _nullUser, action) => {
   let newState = {};
   switch (action.type) {
     case START_SESSION:
-      return merge(newState, oldState, { currentUser: action.user.id });
+      return merge(newState, oldState, {
+        currentUser: action.user.id,
+        loggedIn: true
+      });
     case REMOVE_USER:
     case QUIT_SESSION:
       return merge(newState, oldState, _nullUser);
