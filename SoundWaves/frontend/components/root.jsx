@@ -1,14 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Splash from './splash/splash_container';
+import App from './app';
 
 const Root = (props) => {
   return (
     <Provider store={props.store}>
-      <div>
-        <Splash />
-      </div>
+      <HashRouter>
+        <div>
+          <App />
+        </div>
+    </HashRouter>
     </Provider>
   );
 };
