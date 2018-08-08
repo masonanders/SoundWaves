@@ -1,5 +1,7 @@
+@import "./colors";
+
 body {
-  background-color: #eaeaea;
+  background-color: $background-grey;
   height: 100%;
   margin: 0;
 }

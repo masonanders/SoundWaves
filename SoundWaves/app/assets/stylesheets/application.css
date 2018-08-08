@@ -13,12 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-// Reset
-@import "./util/reset";
-
-// Util
-@import "./util/colors";
-
-// Base
-@import "./base/base"

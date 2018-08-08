@@ -1,7 +1,51 @@
-#content {
-  .splash-header {
-    h1 {
-      color: green;
-    }
+@import "../util/colors";
+@import "../util/fonts";
+
+.splash-content {
+  border-top: 4px solid $button-orange;
+
+  .splash-front-image {
+    background-image: image_url('splash/splash-header.jpg'); // Photo by Pierre Gui on Unsplash
+    background-size: cover;
+    height: 451px;
+  }
+
+  .splash-logo {
+    display:inline-block;
+    margin: 0;
+    min-height: 50px;
+    min-width: 185px;
+    background: image_url('logo/wave-logo.png') no-repeat 0px; // Icon by maxicons on iconfinder.com; please read additional info below
+    background-size: 200px;
+    position: relative;
+    top: 25px;
+    left: 15px;
+  }
+
+  button {
+    position: relative;
+    top: -10px;
+    right: -555px;
+    background-color: $button-orange;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 3px;
+    border: none;
+  }
+
+  #sign-in {
+    // opacity: 0;
+    background-color: white;
+    border: 2px solid #eaeaea;
+    margin-right: 10px;
   }
 }
+
+// wave-logo info
+  // source: https://www.iconfinder.com/icons/3465605/disaster_earthquake_flood_sea_tsunami_water_wave_icon
+  // license: Creative Commons 3.0: https://creativecommons.org/licenses/by/3.0/
+  // alterations:
+    // image flipped horizontally.
+    // exclamation mark removed.
+    // 'SOUNDWAVES' text added.
+    // image shrunk
