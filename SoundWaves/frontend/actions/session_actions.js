@@ -17,7 +17,7 @@ const startSession = user => ({
   user
 });
 
-const quitSession = (res) => ({
+const quitSession = res => ({
   type: QUIT_SESSION,
   res
 });

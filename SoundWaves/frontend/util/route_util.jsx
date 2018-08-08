@@ -5,11 +5,7 @@ import { connect } from 'react-redux';
 
 const Auth = ({ component: Component, path, exact, loggedIn }) => {
   const render = (props) => {
-    if (loggedIn) {
-      return (<Redirect to='/stream' />);
-    } else {
-      return (<Component {...props} />);
-    }
+    return (loggedIn ? <Redirect to='/stream' /> : (<Component {...props} />));
   };
 
   return (
@@ -19,11 +15,7 @@ const Auth = ({ component: Component, path, exact, loggedIn }) => {
 
 const Protected = ({ component: Component, path, exact, loggedIn }) => {
   const render = (props) => {
-    if (loggedIn) {
-      return (<Component {...props} />);
-    } else {
-      return (<Redirect to='/' />);
-    }
+    return (loggedIn ? <Component {...props} /> : <Redirect to='/' />);
   };
 
   return (
@@ -31,8 +23,8 @@ const Protected = ({ component: Component, path, exact, loggedIn }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  loggedIn: state.session.loggedIn
+const mapStateToProps = ({ session }) => ({
+  loggedIn: session.loggedIn
 });
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));

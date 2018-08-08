@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { beginSession } from '../../actions/session_actions';
 import { createUser } from '../../actions/user_actions';
 import SplashShow from './splash_show';

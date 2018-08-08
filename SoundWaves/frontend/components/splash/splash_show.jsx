@@ -5,6 +5,7 @@ const Splash = (props) => {
     <div>
       <h1>Splish Splash</h1>
       <h2>Logged Out</h2>
+      <p>{JSON.stringify(props)}</p>
     </div>
   );
 };

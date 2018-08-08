@@ -3,7 +3,6 @@ import { Route, Switch }  from 'react-router-dom';
 import Splash from './splash/splash_container';
 import Stream from './stream/stream_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Provider } from 'react-redux'; 
 
 const App = (props) => (
   <div>

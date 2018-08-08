@@ -4,12 +4,12 @@ import { START_SESSION } from './session_actions';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_USER = "REMOVE_USER";
 
-const receiveUser = (user) => ({
+const receiveUser = user => ({
   type: RECEIVE_USER,
   user
 });
 
-const removeUser = (id) => ({
+const removeUser = id => ({
   type: REMOVE_USER,
   id
 });

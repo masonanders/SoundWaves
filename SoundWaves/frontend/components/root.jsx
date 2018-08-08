@@ -7,10 +7,8 @@ const Root = (props) => {
   return (
     <Provider store={props.store}>
       <HashRouter>
-        <div>
-          <App />
-        </div>
-    </HashRouter>
+        <App />
+      </HashRouter>
     </Provider>
   );
 };

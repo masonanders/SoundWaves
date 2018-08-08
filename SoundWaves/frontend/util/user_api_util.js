@@ -1,11 +1,11 @@
-export const fetchUser = (id) => (
+export const fetchUser = id => (
   $.ajax({
     url: `/api/users/${id}`,
     method: 'get'
   })
 );
 
-export const createUser = (user) => (
+export const createUser = user => (
   $.ajax({
     url: '/api/users',
     method: 'post',
@@ -13,7 +13,7 @@ export const createUser = (user) => (
   })
 );
 
-export const updateUser = (user) => (
+export const updateUser = user => (
   $.ajax({
     url: `/api/users/${user.id}`,
     method: 'patch',
@@ -21,7 +21,7 @@ export const updateUser = (user) => (
   })
 );
 
-export const deleteUser = (id) => (
+export const deleteUser = id => (
   $.ajax({
     url: `/api/users/${id}`,
     method: 'delete',
