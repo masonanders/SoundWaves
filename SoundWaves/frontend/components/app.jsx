@@ -5,8 +5,7 @@ import Stream from './stream/stream_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = (props) => (
-  <div>
-    <h1>App</h1>
+  <div id='app'>
     <Switch>
       <AuthRoute exact path='/' component={Splash} />
       <ProtectedRoute exact path='/stream' component={Stream} />
