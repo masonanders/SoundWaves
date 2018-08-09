@@ -22,23 +22,12 @@
   }
 
   button {
-    cursor: pointer;
-    color: white;
     background-color: $button-orange;
     height: 30px;
     padding: 0 15px;
     border-radius: 3px;
-    border: none;
     font-size: 14px;
     font-weight: 200;
-  }
-
-  button:focus {
-    outline: 0;
-  }
-
-  input:focus {
-    outline: 0;
   }
 
   .big-button {

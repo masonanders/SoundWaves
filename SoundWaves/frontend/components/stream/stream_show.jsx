@@ -7,7 +7,10 @@ const Stream = (props) => {
     <div className='content'>
       <h1>Stream</h1>
       <h2>{`Greetings, ${users[currentUser].username}`}</h2>
-      <button onClick={() => props.endSession()}>Logout</button>
+      <button
+        style={{color: 'black'},{backgroundColor: 'orange'}}
+        onClick={() => props.endSession()}>Logout
+      </button>
     </div>
   );
 };

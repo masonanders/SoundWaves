@@ -4,7 +4,6 @@ class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state = { props };
-    console.log(props);
   }
 
   loginDemo() {
@@ -19,10 +18,10 @@ class Banner extends React.Component {
         </div>
 
         <div className='session-buttons'>
-          <button onClick={() => this.props.openModal('login')}
+          <button onClick={() => this.props.openModal(this.props.beginSession)}
             id='sign-in'>Sign in
           </button>
-          <button onClick={() => this.props.openModal('signup')}
+          <button onClick={() => this.props.openModal(this.props.createUser)}
             id='create-account'>Create account
           </button>
         </div>

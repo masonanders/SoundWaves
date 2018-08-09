@@ -5,3 +5,17 @@
   min-height: 100%;
   margin: 0 auto;
 }
+
+button {
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input:focus {
+  outline: 0;
+}

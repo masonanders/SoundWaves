@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { beginSession, createUser } from '../../actions/session_actions';
+import { beginSession } from '../../actions/session_actions';
+import { createUser } from '../../actions/user_actions';
 import { openModal, closeModal } from '../../actions/session_modal_actions';
 import SplashShow from './splash_show';
 
-// TODO ask why this is rendering the state as undefined
 const mapStateToProps = (state) => ({
   state: state
 });

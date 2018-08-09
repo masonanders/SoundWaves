@@ -10,7 +10,14 @@ import * as SessionActions from './actions/session_actions';
 import * as SessionModalActions from './actions/session_modal_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let preState = {};
+  if (window.currentUser) {
+    preState = {
+      session: { currentUser: window.currentUser.id, loggedIn: true },
+      entities: { users: { [window.currentUser.id]: window.currentUser } }
+    };
+  }
+  const store = configureStore(preState);
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 

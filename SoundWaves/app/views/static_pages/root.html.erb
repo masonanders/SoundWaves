@@ -2,6 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript">
+      <% if logged_in %>
+        window.currentUser = <%=
+          render("/api/users/show_user.json.jbuilder",
+          user: current_user).html_safe
+        %>
+        <% else %>
+        window.currentUser = undefined
+      <% end %>
+    </script>
     <%= favicon_link_tag 'logo/favicon.png' %>
     <title>SoundWaves</title>
   </head>

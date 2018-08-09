@@ -8,20 +8,18 @@ const Splash = (props) => {
   const modalOn = props.state.ui.sessionModal.modalOn;
   return (
     <div>
-      { modalOn ?
+      {(modalOn ? (
         <SessionModal
           state={props.state.ui.sessionModal}
-          beginSession={props.beginSession}
-          createUser={props.createUser}
+          action={props.state.ui.sessionModal.action}
           closeModal={props.closeModal}
-        />
-      :
-        <div></div>
-      }
+        />) : <div></div>)}
+
       <div className='content' >
         <section className='splash-content' >
           <Banner state={props.state}
             beginSession={props.beginSession}
+            createUser={props.createUser}
             openModal={props.openModal}
           />
           <Search />

@@ -1,0 +1,57 @@
+@import "../../util/colors";
+
+.new-session-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.new-session-form {
+  margin-top: 25px;
+  background-color: #FFFFFF;
+  padding: 25px;
+  height: 300px;
+  width: 400px;
+
+  button {
+    background-color: $button-orange;
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 200;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 0 10px;
+    height: 40px;
+    width: 378px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 15px;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  h3 {
+    font-weight: 200;
+    margin: 50px 0 30px 0;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    color: red;
+  }
+}
