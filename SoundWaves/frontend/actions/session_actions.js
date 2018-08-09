@@ -2,7 +2,7 @@ import * as SessionAPIUtil from '../util/session_api_util';
 
 export const START_SESSION = "START_SESSION";
 export const QUIT_SESSION = "QUIT_SESSION";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_ERRORS";
 
 export const beginSession = userParams => dispatch => (
   SessionAPIUtil.beginSession(userParams)
@@ -31,6 +31,6 @@ const quitSession = res => ({
 });
 
 const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 });

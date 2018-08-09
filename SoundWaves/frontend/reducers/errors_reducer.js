@@ -1,14 +1,7 @@
-import merge from 'lodash/merge';
+import { combineReducers } from 'redux';
 
-import { RECEIVE_ERRORS } from '../actions/session_actions';
+import users from './user_errors_reducer';
 
-const UsersReducer = (_, action) => {
-  switch (action.type) {
-    case RECEIVE_ERRORS:
-      return action.errors;
-    default:
-      return [];
-  }
-};
-
-export default UsersReducer;
+export default combineReducers({
+  users
+});
