@@ -2,18 +2,31 @@ import React from 'react';
 
 import Banner from './splash_banner';
 import Search from './splash_search';
+import SessionModal from '../session-modal/new_session_modal';
 
 const Splash = (props) => {
-  const imagePath = '../../assets/images/logo/wave';
+  const modalOn = props.state.ui.sessionModal.modalOn;
   return (
-    <div className='content' >
-      <section className='splash-content' >
-        <Banner state={props.state}
+    <div>
+      { modalOn ?
+        <SessionModal
+          state={props.state.ui.sessionModal}
           beginSession={props.beginSession}
-          openModal={props.openModal}
+          createUser={props.createUser}
+          closeModal={props.closeModal}
         />
-        <Search />
-      </section>
+      :
+        <div></div>
+      }
+      <div className='content' >
+        <section className='splash-content' >
+          <Banner state={props.state}
+            beginSession={props.beginSession}
+            openModal={props.openModal}
+          />
+          <Search />
+        </section>
+      </div>
     </div>
   );
 };
