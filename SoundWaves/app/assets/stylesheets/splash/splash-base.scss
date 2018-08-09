@@ -1,0 +1,31 @@
+@import "../util/colors";
+
+.splash-content {
+  border-top: 4px solid $button-orange;
+
+  h1 {
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+  }
+
+  h3 {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+  }
+
+  button {
+    cursor: pointer;
+    color: white;
+    background-color: $button-orange;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 3px;
+    border: none;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}

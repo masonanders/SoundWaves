@@ -1,17 +1,13 @@
 @import "../util/colors";
 @import "../util/fonts";
 
-.splash-content {
-  border-top: 4px solid $button-orange;
-
-  .splash-front-image {
-    background-image: image_url('splash/splash-header.jpg'); // Photo by Pierre Gui on Unsplash
-    background-size: cover;
-    height: 451px;
-  }
+#splash-front-banner {
+  background-image: image_url('splash/splash-header.jpg'); // Photo by Pierre Gui on Unsplash
+  background-size: cover;
+  height: 451px;
 
   .splash-logo {
-    display:inline-block;
+    display: inline-block;
     margin: 0;
     min-height: 50px;
     min-width: 185px;
@@ -22,23 +18,54 @@
     left: 15px;
   }
 
-  button {
+  .session-button {
     position: relative;
     top: -10px;
     right: -555px;
-    background-color: $button-orange;
-    height: 30px;
-    padding: 0 15px;
-    border-radius: 3px;
-    border: none;
   }
 
   #sign-in {
     // opacity: 0;
-    background-color: white;
+    background-color: black;
     border: 2px solid #eaeaea;
     margin-right: 10px;
   }
+
+  .splash-header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 80px;
+    color: white;
+  }
+
+  .splash-subtext {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    top: 100px;
+
+    h3 {
+      max-width: 530px;
+    }
+  }
+
+  .upload-today {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+    left: 0;
+  }
+
+  #start-today {
+    font-size: 20px;
+    font-weight: 200;
+    height: 45px;
+  }
+
 }
 
 // wave-logo info
