@@ -6,8 +6,8 @@ import Search from './splash_search';
 const Splash = (props) => {
   const imagePath = '../../assets/images/logo/wave';
   return (
-    <div className='content'>
-      <section className='splash-content'>
+    <div className='content' >
+      <section className='splash-content' >
         <Banner />
         <Search />
       </section>
