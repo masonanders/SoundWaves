@@ -8,7 +8,10 @@ const Splash = (props) => {
   return (
     <div className='content' >
       <section className='splash-content' >
-        <Banner />
+        <Banner state={props.state}
+          beginSession={props.beginSession}
+          openModal={props.openModal}
+        />
         <Search />
       </section>
     </div>

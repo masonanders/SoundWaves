@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import { beginSession } from '../../actions/session_actions';
-import { createUser } from '../../actions/user_actions';
+import { openModal } from '../../actions/session_modal_actions';
 import SplashShow from './splash_show';
 
-const mapStateToProps = state => ({
-  state: state
+// TODO ask why this is rendering the state as undefined
+const mapStateToProps = (props) => ({
+  state: props
 });
 
 const mapDispatchToProps = dispatch => ({
   beginSession: (userParams) => dispatch(beginSession(userParams)),
-  createUser: (user) => dispatch(createUser(user))
+  openModal: (actions) => dispatch(openModal(actions))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashShow);
