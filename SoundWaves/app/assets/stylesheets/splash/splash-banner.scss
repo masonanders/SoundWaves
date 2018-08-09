@@ -2,7 +2,9 @@
 @import "../util/fonts";
 
 #splash-front-banner {
+  background-color: black;
   background-image: image_url('splash/splash-header.jpg'); // Photo by Pierre Gui on Unsplash
+  opacity: 1.5;
   background-size: cover;
   height: 451px;
 
@@ -14,20 +16,25 @@
     background: image_url('logo/wave-logo.png') no-repeat 0px; // Icon by maxicons on iconfinder.com; please read additional info below
     background-size: 200px;
     position: relative;
-    top: 25px;
+    top: 20px;
     left: 15px;
   }
 
-  .session-button {
+  .session-buttons {
+    font-family: monospace;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     position: relative;
-    top: -10px;
-    right: -555px;
+    top: -35px;
+    margin-right: 30px;
   }
 
   #sign-in {
-    // opacity: 0;
-    background-color: black;
-    border: 2px solid #eaeaea;
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0px;
+    background-position-y: 0px;
+    border: 1px solid #eaeaea;
     margin-right: 10px;
   }
 
@@ -52,20 +59,13 @@
     }
   }
 
-  .upload-today {
+  .demo-login {
     display: flex;
     justify-content: center;
     position: relative;
     top: 150px;
     left: 0;
   }
-
-  #start-today {
-    font-size: 20px;
-    font-weight: 200;
-    height: 45px;
-  }
-
 }
 
 // wave-logo info

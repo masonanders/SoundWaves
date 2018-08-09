@@ -1,5 +1,40 @@
+@import "../util/colors";
+
 .splash-search {
-  width: 920px;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  button {
+    font-size: 10px;
+  }
+}
+
+.splash-searchbar {
+  background-color: $background-grey;
+  font-size: 15px;
   min-height: 46px;
-  background-color: green;
+  width: 556px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  padding-left: 20px;
+}
+
+.splash-searchbar-or {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 46px;
+  width: 46px;
+}
+
+#search-button {
+  background-color: $background-grey;
+  min-width: 46px;
+  min-height: 46px;
+  border-radius: 0 4px 4px 0;
+  background-image: image_url('splash/search-icon.png'); // Image by Yannick Lung at https://www.iconfinder.com/yanlu
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
