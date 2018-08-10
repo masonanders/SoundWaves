@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Errors = (props) => {
+  console.log(props);
   const allErrors = (errors) => (
     Object.values(errors).reduce(
       (acc, next) => {
@@ -13,7 +14,7 @@ const Errors = (props) => {
   );
   const renderErrors = allErrors(props).map(
     (error, idx) => {
-      return (<p>{error.responseText}</p>);
+      return (<p key={idx} >{error.responseJSON[0]}</p>);
     });
   return (
     <div>

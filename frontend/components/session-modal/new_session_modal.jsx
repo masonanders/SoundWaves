@@ -16,9 +16,10 @@ class SessionModal extends React.Component {
   }
 
   handleContinue() {
+    this.props.clearErrors();
     if (this.state.enteredUser) {
       if (this.validPasswords()){
-        this.setState({passwordError: true });
+        this.setState({passwordError: false });
         this.props.action({
           username: this.state.username,
           password: this.state.password1
@@ -74,8 +75,8 @@ class SessionModal extends React.Component {
 
             { this.state.enteredUser ?
               <div className='header' >
-
-                <h3>Now enter your password</h3>
+                <h1>{`Hello, ${this.state.username}`}</h1>
+                <h3>Enter your password</h3>
 
                 <input
                   onChange={this.handlePassChange('password1')}

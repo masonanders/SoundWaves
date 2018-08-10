@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     if @user
       render :show
     else
-      render json: 'user not found', status: 404
+      render json: ['user not found'], status: 404
     end
   end
 
@@ -35,7 +35,7 @@ class Api::UsersController < ApplicationController
       @user.delete
       render json: @user.id, status: 200
     else
-      render json: 'Something went wrong...', status: 500
+      render json: ['Something went wrong...'], status: 500
     end
   end
 

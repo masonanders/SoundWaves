@@ -15,7 +15,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, uniqueness: true
   validate :ensure_unique_session_token
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

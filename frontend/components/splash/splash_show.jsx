@@ -14,6 +14,7 @@ const Splash = (props) => {
           state={ props.state.ui.sessionModal }
           action={ props.state.ui.sessionModal.action }
           closeModal={ props.closeModal }
+          clearErrors={ props.clearErrors }
         />) : <div></div>)}
 
       <div className='content' >

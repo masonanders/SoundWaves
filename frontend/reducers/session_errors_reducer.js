@@ -6,6 +6,7 @@ import {
   RECEIVE_SESSION_ERRORS
 } from '../actions/session_actions';
 import { CLOSE_SESSION_MODAL } from '../actions/session_modal_actions';
+import { CLEAR_ERRORS } from '../actions/errors_actions';
 
 const SessionErrorsReducer = (oldState = [], action) => {
   let newState = [];
@@ -15,6 +16,7 @@ const SessionErrorsReducer = (oldState = [], action) => {
     case CLOSE_SESSION_MODAL:
     case START_SESSION:
     case QUIT_SESSION:
+    case CLEAR_ERRORS:
       return newState;
     default:
       return oldState;
