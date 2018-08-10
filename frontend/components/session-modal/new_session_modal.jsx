@@ -28,7 +28,9 @@ class SessionModal extends React.Component {
         this.setState({ passwordError: true });
       }
     } else {
-      this.setState({ enteredUser: true });
+      if (this.state.username !== '') {
+        this.setState({ enteredUser: true });
+      }
     }
   }
 
