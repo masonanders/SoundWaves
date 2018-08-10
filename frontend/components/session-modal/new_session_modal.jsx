@@ -33,7 +33,7 @@ class SessionModal extends React.Component {
   }
 
   handleBack() {
-    this.setState({enteredUser: false});
+    this.setState({enteredUser: false, passwordError: false});
   }
 
   handlePassChange(field) {
