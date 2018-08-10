@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   beginSession: (userParams) => dispatch(beginSession(userParams)),
   createUser: (userParams) => dispatch(createUser(userParams)),
-  openModal: (actions) => dispatch(openModal(actions)),
+  openModal: (actions, boolean) => dispatch(openModal(actions, boolean)),
   closeModal: (username) => dispatch(closeModal(username)),
   clearErrors: () => dispatch(clearErrors())
 });

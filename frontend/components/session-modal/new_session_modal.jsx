@@ -12,7 +12,12 @@ class SessionModal extends React.Component {
       password2: '',
       passwordError: false
     };
-    console.log(props);
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.action && props.action.demoLogin === true) {
+      this.handleDemoLogin(props);
+    }
   }
 
   handleContinue() {
@@ -50,6 +55,12 @@ class SessionModal extends React.Component {
     };
   }
 
+  handleDemoLogin(props) {
+    props.action.demoLogin = false;
+    this.setState({username: ''});
+    setTimeout(() => this.delayedType('demo_user', 'username'), 100);
+  }
+
   handleCloseModal() {
     this.setState({
       enteredUser: false,
@@ -61,12 +72,30 @@ class SessionModal extends React.Component {
   }
 
   validPasswords() {
-    if (this.props.action.name === 'beginSession') {
+    if (this.props.action.name !== 'createUser') {
       return (this.state.password1.length > 5  ? true : false);
     } else {
       const match = this.state.password1 === this.state.password2;
       return ((match && this.state.password1.length > 5) ? true : false);
     }
+  }
+
+  delayedType(string, field) {
+    const delayLetter = (arr) => {
+      this.setState({ [field]: this.state[field] + arr.shift() });
+      if (arr.length > 0) {
+        setTimeout(() => delayLetter(arr), 60);
+      } else {
+        setTimeout(() => {
+          this.handleContinue();
+            if (this.state.password1 === '') {
+              this.delayedType('iliketodemo', 'password1');
+            }
+          }
+        , 200);
+      }
+    };
+    setTimeout(() => delayLetter(string.split('')), 300);
   }
 
   passwordErrorMessage() {
@@ -83,6 +112,7 @@ class SessionModal extends React.Component {
 
   render() {
     return (
+
       <section className={this.renderModal()}>
 
         <div className='close-modal'>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Errors = (props) => {
-  console.log(props);
   const allErrors = (errors) => (
     Object.values(errors).reduce(
       (acc, next) => {

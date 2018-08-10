@@ -5,12 +5,14 @@
   padding-bottom: 15px;
   display: flex;
   justify-content: center;
+
   button {
     font-size: 10px;
   }
 }
 
 .splash-searchbar {
+  -webkit-appearance: none;
   background-color: $background-grey;
   font-size: 15px;
   min-height: 46px;
