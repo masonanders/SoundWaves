@@ -18,6 +18,7 @@ const SessionReducer = (oldState = _nullUser, action) => {
   let newState = {};
   switch (action.type) {
     case START_SESSION:
+      console.log('TEST');
       return merge(newState, oldState, {
         currentUser: action.user.id,
         loggedIn: true

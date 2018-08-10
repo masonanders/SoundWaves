@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Errors from '../errors/errors';
+
 class SessionModal extends React.Component {
   constructor(props) {
     super(props);
@@ -10,12 +12,13 @@ class SessionModal extends React.Component {
       password2: '',
       passwordError: false
     };
-    console.log(this.state);
+    console.log(props);
   }
 
   handleContinue() {
     if (this.state.enteredUser) {
       if (this.validPasswords()){
+        this.setState({passwordError: true });
         this.props.action({
           username: this.state.username,
           password: this.state.password1
@@ -118,6 +121,11 @@ class SessionModal extends React.Component {
             :
               <p></p>
             }
+
+            <Errors
+              sessionErrors={this.props.errors.session}
+              userErrors={this.props.errors.users}
+            />
 
           </div>
 

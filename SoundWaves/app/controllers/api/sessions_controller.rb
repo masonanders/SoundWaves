@@ -6,17 +6,16 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
-      #TODO redirect to user show with @user
-      render json: @user # TODO render user show instead
+      render json('api/users/show_user.json.jbuilder', user: @user), status: 200
     else
-      render json: {errors: ['Invalid username or password!'] }
+      render json: 'Invalid username or password!', status: 404
     end
   end
 
   def destroy
     session_open = logged_in
-    result = {}
-    result.errors = ['Already logged out!'] unless session_open
+    result = 'Goodbye'
+    result = 'Already logged out!' unless session_open
     code = session_open ? 200 : 404
     logout!
     render json: result, status: code

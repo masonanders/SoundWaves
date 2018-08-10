@@ -8,5 +8,6 @@ import errors from './errors_reducer';
 export default combineReducers({
   entities,
   session,
-  ui
+  ui,
+  errors
 });

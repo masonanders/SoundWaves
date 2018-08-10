@@ -10,17 +10,18 @@ const Splash = (props) => {
     <div>
       {(modalOn ? (
         <SessionModal
-          state={props.state.ui.sessionModal}
-          action={props.state.ui.sessionModal.action}
-          closeModal={props.closeModal}
+          errors={ props.state.errors }
+          state={ props.state.ui.sessionModal }
+          action={ props.state.ui.sessionModal.action }
+          closeModal={ props.closeModal }
         />) : <div></div>)}
 
       <div className='content' >
         <section className='splash-content' >
-          <Banner state={props.state}
-            beginSession={props.beginSession}
-            createUser={props.createUser}
-            openModal={props.openModal}
+          <Banner state={ props.state }
+            beginSession={ props.beginSession }
+            createUser={ props.createUser }
+            openModal={ props.openModal }
           />
           <Search />
         </section>
