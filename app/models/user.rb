@@ -4,7 +4,7 @@
 #
 #  id              :bigint(8)        not null, primary key
 #  username        :string           not null
-#  email           :string           not null
+#  email           :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -16,6 +16,12 @@ class User < ApplicationRecord
   validates :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validate :ensure_unique_session_token
+
+  has_many :tracks,
+    foreign_key: :artist_id,
+    primary_key: :id,
+    class_name: :Track
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil if user.nil?

@@ -11,6 +11,9 @@ button {
   color: white;
   border: none;
 }
+button:hover {
+  filter: brightness(115%);
+}
 
 button:focus {
   outline: 0;

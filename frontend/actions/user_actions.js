@@ -25,8 +25,8 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const fetchUser = id => dispatch => (
-  UserAPIUtil.fetchUser(id)
+export const fetchUser = param => dispatch => (
+  UserAPIUtil.fetchUser(param)
     .then(
       user => dispatch(receiveUser(user)),
       errors => dispatch(receiveErrors(errors))

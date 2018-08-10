@@ -12,11 +12,14 @@ class SessionModal extends React.Component {
       password2: '',
       passwordError: false
     };
+    this.action = props.action;
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentWillReceiveProps(props) {
     if (props.action && props.action.demoLogin === true) {
       this.handleDemoLogin(props);
+      this.action = props.action;
     }
   }
 
@@ -43,15 +46,9 @@ class SessionModal extends React.Component {
     this.setState({enteredUser: false, passwordError: false});
   }
 
-  handlePassChange(field) {
+  handleChange(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
-    };
-  }
-
-  handleUserChange() {
-    return (e) => {
-      this.setState({username: e.target.value});
     };
   }
 
@@ -62,13 +59,30 @@ class SessionModal extends React.Component {
   }
 
   handleCloseModal() {
+    return (e) => {
+      if (
+        e.target.className === 'new-session-form-container' ||
+        e.target.className === 'close-modal-button'
+      ) {
+        this.resetState();
+        this.props.closeModal(this.state.username);
+      }
+    };
+  }
+
+  resetState() {
     this.setState({
       enteredUser: false,
       passwordError: false,
       password1: '',
       password2: ''
     });
-    this.props.closeModal(this.state.username);
+  }
+
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      this.handleContinue();
+    }
   }
 
   validPasswords() {
@@ -113,10 +127,10 @@ class SessionModal extends React.Component {
   render() {
     return (
 
-      <section className={this.renderModal()}>
+      <section onClick={this.handleCloseModal()} className={this.renderModal()}>
 
         <div className='close-modal'>
-          <button onClick={() => this.handleCloseModal()} />
+          <button className="close-modal-button" />
         </div>
 
         <div className="new-session-form-container">
@@ -137,7 +151,8 @@ class SessionModal extends React.Component {
                 <h3>Enter your password</h3>
 
                 <input
-                  onChange={this.handlePassChange('password1')}
+                  onKeyPress={this.handleEnter}
+                  onChange={this.handleChange('password1')}
                   type='password'
                   placeholder="Enter Password"
                   value={this.state.password1}
@@ -145,7 +160,8 @@ class SessionModal extends React.Component {
                 {this.props.action.name === 'createUser' ?
                   <div>
                     <input
-                      onChange={this.handlePassChange('password2')}
+                      onKeyPress={this.handleEnter}
+                      onChange={this.handleChange('password2')}
                       type='password'
                       placeholder="Confirm Password"
                       value={this.state.password2}
@@ -164,7 +180,8 @@ class SessionModal extends React.Component {
                 <h3>Enter your username to get started</h3>
 
                 <input
-                  onChange={this.handleUserChange()}
+                  onKeyPress={this.handleEnter}
+                  onChange={this.handleChange('username')}
                   type='text'
                   placeholder='Username'
                   value={this.state.username}
@@ -173,7 +190,9 @@ class SessionModal extends React.Component {
               </div>
             }
 
-            <button onClick={() => this.handleContinue()}>Continue</button>
+            <button
+              onClick={() => this.handleContinue()}
+            >Continue</button>
 
             { this.state.passwordError ?
               this.passwordErrorMessage()
