@@ -8,14 +8,14 @@ const Splash = (props) => {
   const modalOn = props.state.ui.sessionModal.modalOn;
   return (
     <div>
-      {(modalOn ? (
-        <SessionModal
-          errors={ props.state.errors }
-          state={ props.state.ui.sessionModal }
-          action={ props.state.ui.sessionModal.action }
-          closeModal={ props.closeModal }
-          clearErrors={ props.clearErrors }
-        />) : <div></div>)}
+      <SessionModal
+        errors={ props.state.errors }
+        state={ props.state.ui.sessionModal }
+        action={ props.state.ui.sessionModal.action }
+        closeModal={ props.closeModal }
+        clearErrors={ props.clearErrors }
+        modalOn={modalOn}
+      />
 
       <div className='content' >
         <section className='splash-content' >

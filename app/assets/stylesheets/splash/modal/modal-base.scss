@@ -1,4 +1,5 @@
 .new-session-modal {
+  transition: opacity 0.3s linear;
   display: block;
   position: fixed;
   background: rgba(255,255,255,0.8);
@@ -11,7 +12,7 @@
     justify-content: flex-end;
     margin-top: 15px;
     margin-right: 20px;
-    
+
     button {
       background-color: rgba(0, 0, 0, 0);
       background-image: image_url('splash/close-modal'); // image by Appercuts at https://www.iconfinder.com/appercuts
@@ -20,4 +21,10 @@
       width: 20px;
     }
   }
+}
+
+.new-session-modal.off {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.3s linear;
 }

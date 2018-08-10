@@ -8,11 +8,22 @@
 }
 
 .new-session-form {
+  position: relative;
   margin-top: 25px;
   background-color: #FFFFFF;
   padding: 25px;
   height: 320px;
   width: 400px;
+
+  .back-arrow {
+    position: absolute;
+    top: 10;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: image_url('splash/back-arrow'); // image by Appercuts at https://www.iconfinder.com/appercuts
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+  }
 
   button {
     background-color: $button-orange;

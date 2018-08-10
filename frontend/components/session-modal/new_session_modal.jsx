@@ -32,6 +32,10 @@ class SessionModal extends React.Component {
     }
   }
 
+  handleBack() {
+    this.setState({enteredUser: false});
+  }
+
   handlePassChange(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -42,6 +46,16 @@ class SessionModal extends React.Component {
     return (e) => {
       this.setState({username: e.target.value});
     };
+  }
+
+  handleCloseModal() {
+    this.setState({
+      enteredUser: false,
+      passwordError: false,
+      password1: '',
+      password2: ''
+    });
+    this.props.closeModal(this.state.username);
   }
 
   validPasswords() {
@@ -61,17 +75,29 @@ class SessionModal extends React.Component {
     }
   }
 
+  renderModal() {
+    return this.props.modalOn ? 'new-session-modal' : 'new-session-modal off';
+  }
+
   render() {
     return (
-      <section className="new-session-modal">
+      <section className={this.renderModal()}>
 
         <div className='close-modal'>
-          <button onClick={() => this.props.closeModal('')}></button>
+          <button onClick={() => this.handleCloseModal()} />
         </div>
 
         <div className="new-session-form-container">
 
           <div className="new-session-form">
+
+            {this.state.enteredUser ?
+              <button
+                className='back-arrow'
+                onClick={() => this.handleBack() }
+              />
+            : null
+            }
 
             { this.state.enteredUser ?
               <div className='header' >
