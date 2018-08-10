@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     session_open = logged_in
-    result = 'Goodbye'
+    result = {message: 'Goodbye'}
     result = 'Already logged out!' unless session_open
     code = session_open ? 200 : 404
     logout!
