@@ -2,6 +2,9 @@
 
 .new-session-form-container {
   display: flex;
+  position: relative;
+  transition: top 0.3s linear;
+  top: 0px;
   align-items: center;
   justify-content: center;
   z-index: 3;
