@@ -2,12 +2,18 @@ import * as UserAPIUtil from '../util/user_api_util';
 import { START_SESSION } from './session_actions';
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 export const REMOVE_USER = "REMOVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 const receiveUser = user => ({
   type: RECEIVE_USER,
   user
+});
+
+const receiveUsers = users => ({
+  type: RECEIVE_USERS,
+  users
 });
 
 const removeUser = id => ({
@@ -25,10 +31,21 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const fetchUser = param => dispatch => (
-  UserAPIUtil.fetchUser(param)
+export const fetchUserBy = userParams => dispatch => (
+  UserAPIUtil.fetchUserBy(userParams)
     .then(
-      user => dispatch(receiveUser(user)),
+      user => Object.keys(user).length > 1 ?
+        dispatch(receiveUsers(user))
+      :
+        dispatch(receiveUser(user[0])),
+      errors => dispatch(receiveErrors(errors))
+    )
+);
+
+export const fetchUser = id => dispatch => (
+  UserAPIUtil.fetchUser(id)
+    .then(
+      user => dispatch(receiveUser(user())),
       errors => dispatch(receiveErrors(errors))
     )
 );

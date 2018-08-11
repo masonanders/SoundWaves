@@ -5,7 +5,18 @@ class Api::UsersController < ApplicationController
     if @user
       render :show
     else
-      render json: ['user not found'], status: 404
+      render json: ['User not found'], status: 404
+    end
+  end
+
+  def index
+    key = all_user_params.keys[0]
+    value = all_user_params.values[0]
+    @users = value == 'all' ? User.all : User.where(key => value)
+    if @users
+      render :index, status: 200
+    else
+      render json: ["No users found"], status: 404
     end
   end
 
@@ -43,5 +54,9 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def all_user_params
+    params.require(:userParams).permit(:username, :id, :email, :test)
   end
 end

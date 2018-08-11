@@ -9,8 +9,7 @@ class SessionModal extends React.Component {
       username: props.state.username_text,
       enteredUser: false,
       password1: '',
-      password2: '',
-      passwordError: false
+      password2: ''
     };
     this.action = props.action;
     this.handleEnter = this.handleEnter.bind(this);
@@ -27,23 +26,30 @@ class SessionModal extends React.Component {
     this.props.clearErrors();
     if (this.state.enteredUser) {
       if (this.validPasswords()){
-        this.setState({passwordError: false });
         this.props.action({
           username: this.state.username,
           password: this.state.password1
         });
       } else {
-        this.setState({ passwordError: true });
+        this.passwordErrorMessage();
       }
     } else {
-      if (this.state.username !== '') {
-        this.setState({ enteredUser: true });
+      if (this.state.username === '') {
+        this.props.createCustomError('Username cannot be blank');
+      } else {
+        if (this.props.action.name === 'beginSession') {
+          const user = this.props.fetchUserBy({username: this.state.username});
+          console.log(user);
+        } else {
+          this.setState({ enteredUser: true });
+        }
       }
     }
   }
 
   handleBack() {
-    this.setState({enteredUser: false, passwordError: false});
+    this.props.clearErrors();
+    this.setState({enteredUser: false});
   }
 
   handleChange(field) {
@@ -64,6 +70,7 @@ class SessionModal extends React.Component {
         e.target.className === 'new-session-form-container' ||
         e.target.className === 'close-modal-button'
       ) {
+        this.props.clearErrors();
         this.resetState();
         this.props.closeModal(this.state.username);
       }
@@ -90,7 +97,12 @@ class SessionModal extends React.Component {
       return (this.state.password1.length > 5  ? true : false);
     } else {
       const match = this.state.password1 === this.state.password2;
-      return ((match && this.state.password1.length > 5) ? true : false);
+      if (match) {
+        return true;
+      } else {
+        this.props.createCustomError('Passwords do not match');
+        return false;
+      }
     }
   }
 
@@ -114,9 +126,7 @@ class SessionModal extends React.Component {
 
   passwordErrorMessage() {
     if (this.props.action.name === 'beginSession') {
-      return <p>Password is invalid</p>;
-    } else {
-      return <p>Passwords do not match or are invalid</p>;
+      this.props.createCustomError('Password is invalid');
     }
   }
 
@@ -145,70 +155,59 @@ class SessionModal extends React.Component {
             : null
             }
 
-            { this.state.enteredUser ?
-              <div className='header' >
-                <h1>{`Hello, ${this.state.username}`}</h1>
-                <h3>Enter your password</h3>
+            {
+              this.state.enteredUser ?
+                <div className='header' >
+                  <h1>{`Hello, ${this.state.username}`}</h1>
+                  <h3>Enter your password</h3>
 
-                <input
-                  onKeyPress={this.handleEnter}
-                  onChange={this.handleChange('password1')}
-                  type='password'
-                  placeholder="Enter Password"
-                  value={this.state.password1}
-                />
-                {this.props.action.name === 'createUser' ?
-                  <div>
-                    <input
-                      onKeyPress={this.handleEnter}
-                      onChange={this.handleChange('password2')}
-                      type='password'
-                      placeholder="Confirm Password"
-                      value={this.state.password2}
-                    />
-                  </div>
+                  <input
+                    onKeyPress={this.handleEnter}
+                    onChange={this.handleChange('password1')}
+                    type='password'
+                    placeholder="Enter Password"
+                    value={this.state.password1}
+                  />
 
-                :
-                  <div></div>
-                }
-
-              </div>
-            :
-              <div className='header' >
-
-                <h1>Welcome!</h1>
-                <h3>Enter your username to get started</h3>
-
-                <input
-                  onKeyPress={this.handleEnter}
-                  onChange={this.handleChange('username')}
-                  type='text'
-                  placeholder='Username'
-                  value={this.state.username}
-                />
-
-              </div>
+                  {
+                    this.props.action.name === 'createUser' ?
+                      <div>
+                        <input
+                          onKeyPress={this.handleEnter}
+                          onChange={this.handleChange('password2')}
+                          type='password'
+                          placeholder="Confirm Password"
+                          value={this.state.password2}
+                        />
+                      </div>
+                    :
+                      <div></div>
+                  }
+                </div>
+              :
+                <div className='header' >
+                  <h1>Welcome!</h1>
+                  <h3>Enter your username to get started</h3>
+                  <input
+                    onKeyPress={this.handleEnter}
+                    onChange={this.handleChange('username')}
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username}
+                  />
+                </div>
             }
 
-            <button
-              onClick={() => this.handleContinue()}
-            >Continue</button>
-
-            { this.state.passwordError ?
-              this.passwordErrorMessage()
-            :
-              <p></p>
-            }
+            <button onClick={() => this.handleContinue()}>Continue</button>
 
             <Errors
               sessionErrors={this.props.errors.session}
               userErrors={this.props.errors.users}
+              customErrors={this.props.errors.custom}
             />
 
           </div>
-
         </div>
-
       </section>
     );
   }

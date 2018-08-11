@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_USER,
+  RECEIVE_USERS,
   REMOVE_USER
 } from '../actions/user_actions';
 import { START_SESSION } from '../actions/session_actions';
@@ -13,6 +14,12 @@ const UsersReducer = (oldState = {}, action) => {
     case START_SESSION:
     case RECEIVE_USER:
       return merge(newState, oldState, { [action.user.id]: action.user });
+    case RECEIVE_USERS:
+      console.log('users', action.users);
+      const users = {};
+      action.users.forEach(user => {users[user.id] = user;});
+      console.log('user', users);
+      return merge(newState, oldState, users);
     case REMOVE_USER:
       newState = merge(newState, oldState);
       delete newState[action.id];

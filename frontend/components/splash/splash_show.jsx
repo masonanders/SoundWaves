@@ -12,8 +12,10 @@ const Splash = (props) => {
         errors={ props.state.errors }
         state={ props.state.ui.sessionModal }
         action={ props.state.ui.sessionModal.action }
+        fetchUserBy={ props.fetchUserBy }
         closeModal={ props.closeModal }
         clearErrors={ props.clearErrors }
+        createCustomError={ props.createCustomError }
         modalOn={modalOn}
       />
 
