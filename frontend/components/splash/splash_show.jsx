@@ -9,6 +9,7 @@ const Splash = (props) => {
   return (
     <div>
       <SessionModal
+        wState={props.state}
         session={props.state.session}
         errors={ props.state.errors }
         state={ props.state.ui.sessionModal }

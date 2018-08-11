@@ -10,7 +10,8 @@ class SessionModal extends React.Component {
       enteredUser: false,
       password1: '',
       password2: '',
-      action: props.action
+      action: props.action,
+      wState: props.wState
     };
     this.functions = props.functions;
     this.handleEnter = this.handleEnter.bind(this);
@@ -20,7 +21,7 @@ class SessionModal extends React.Component {
     if (props.action && props.action.demoLogin === true) {
       this.handleDemoLogin(props);
     }
-    this.setState({action: props.action});
+    this.setState({wState: props.wState});
   }
 
   handleContinue() {
@@ -39,6 +40,13 @@ class SessionModal extends React.Component {
         this.functions.createCustomError('Username cannot be blank');
       } else {
         this.functions.findExistingUser({username: this.state.username})
+          .then(() =>
+          this.state.wState.ui.sessionModal.action.name !== 'createUser' && 
+          this.props.session.existingUser ?
+            this.setState({action: this.functions.beginSession})
+          :
+            this.setState({action: this.functions.createUser})
+          )
           .then(res => {
             if (this.state.action.name === 'beginSession') {
               if (this.props.session.existingUser) {
@@ -63,7 +71,7 @@ class SessionModal extends React.Component {
 
   handleBack() {
     this.functions.clearErrors();
-    this.setState({enteredUser: false});
+    this.resetState();
   }
 
   handleChange(field) {
@@ -94,7 +102,6 @@ class SessionModal extends React.Component {
   resetState() {
     this.setState({
       enteredUser: false,
-      passwordError: false,
       password1: '',
       password2: ''
     });
@@ -152,7 +159,7 @@ class SessionModal extends React.Component {
         case 'createUser':
           return 'Create Account';
         default:
-
+          null;
       }
     }
     return 'Continue';
