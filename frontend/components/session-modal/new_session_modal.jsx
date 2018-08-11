@@ -41,7 +41,7 @@ class SessionModal extends React.Component {
       } else {
         this.functions.findExistingUser({username: this.state.username})
           .then(() =>
-          this.state.wState.ui.sessionModal.action.name !== 'createUser' && 
+          this.state.wState.ui.sessionModal.action.name !== 'createUser' &&
           this.props.session.existingUser ?
             this.setState({action: this.functions.beginSession})
           :
@@ -90,7 +90,9 @@ class SessionModal extends React.Component {
     return (e) => {
       if (
         e.target.className === 'new-session-form-container' ||
-        e.target.className === 'close-modal-button'
+        e.target.className === 'close-modal-button' ||
+        e.target.className === 'close-modal' ||
+        e.target.className === 'new-session-modal'
       ) {
         this.functions.clearErrors();
         this.resetState();
