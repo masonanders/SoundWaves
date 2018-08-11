@@ -15,10 +15,8 @@ const UsersReducer = (oldState = {}, action) => {
     case RECEIVE_USER:
       return merge(newState, oldState, { [action.user.id]: action.user });
     case RECEIVE_USERS:
-      console.log('users', action.users);
       const users = {};
       action.users.forEach(user => {users[user.id] = user;});
-      console.log('user', users);
       return merge(newState, oldState, users);
     case REMOVE_USER:
       newState = merge(newState, oldState);
