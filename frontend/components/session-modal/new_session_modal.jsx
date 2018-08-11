@@ -32,6 +32,7 @@ class SessionModal extends React.Component {
           username: this.state.username,
           password: this.state.password1
         });
+        this.setState({username: ''});
       } else {
         this.passwordErrorMessage();
       }
@@ -133,7 +134,7 @@ class SessionModal extends React.Component {
     const delayLetter = (arr) => {
       this.setState({ [field]: this.state[field] + arr.shift() });
       if (arr.length > 0) {
-        setTimeout(() => delayLetter(arr), 60);
+        setTimeout(() => delayLetter(arr), 50);
       } else {
         setTimeout(() => {
           this.handleContinue();
