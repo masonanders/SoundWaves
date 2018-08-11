@@ -9,24 +9,25 @@ class SessionModal extends React.Component {
       username: props.state.username_text,
       enteredUser: false,
       password1: '',
-      password2: ''
+      password2: '',
+      action: props.action
     };
-    this.action = props.action;
+    this.functions = props.functions;
     this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentWillReceiveProps(props) {
     if (props.action && props.action.demoLogin === true) {
       this.handleDemoLogin(props);
-      this.action = props.action;
     }
+    this.setState({action: props.action});
   }
 
   handleContinue() {
-    this.props.clearErrors();
+    this.functions.clearErrors();
     if (this.state.enteredUser) {
       if (this.validPasswords()){
-        this.props.action({
+        this.state.action({
           username: this.state.username,
           password: this.state.password1
         });
@@ -35,20 +36,33 @@ class SessionModal extends React.Component {
       }
     } else {
       if (this.state.username === '') {
-        this.props.createCustomError('Username cannot be blank');
+        this.functions.createCustomError('Username cannot be blank');
       } else {
-        if (this.props.action.name === 'beginSession') {
-          const user = this.props.fetchUserBy({username: this.state.username});
-          console.log(user);
-        } else {
-          this.setState({ enteredUser: true });
-        }
+        this.functions.findExistingUser({username: this.state.username})
+          .then(res => {
+            if (this.state.action.name === 'beginSession') {
+              if (this.props.session.existingUser) {
+                this.setState({ enteredUser: true });
+              } else {
+                this.setState({
+                  action: this.functions.createUser,
+                  enteredUser: true
+                });
+              }
+            } else {
+              if (this.props.session.existingUser) {
+                this.functions.createCustomError('Username has been taken');
+              } else {
+                this.setState({ enteredUser: true });
+              }
+            }
+          });
       }
     }
   }
 
   handleBack() {
-    this.props.clearErrors();
+    this.functions.clearErrors();
     this.setState({enteredUser: false});
   }
 
@@ -70,9 +84,9 @@ class SessionModal extends React.Component {
         e.target.className === 'new-session-form-container' ||
         e.target.className === 'close-modal-button'
       ) {
-        this.props.clearErrors();
+        this.functions.clearErrors();
         this.resetState();
-        this.props.closeModal(this.state.username);
+        this.functions.closeModal(this.state.username);
       }
     };
   }
@@ -93,14 +107,14 @@ class SessionModal extends React.Component {
   }
 
   validPasswords() {
-    if (this.props.action.name !== 'createUser') {
+    if (this.state.action.name !== 'createUser') {
       return (this.state.password1.length > 5  ? true : false);
     } else {
       const match = this.state.password1 === this.state.password2;
       if (match) {
         return true;
       } else {
-        this.props.createCustomError('Passwords do not match');
+        this.functions.createCustomError('Passwords do not match');
         return false;
       }
     }
@@ -125,9 +139,23 @@ class SessionModal extends React.Component {
   }
 
   passwordErrorMessage() {
-    if (this.props.action.name === 'beginSession') {
-      this.props.createCustomError('Password is invalid');
+    if (this.state.action.name === 'beginSession') {
+      this.functions.createCustomError('Password is invalid');
     }
+  }
+
+  continueButtonValue() {
+    if (this.state.action && this.state.enteredUser) {
+      switch (this.state.action.name) {
+        case 'beginSession':
+          return 'Sign in';
+        case 'createUser':
+          return 'Create Account';
+        default:
+
+      }
+    }
+    return 'Continue';
   }
 
   renderModal() {
@@ -170,7 +198,7 @@ class SessionModal extends React.Component {
                   />
 
                   {
-                    this.props.action.name === 'createUser' ?
+                    this.state.action.name === 'createUser' ?
                       <div>
                         <input
                           onKeyPress={this.handleEnter}
@@ -198,7 +226,8 @@ class SessionModal extends React.Component {
                 </div>
             }
 
-            <button onClick={() => this.handleContinue()}>Continue</button>
+            <button onClick={() => this.handleContinue()}
+              >{this.continueButtonValue()}</button>
 
             <Errors
               sessionErrors={this.props.errors.session}

@@ -9,13 +9,19 @@ const Splash = (props) => {
   return (
     <div>
       <SessionModal
+        session={props.state.session}
         errors={ props.state.errors }
         state={ props.state.ui.sessionModal }
         action={ props.state.ui.sessionModal.action }
-        fetchUserBy={ props.fetchUserBy }
-        closeModal={ props.closeModal }
-        clearErrors={ props.clearErrors }
-        createCustomError={ props.createCustomError }
+        functions={{
+          createUser: props.createUser,
+          beginSession: props.beginSession,
+          createCustomError: props.createCustomError,
+          clearErrors: props.clearErrors,
+          closeModal: props.closeModal,
+          fetchUserBy: props.fetchUserBy,
+          findExistingUser: props.findExistingUser
+        }}
         modalOn={modalOn}
       />
 

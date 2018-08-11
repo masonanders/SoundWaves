@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { beginSession } from '../../actions/session_actions';
+import { beginSession, findExistingUser } from '../../actions/session_actions';
 import { createUser, fetchUserBy } from '../../actions/user_actions';
 import { openModal, closeModal } from '../../actions/session_modal_actions';
 import { clearErrors, createCustomError } from '../../actions/errors_actions';
@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
   openModal: (actions, boolean) => dispatch(openModal(actions, boolean)),
   closeModal: (username) => dispatch(closeModal(username)),
   clearErrors: () => dispatch(clearErrors()),
-  createCustomError: (error) => dispatch(createCustomError(error))
+  createCustomError: (error) => dispatch(createCustomError(error)),
+  findExistingUser: userParams => dispatch(findExistingUser(userParams))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashShow);
