@@ -26,3 +26,11 @@ h4 {
 h5 {
   margin: 0;
 }
+
+button:focus {
+  outline: 0;
+}
+
+input:focus {
+  outline: 0;
+}

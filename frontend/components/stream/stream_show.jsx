@@ -7,7 +7,7 @@ const Stream = (props) => {
   return (
     <div>
       <NavBar />
-      <div className='content'>
+      <div style={{height: '1000px'}}className='content'>
         <h1>Stream</h1>
         <h2>{`Greetings, ${users[currentUser].username}`}</h2>
         <button
