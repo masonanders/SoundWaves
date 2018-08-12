@@ -60,7 +60,7 @@ const removeTrack = id => ({
   id
 });
 
-const receiveError = error => ({
+const receiveError = errors => ({
   type: RECEIVE_TRACK_ERRORS,
-  error
+  errors
 });

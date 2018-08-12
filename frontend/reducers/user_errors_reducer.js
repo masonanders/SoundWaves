@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_USER,
+  RECEIVE_USERS,
   REMOVE_USER,
   RECEIVE_USER_ERRORS
 } from '../actions/user_actions';
@@ -15,6 +16,7 @@ const UserErrorsReducer = (oldState = [], action) => {
       return newState.concat(oldState, action.errors);
     case CLOSE_SESSION_MODAL:
     case RECEIVE_USER:
+    case RECEIVE_USERS:
     case REMOVE_USER:
     case CLEAR_ERRORS:
       return newState;
