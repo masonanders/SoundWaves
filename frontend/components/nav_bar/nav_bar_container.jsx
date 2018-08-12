@@ -2,14 +2,18 @@ import { connect } from 'react-redux';
 import NavBar from './nav_bar';
 
 import { endSession } from '../../actions/session_actions';
+import { openUserDrop, closeUserDrop } from '../../actions/nav_bar_actions';
 
 const mapStateToProps = state => ({
   user: state.entities.users[state.session.currentUser],
-  state: state.ui.nav_bar
+  userDrop: state.ui.navBar.userDrop,
+  state: state.ui.navBar
 });
 
 const mapDispatchToProps = dispatch => ({
-  endSession: () => dispatch(endSession())
+  endSession: () => dispatch(endSession()),
+  openUserDrop: () => dispatch(openUserDrop()),
+  closeUserDrop: () => dispatch(closeUserDrop())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

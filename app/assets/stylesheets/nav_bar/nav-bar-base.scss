@@ -91,16 +91,48 @@
   .navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 40%;
 
-    button {
-      margin-right: 40px;
+    a {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      button {
+        margin-right: 40px;
+        filter: brightness(80%);
+
+        h2 {
+          width: 5%;
+          font-weight: 200;
+        }
+      }
     }
 
-    h2 {
-      width: 5%;
-      font-weight: 200;
+    .user {
+      height: 100%;
+      button {
+        height: 100%;
+      }
+    }
+
+    .user:hover {
+      filter: brightness(150%);
+      button {
+      }
+    }
+
+    .user.open {
+      background-color: rgb(15, 15, 15);
+      filter: brightness(150%);
+    }
+
+    a:hover {
+      button {
+        filter: brightness(150%);
+      }
     }
   }
-
 }
