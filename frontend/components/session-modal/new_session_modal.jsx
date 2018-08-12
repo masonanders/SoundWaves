@@ -31,8 +31,10 @@ class SessionModal extends React.Component {
         this.state.action({
           username: this.state.username,
           password: this.state.password1
-        });
-        this.setState({username: ''});
+        })
+        .then(
+          this.setState({username: ''})
+        ); 
       } else {
         this.passwordErrorMessage();
       }
