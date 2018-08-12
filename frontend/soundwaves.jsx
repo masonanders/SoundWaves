@@ -8,6 +8,7 @@ import Root from './components/root';
 import * as UserActions from './actions/user_actions';
 import * as SessionActions from './actions/session_actions';
 import * as SessionModalActions from './actions/session_modal_actions';
+import * as TrackActions from './actions/track_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let preState = {};
@@ -27,4 +28,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.userActions = UserActions;
   window.sessionActions = SessionActions;
   window.sessionModalActions = SessionModalActions;
+  window.trackActions = TrackActions;
 });

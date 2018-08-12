@@ -22,3 +22,5 @@ const TrackErrorsReducer = (oldState = [], action) => {
       return oldState;
   }
 };
+
+export default TrackErrorsReducer;
