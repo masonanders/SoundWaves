@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import NavBar from '../nav_bar/nav_bar_container';
 
 const Stream = (props) => {
@@ -8,12 +10,14 @@ const Stream = (props) => {
     <div>
       <NavBar />
       <div style={{height: '1000px'}}className='content'>
-        <h1>Stream</h1>
-        <h2>{`Greetings, ${users[currentUser].username}`}</h2>
-        <button
-          style={{color: 'black'},{backgroundColor: 'orange'}}
-          onClick={() => props.endSession()}>Logout
-        </button>
+
+        <div className='stream-content'>
+          <div className='stream-nav-links'>
+            <Link to='/stream'><h1>Stream</h1></Link>
+          </div>
+
+          <h2>Here are some recent tracks we think you would enjoy:</h2>
+        </div>
       </div>
     </div>
   );

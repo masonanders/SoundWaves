@@ -7,13 +7,14 @@ class NavBar extends React.Component {
     super(props);
   }
 
-  handleUserDropdown() {
+  handleUserDropdown(e) {
+    console.log(e);
     const { userDrop, openUserDrop, closeUserDrop} = this.props;
     userDrop ? closeUserDrop() : openUserDrop();
   }
 
   render() {
-    const { user, endSession, userDrop } = this.props;
+    const { user, endSession, userDrop, closeUserDrop } = this.props;
     const userDropClass = userDrop ? 'user open' : 'user';
     return (
       <div className='nav-bar-container'>
@@ -64,13 +65,14 @@ class NavBar extends React.Component {
 
             <div className={userDropClass}>
               <button
-                onClick={() => this.handleUserDropdown()}>
+                onClick={(e) => this.handleUserDropdown(e)}>
                 <h3>{`${user.username} ⌄`}</h3>
               </button>
               <NavUserDropdown
                 username={user.username}
                 logout={endSession}
                 userDrop={userDrop}
+                closeUserDrop={closeUserDrop}
                 />
             </div>
           </div>
