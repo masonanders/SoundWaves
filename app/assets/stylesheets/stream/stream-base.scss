@@ -1,9 +1,11 @@
 @import '../util/colors';
 
 .stream-content {
+  display: inline-block;
   padding: 115px 20px 0 0;
   margin-left: 20px;
-  width: 65%;
+  margin-right: 0;
+  width: 70%;
 
   .stream-nav-links {
     position: relative;

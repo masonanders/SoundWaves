@@ -1,0 +1,74 @@
+@import '../util/colors';
+
+.stream-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+  top: -200px;
+  padding-top: 7%;
+  height: 500px;
+  border-left: 1px solid $background-grey;
+  width: 30%;
+
+  .stream-sidebar-image {
+    padding: 0 20px;
+    margin-bottom: 30px;
+    max-width: 100%;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .sidebar-header {
+    width: 89%;
+    margin: 0 20px;
+  }
+
+  h3 {
+    color: #9d9d9d;
+    font-size: 15px;
+    font-weight: 300;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $background-grey;
+  }
+
+  .artist-thumbnail-list {
+
+    .user-thumbnail:hover {
+      background: none;
+    }
+
+    li {
+      position: relative;
+      height: 50px;
+      padding: 0 10px 20px 10px;
+
+      h4 {
+        font-size: 15px;
+        font-weight: 200;
+        position: absolute;
+        left: 70px;
+        bottom: 25px;
+      }
+    }
+
+    a {
+      color: black;
+      font-weight: 200;
+    }
+
+    a:hover {
+      color: black;
+    }
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+    }
+  }
+}

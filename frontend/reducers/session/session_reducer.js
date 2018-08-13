@@ -4,10 +4,10 @@ import {
   START_SESSION,
   QUIT_SESSION,
   RECEIVE_EXISTING_USER
-} from '../actions/session_actions';
+} from '../../actions/session_actions';
 import {
   REMOVE_USER
-} from '../actions/user_actions';
+} from '../../actions/user_actions';
 
 const _nullUser = {
   existingUser: false,

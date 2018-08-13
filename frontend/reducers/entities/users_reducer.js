@@ -4,8 +4,8 @@ import {
   RECEIVE_USER,
   RECEIVE_USERS,
   REMOVE_USER
-} from '../actions/user_actions';
-import { START_SESSION } from '../actions/session_actions';
+} from '../../actions/user_actions';
+import { START_SESSION } from '../../actions/session_actions';
 
 const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

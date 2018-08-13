@@ -5,8 +5,8 @@ import {
   RECEIVE_TRACKS,
   REMOVE_TRACK,
   RECEIVE_TRACK_ERRORS
-} from '../actions/track_actions';
-import { CLEAR_ERRORS } from '../actions/errors_actions';
+} from '../../actions/track_actions';
+import { CLEAR_ERRORS } from '../../actions/errors_actions';
 
 const TrackErrorsReducer = (oldState = [], action) => {
   let newState = [];

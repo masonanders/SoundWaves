@@ -31,13 +31,10 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const fetchUserBy = userParams => dispatch => (
-  UserAPIUtil.fetchUserBy(userParams)
+export const fetchUserBy = (userParams, limit) => dispatch => (
+  UserAPIUtil.fetchUserBy(userParams, limit)
     .then(
-      user => Object.keys(user).length > 1 ?
-        dispatch(receiveUsers(user))
-      :
-        dispatch(receiveUser(user[0])),
+      users => dispatch(receiveUsers(users)),
       errors => dispatch(receiveErrors(errors))
     )
 );

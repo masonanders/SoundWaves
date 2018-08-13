@@ -3,8 +3,8 @@ import merge from 'lodash/merge';
 import {
   OPEN_SESSION_MODAL,
   CLOSE_SESSION_MODAL
-} from '../actions/session_modal_actions';
-import { QUIT_SESSION } from '../actions/session_actions';
+} from '../../actions/session_modal_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const _emtpyFields = {
   modalOn: false,

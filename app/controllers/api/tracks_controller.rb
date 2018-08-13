@@ -12,8 +12,10 @@ class Api::TracksController < ApplicationController
     # TODO search by keywords, return index with limit instead of all
     key = all_track_params.keys[0]
     value = all_track_params.values[0]
-    @tracks = value == 'all' ? Track.all : Track.where(key => value)
-    if @tracks
+    limit = params[:limit] || 1
+    tracks = key == 'all' ? Track.all : Track.where(key => value)
+    if tracks
+      @tracks = tracks.shuffle.shift(limit)
       render :index, status: 200
     else
       render json: ["No tracks found"], status: 404

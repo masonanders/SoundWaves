@@ -5,9 +5,9 @@ import {
   RECEIVE_USERS,
   REMOVE_USER,
   RECEIVE_USER_ERRORS
-} from '../actions/user_actions';
-import { CLOSE_SESSION_MODAL } from '../actions/session_modal_actions';
-import { CLEAR_ERRORS } from '../actions/errors_actions';
+} from '../../actions/user_actions';
+import { CLOSE_SESSION_MODAL } from '../../actions/session_modal_actions';
+import { CLEAR_ERRORS } from '../../actions/errors_actions';
 
 const UserErrorsReducer = (oldState = [], action) => {
   let newState = [];

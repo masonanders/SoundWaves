@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 
-import { OPEN_USER_DROP, CLOSE_USER_DROP } from '../actions/nav_bar_actions';
-import { QUIT_SESSION } from '../actions/session_actions';
+import { OPEN_USER_DROP, CLOSE_USER_DROP } from '../../actions/nav_bar_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const NavBarReducer = (oldState = { userDrop: false }, action) => {
   Object.freeze(oldState);

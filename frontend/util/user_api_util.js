@@ -1,8 +1,8 @@
-export const fetchUserBy = userParams => (
+export const fetchUserBy = (userParams, limit) => (
   $.ajax({
     url: '/api/users',
     method: 'get',
-    data: { userParams }
+    data: { userParams, limit }
   })
 );
 

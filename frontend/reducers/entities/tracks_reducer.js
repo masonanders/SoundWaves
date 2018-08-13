@@ -4,7 +4,7 @@ import {
   RECEIVE_TRACK,
   RECEIVE_TRACKS,
   REMOVE_TRACK
-} from '../actions/track_actions';
+} from '../../actions/track_actions';
 
 const TracksReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { CLEAR_ERRORS, RECEIVE_CUSTOM_ERROR } from '../actions/errors_actions';
+import { CLEAR_ERRORS, RECEIVE_CUSTOM_ERROR } from '../../actions/errors_actions';
 
 const CustomErrorsReducer = (oldState = [], action) => {
   let newState = [];

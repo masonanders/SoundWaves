@@ -10,10 +10,12 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    key = all_user_params.keys[0]
-    value = all_user_params.values[0]
-    @users = value == 'all' ? User.all : User.where(key => value)
-    if @users
+    key = all_user_params.keys.first
+    value = all_user_params.values.first
+    limit = params[:limit] || 1
+    users = key == 'all' ? User.all : User.where(key => value)
+    if users
+      @users = users.shuffle.shift(limit)
       render :index, status: 200
     else
       render json: ["No users found"], status: 404
@@ -57,6 +59,6 @@ class Api::UsersController < ApplicationController
   end
 
   def all_user_params
-    params.require(:userParams).permit(:username, :id, :email, :test)
+    params.require(:userParams).permit(:username, :id, :email, :limit, :all)
   end
 end

@@ -4,9 +4,9 @@ import {
   START_SESSION,
   QUIT_SESSION,
   RECEIVE_SESSION_ERRORS
-} from '../actions/session_actions';
-import { CLOSE_SESSION_MODAL } from '../actions/session_modal_actions';
-import { CLEAR_ERRORS } from '../actions/errors_actions';
+} from '../../actions/session_actions';
+import { CLOSE_SESSION_MODAL } from '../../actions/session_modal_actions';
+import { CLEAR_ERRORS } from '../../actions/errors_actions';
 
 const SessionErrorsReducer = (oldState = [], action) => {
   let newState = [];
