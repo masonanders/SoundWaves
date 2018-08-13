@@ -1,8 +1,9 @@
 .nav-user-dropdown {
   display: flex;
-  position: absolute;
+  position: relative;
   background-color: rgb(15, 15, 15);
   visibility: hidden;
+  width: 100%;
 
   ul {
     margin: 0;
