@@ -114,13 +114,11 @@
     .user {
       height: 100%;
 
-      button {
+      .dropdown-button {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        flex-direction: row;
-        // text-align: right;
-        min-width: 100px;
+        min-width: 150px;
         height: 100%;
 
         img {
@@ -128,15 +126,11 @@
           width: 30px;
           border-radius: 15px;
         }
-
-        h3 {
-          padding-left: 10px;
-        }
       }
     }
 
     .user:hover {
-      button {
+      .dropdown-button {
         h3 {
           filter: brightness(150%);
         }
@@ -146,7 +140,6 @@
     .user.open {
       background-color: rgb(15, 15, 15);
       h3 {
-        filter: brightness(150%);
       }
     }
 

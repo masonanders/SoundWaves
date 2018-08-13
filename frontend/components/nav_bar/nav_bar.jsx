@@ -65,6 +65,7 @@ class NavBar extends React.Component {
 
             <div className={userDropClass}>
               <button
+                className='dropdown-button'
                 onClick={(e) => this.handleUserDropdown(e)}>
                 <img src={"/assets/default-user-icon"} />
                 <h3>{`${user.username} ⌄`}</h3>

@@ -11,7 +11,7 @@ const NavUserDropdown = props => {
           <Link to={`${props.username}`} >Profile</Link>
         </li>
         <li>
-          <button onClick={() => props.logout()}>Log out</button>
+          <button onClick={() => props.logout()}><h3>Log out</h3></button>
         </li>
       </ul>
     </div>

@@ -10,6 +10,9 @@
     list-style-type: none;
     padding: 0;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 
     li {
       height: 30px;
@@ -23,13 +26,20 @@
       }
 
       button {
+        display: flex;
+        align-items: center;
+        height: 100%;
         width: 100%;
         padding: 0;
         padding-left: 10%;
-        font-size: 13px;
-        font-weight: 200;
-        text-align: left;
-        color: #7b7b7b;
+
+        h3 {
+          padding-left: 0;
+          font-size: 13px;
+          font-weight: 200;
+          text-align: left;
+          color: #7b7b7b;
+        }
       }
     }
   }
@@ -40,7 +50,9 @@ li:hover {
   color: white;
 
   button:hover {
-    color: white;
+    h3 {
+      color: white;
+    }
   }
 
   a:hover {
