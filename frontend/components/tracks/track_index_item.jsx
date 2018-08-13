@@ -25,14 +25,14 @@ class TrackIndexItem extends React.Component {
       <li key={track.title} className='track-item'>
         <h2 className='track-header'>
           <Link to={`/${artist}`}>
-            <img src={"/assets/default-user-icon"} />
+            <img src={window.images.defaultUserIcon} />
             <h4>{artist}</h4>
           </Link> posted this
         </h2>
 
         <div className='track-body'>
           <Link to={`/${artist}/${track.title}`}>
-            <img src={"/assets/default-track-index-artwork"}></img> {/* Photo by Wes Hicks on Unsplash */}
+            <img src={"/assets/default-track-index-artwork"}></img>
           </Link>
 
           <div className='track-content'>
