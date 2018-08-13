@@ -10,7 +10,7 @@ class TrackThumbnailList extends React.Component {
   getTracksByIds() {
     const { state } = this.props;
     const { tracks } = state.entities;
-    return state.search.tracks.map(id => tracks[id]);
+    return state.search.tracks.slice(0, 3).map(id => tracks[id]);
   }
 
   trackLi(track) {
@@ -27,7 +27,6 @@ class TrackThumbnailList extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     this.getTracksByIds();
     const tracks = this.getTracksByIds().map(track => this.trackLi(track));
     return (

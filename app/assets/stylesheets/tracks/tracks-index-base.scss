@@ -1,0 +1,106 @@
+@import '../util/colors';
+
+.track-index {
+  ul {
+    li {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 20px;
+
+      .track-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 13px;
+        font-weight: 300;
+
+        img {
+          height: 32px;
+          width: 32px;
+          border-radius: 20px;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+
+          h4 {
+            color: black;
+            font-size: 15px;
+            font-weight: 300;
+            padding: 0 6px 0 10px;
+          }
+        }
+      }
+
+      .track-body {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          height: 150px;
+          width: 150px;
+        }
+
+        .track-content {
+          display: flex;
+          flex-direction: row;
+          margin: 10px 0 0 15px;
+        }
+
+        .play-button {
+          background-color: $button-orange;
+          background-image: asset_url('play-button/play'); // image by Romualdas Jurgaitis at https://www.iconfinder.com/Sakagami
+          background-size: cover;
+          background-position: 3px;
+          height: 40px;
+          width: 40px;
+          border-radius: 20px;
+        }
+
+        .play-button.pause {
+          background-image: asset_url('play-button/pause'); // image by Romualdas Jurgaitis at https://www.iconfinder.com/Sakagami
+          background-size: cover;
+          background-position: 0;
+        }
+
+        .play-button:hover {
+          filter: brightness(95%);
+        }
+
+        .track-info {
+          margin-left: 5px;
+
+          h3 {
+            color: #9d9d9d;
+            font-weight: 200;
+            font-size: 14px;
+            margin-bottom: 3px;
+          }
+
+          h3:hover {
+            color: black;
+          }
+
+          h4 {
+            color: black;
+            font-size: 15px;
+            font-weight: 200;
+          }
+        }
+
+        a {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    }
+
+    li:hover {
+      background-color: white;
+    }
+    a:hover {
+      color: black;
+    }
+  }
+}

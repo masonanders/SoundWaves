@@ -113,20 +113,37 @@
 
     .user {
       height: 100%;
+
       button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        // text-align: right;
+        min-width: 100px;
         height: 100%;
+
+        img {
+          height: 30px;
+          width: 30px;
+          border-radius: 15px;
+        }
       }
     }
 
     .user:hover {
-      filter: brightness(150%);
       button {
+        h3 {
+          filter: brightness(150%);
+        }
       }
     }
 
     .user.open {
       background-color: rgb(15, 15, 15);
-      filter: brightness(150%);
+      h3 {
+        filter: brightness(150%);
+      }
     }
 
     a:hover {

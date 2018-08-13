@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ArtistThumbnail from './artist_thumbnail_container';
 import TrackThumbnailList from './track_thumbnail_container';
 import NavBar from '../nav_bar/nav_bar_container';
+import StreamTrackIndex from '../tracks/track_index_container';
 
 const Stream = (props) => {
   const users = props.state.entities.users;
@@ -11,7 +12,7 @@ const Stream = (props) => {
   return (
     <div>
       <NavBar />
-      <div style={{height: '2000px'}}className='content'>
+      <div className='content'>
 
         <div className='stream-content'>
           <div className='stream-nav-links'>
@@ -19,6 +20,8 @@ const Stream = (props) => {
           </div>
 
           <h2>Here are some recent tracks we think you would enjoy:</h2>
+
+          <StreamTrackIndex />
         </div>
 
         <div className='stream-sidebar'>
