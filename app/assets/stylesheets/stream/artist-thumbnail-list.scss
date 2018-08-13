@@ -1,0 +1,32 @@
+.artist-thumbnail-list {
+
+  .user-thumbnail:hover {
+    background: none;
+  }
+
+  li {
+    position: relative;
+    height: 50px;
+    padding: 0 10px 20px 10px;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 200;
+      position: absolute;
+      left: 70px;
+      bottom: 20px;
+      width: 100%
+    }
+  }
+
+  a {
+    color: black;
+    font-weight: 200;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+  }
+}

@@ -1,0 +1,45 @@
+.track-thumbnail-list {
+
+  .track-thumbnail:hover {
+    background: none;
+  }
+
+  li {
+    position: relative;
+    height: 50px;
+    padding: 0 10px 20px 10px;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 200;
+      position: absolute;
+      left: 70px;
+      bottom: 20px;
+      width: 150px;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 200;
+      position: absolute;
+      left: 70px;
+      bottom: 33px;
+      width: 150px;
+    }
+  }
+
+  a {
+    color: black;
+    font-weight: 200;
+  }
+
+  a:hover {
+    color: green;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+    filter: brightness(80%);
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtistThumbnail from './artist_thumbnail_container';
 
+import ArtistThumbnail from './artist_thumbnail_container';
+import TrackThumbnailList from './track_thumbnail_container';
 import NavBar from '../nav_bar/nav_bar_container';
 
 const Stream = (props) => {
@@ -10,7 +11,7 @@ const Stream = (props) => {
   return (
     <div>
       <NavBar />
-      <div style={{height: '10000px'}}className='content'>
+      <div style={{height: '2000px'}}className='content'>
 
         <div className='stream-content'>
           <div className='stream-nav-links'>
@@ -34,6 +35,8 @@ const Stream = (props) => {
 
           <div className='sidebar-header' >
             <h3>Listen to these tracks</h3>
+
+            <TrackThumbnailList />
           </div>
         </div>
       </div>

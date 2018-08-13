@@ -13,8 +13,8 @@ export const fetchTrack = id => dispatch => (
     )
 );
 
-export const fetchTrackBy = trackParams => dispatch => (
-  TrackApiUtil.fetchTracksBy(trackParams)
+export const fetchTrackBy = (trackParams, limit) => dispatch => (
+  TrackApiUtil.fetchTracksBy(trackParams, limit)
     .then(
       tracks => dispatch(receiveTracks(tracks)),
       error => dispatch(receiveError(error))
@@ -45,14 +45,15 @@ export const deleteTrack = id => dispatch => (
     )
 );
 
-const receiveTrack = track => ({
+const receiveTrack = ({ track, user }) => ({
   type: RECEIVE_TRACK,
   track
 });
 
-const receiveTracks = tracks => ({
+const receiveTracks = ({ tracks, users }) => ({
   type: RECEIVE_TRACKS,
-  tracks
+  tracks,
+  users
 });
 
 const removeTrack = id => ({

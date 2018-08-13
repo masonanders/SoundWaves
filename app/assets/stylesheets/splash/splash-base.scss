@@ -2,6 +2,7 @@
 
 .splash-content {
   border-top: 4px solid $button-orange;
+  width: 100%;
 
   h1 {
     font-family: sans-serif;
@@ -28,6 +29,10 @@
     border-radius: 3px;
     font-size: 14px;
     font-weight: 200;
+  }
+
+  button:hover {
+    filter: brightness(115%);
   }
 
   .big-button {

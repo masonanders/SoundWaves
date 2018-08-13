@@ -2,6 +2,7 @@ class Api::TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     if @track
+      @user = @track.artist
       render :show
     else
       render json: ['Track not found'], status: 404
@@ -15,7 +16,8 @@ class Api::TracksController < ApplicationController
     limit = params[:limit] || 1
     tracks = key == 'all' ? Track.all : Track.where(key => value)
     if tracks
-      @tracks = tracks.shuffle.shift(limit)
+      @tracks = [].concat(tracks).shuffle.shift(limit.to_i)
+      @users = @tracks.map { |track| track.artist }
       render :index, status: 200
     else
       render json: ["No tracks found"], status: 404
@@ -64,6 +66,6 @@ class Api::TracksController < ApplicationController
   end
 
   def all_track_params
-    params.require(:trackParams).permit(:id, :title, :artist_id, :keywords, :limit)
+    params.require(:trackParams).permit(:id, :title, :artist_id, :keywords, :limit, :all)
   end
 end

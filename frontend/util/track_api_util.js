@@ -5,11 +5,11 @@ export const fetchTrack = id => (
   })
 );
 
-export const fetchTracksBy = trackParams => (
+export const fetchTracksBy = (trackParams, limit) => (
   $.ajax({
     url: `/api/tracks`,
     method: 'get',
-    data: { trackParams }
+    data: { trackParams, limit }
   })
 );
 

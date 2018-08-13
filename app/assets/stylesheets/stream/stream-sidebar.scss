@@ -8,7 +8,7 @@
   position: sticky;
   top: -200px;
   padding-top: 7%;
-  height: 500px;
+  height: 750px;
   border-left: 1px solid $background-grey;
   width: 30%;
 
@@ -36,39 +36,13 @@
     border-bottom: 1px solid $background-grey;
   }
 
-  .artist-thumbnail-list {
+  h4:hover {
+    color: black;
+  }
 
-    .user-thumbnail:hover {
-      background: none;
-    }
-
-    li {
-      position: relative;
-      height: 50px;
-      padding: 0 10px 20px 10px;
-
-      h4 {
-        font-size: 15px;
-        font-weight: 200;
-        position: absolute;
-        left: 70px;
-        bottom: 25px;
-      }
-    }
-
-    a {
-      color: black;
-      font-weight: 200;
-    }
-
+  li:hover {
     a:hover {
       color: black;
-    }
-
-    img {
-      height: 50px;
-      width: 50px;
-      border-radius: 50px;
     }
   }
 }

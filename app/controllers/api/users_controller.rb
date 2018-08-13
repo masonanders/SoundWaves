@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     limit = params[:limit] || 1
     users = key == 'all' ? User.all : User.where(key => value)
     if users
-      @users = users.shuffle.shift(limit)
+      @users = [].concat(users).shuffle.shift(limit.to_i)
       render :index, status: 200
     else
       render json: ["No users found"], status: 404
