@@ -18,7 +18,7 @@ class TrackThumbnailList extends React.Component {
     return (
       <li key={track.id} className='track-thumbnail'>
         <Link to={`/artist_name/${track.title}`}>
-          <img src={"/assets/default-track-icon"}></img> {/* Photo by Namroud Gorguis on Unsplash */}
+          <img src={window.images.defaultTrackIcon}></img>
             <h3>{users[track.artist_id].username}</h3>
             <h4>{track.title}</h4>
          </Link>

@@ -26,8 +26,7 @@ const Stream = (props) => {
 
         <div className='stream-sidebar'>
           <div className='stream-sidebar-image'>
-            <img src="/assets/you-are-what-you-listen-to.jpg"></img> {/*Photo by Mohammad Metri on Unsplash*/}
-              {/*"<%= asset_path('you-are-what-you-listen-to.jpg') %>"*/}
+            <img src={window.images.streamSidebarPicture}></img>
           </div>
 
           <div className='sidebar-header' >

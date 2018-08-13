@@ -67,15 +67,14 @@ class NavBar extends React.Component {
               <button
                 className='dropdown-button'
                 onClick={(e) => this.handleUserDropdown(e)}>
-                <img src={"/assets/default-user-icon"} />
+                <img src={window.images.defaultUserIcon} />
                 <h3>{`${user.username} ⌄`}</h3>
               </button>
               <NavUserDropdown
                 username={user.username}
                 logout={endSession}
                 userDrop={userDrop}
-                closeUserDrop={closeUserDrop}
-                />
+                closeUserDrop={closeUserDrop}/>
             </div>
           </div>
 

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
     <script type="text/javascript">
       <% if logged_in %>
         window.currentUser = <%=
@@ -12,10 +13,27 @@
         window.currentUser = undefined
       <% end %>
     </script>
+
+    <script type="text/javascript">
+      window.images = {
+        defaultUserIcon: "<%= asset_path('default-user-icon') %>",
+        defaultTrackIcon: "<%= asset_path('default-track-icon') %>",
+        defaultTrackArtwork: "<%= asset_path('default-track-index-artwork') %>",
+        streamSidebarPicture: "<%= asset_path('you-are-what-you-listen-to') %>"
+      }
+    </script>
+
     <title>SoundWaves</title>
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
   </head>
+
   <body>
     <main id='root'><h1>I can't believe you've done this!</h1></main>
   </body>
 </html>
+
+<!-- defaultUserIcon by Lee Campbell on Unsplash-->
+<!-- defaultTrackIcon by Namroud Gorguis on Unsplash -->
+<!-- defaultTrackArtwork by Wes Hicks on Unsplash -->
+<!-- streamSidebrPicture by Mohammad Metri on Unsplash -->

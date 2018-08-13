@@ -17,7 +17,7 @@ class ArtistThumbnailList extends React.Component {
     return (
     <li key={user.id} className='user-thumbnail'>
       <Link to={`/${user.username}`}>
-        <img src={"/assets/default-user-icon"}></img> {/* Photo by Lee Campbell on Unsplash */}
+        <img src={window.images.defaultUserIcon}></img>
          <h4>{user.username}</h4>
        </Link>
     </li>);
