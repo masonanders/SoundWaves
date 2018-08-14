@@ -43,8 +43,6 @@ const Stream = (props) => {
           </div>
         </div>
       </div>
-
-      <PlayerController />
     </div>
   );
 };

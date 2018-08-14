@@ -1,7 +1,6 @@
 import React from 'react';
 
 import NavBar from '../nav_bar/nav_bar_container';
-import PlayBar from '../player_controller/player_controller_container';
 import TrackBanner from './track_show_banner';
 
 const TrackShow = () => {
@@ -10,7 +9,7 @@ const TrackShow = () => {
       <NavBar />
       <div style={{height: '800px'}} className='content'>
         <TrackBanner />
-        
+
         <div className='track-body'>
           <div className='track-content'>
           </div>
@@ -19,7 +18,6 @@ const TrackShow = () => {
           </div>
         </div>
       </div>
-      <PlayBar />
     </div>
   );
 };
