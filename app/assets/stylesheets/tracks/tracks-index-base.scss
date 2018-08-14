@@ -34,6 +34,12 @@
       }
 
       .track-body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .track-controls {
         display: flex;
         flex-direction: row;
 
@@ -93,6 +99,14 @@
           display: flex;
           flex-direction: row;
         }
+
+      }
+      .waveform {
+        height: 95px;
+        width: 500px;
+        margin: 5px 0 0 15px;
+        background-image: image_url('waveform');
+        background-size: contain;
       }
     }
 
@@ -102,5 +116,10 @@
     a:hover {
       color: black;
     }
+  }
+
+  .track-index-footer {
+    height: 70px;
+    width: 100%;
   }
 }

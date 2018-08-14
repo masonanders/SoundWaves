@@ -5,7 +5,10 @@ class PlayerController extends React.Component{
 
   handlePlayButton() {
     const { play, pause, state } = this.props;
-    const { playing } = state.ui.player;
+    const { playing, currentTrack } = state.ui.player;
+    if (currentTrack === null) {
+      return null;
+    }
     playing ? pause() : play();
   }
 

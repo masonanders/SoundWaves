@@ -34,6 +34,8 @@ class TrackIndex extends React.Component {
         <ul className='track-list'>
           {tracks}
         </ul>
+        <div className='track-index-footer'>
+        </div>
       </div>
     );
   }

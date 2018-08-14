@@ -21,6 +21,7 @@ class TrackIndexItem extends React.Component {
     const playButtonState = currentTrack && player.playing ?
       'play-button pause' :
       'play-button';
+
     return (
       <li key={track.title} className='track-item'>
         <h2 className='track-header'>
@@ -30,24 +31,31 @@ class TrackIndexItem extends React.Component {
           </Link> posted this
         </h2>
 
-        <div className='track-body'>
-          <Link to={`/${artist}/${track.title}`}>
-            <img src={window.images.defaultTrackArtwork}></img>
-          </Link>
 
-          <div className='track-content'>
-            <button className={playButtonState} onClick={() => this.handlePlayButton()} />
-            <div className='track-info'>
-              <Link to={`/${artist}`}>
-                <h3>{artist}</h3>
-              </Link>
+          <div className='track-controls'>
+            <Link to={`/${artist}/${track.title}`}>
+              <img src={window.images.defaultTrackArtwork}></img>
+            </Link>
 
-              <Link to={`/${artist}/${track.title}`}>
-                <h4>{track.title}</h4>
-              </Link>
+            <div className='track-body'>
+              <div className='track-content'>
+                <button className={playButtonState} onClick={() => this.handlePlayButton()} />
+                <div className='track-info'>
+                  <Link to={`/${artist}`}>
+                    <h3>{artist}</h3>
+                  </Link>
+
+                  <Link to={`/${artist}/${track.title}`}>
+                    <h4>{track.title}</h4>
+                  </Link>
+                </div>
+              </div>
+
+              <div className='waveform'>
+              </div>
             </div>
           </div>
-        </div>
+
 
       </li>
     );
