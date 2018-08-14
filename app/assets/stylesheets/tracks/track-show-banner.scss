@@ -1,0 +1,82 @@
+@import '../util/colors';
+
+.track-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 45px;
+  height: 340px;
+  width: 100%;
+  padding: 20px;
+
+  .track-present {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding-top: 20px;
+    height: 100%;
+    width: 100%;
+
+    .track-controls {
+      display: flex;
+      flex-direction: row;
+
+      button {
+        background-color: $button-orange;
+        background-image: image_url('play-button/play');
+        background-size: cover;
+        background-position: 4px;
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+      }
+
+      button.pause {
+        background-image: image_url('play-button/pause');
+        background-position: 0px;
+      }
+
+      button:hover {
+        filter: brightness(95%);
+      }
+
+      .track-header {
+        margin-left: 10px;
+        color: white;
+        width: auto;
+
+        h3 {
+          position: absolute;
+          top: 17px;
+          width: auto;
+          font-size: 15px;
+          font-weight: 200;
+          background-color: rgb(58, 60, 63);
+          padding: 3px 5px;
+        }
+
+        h2 {
+          font-weight: 300;
+          background-color: rgb(58, 60, 63);
+          margin-top: 25px;
+          padding: 5px 7px;
+        }
+      }
+    }
+
+    .waveform {
+      width: 94%;
+      position: absolute;
+      bottom: 30px;
+    }
+  }
+
+  img {
+    border: 1px solid gray;
+    height: 339px;
+    width: 339px;
+  }
+}

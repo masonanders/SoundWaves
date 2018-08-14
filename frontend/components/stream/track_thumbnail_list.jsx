@@ -17,7 +17,7 @@ class TrackThumbnailList extends React.Component {
     const { users } = this.props.state.entities;
     return (
       <li key={track.id} className='track-thumbnail'>
-        <Link to={`/artist_name/${track.title}`}>
+        <Link to={`/${users[track.artist_id].username}/${track.title}`}>
           <img src={window.images.defaultTrackIcon}></img>
             <h3>{users[track.artist_id].username}</h3>
             <h4>{track.title}</h4>

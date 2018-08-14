@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     userDrop ? closeUserDrop() : openUserDrop();
   }
 
+  // TODO home button only dark when on the '/stream' page
   render() {
     const { user, endSession, userDrop, closeUserDrop } = this.props;
     const userDropClass = userDrop ? 'user open' : 'user';
@@ -25,7 +26,6 @@ class NavBar extends React.Component {
               onClick={() => console.log('Logo')}
               ><div></div>
             </button>
-
             <button
               className="home"
               onClick={() => console.log('Home')}
