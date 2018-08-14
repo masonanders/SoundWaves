@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 const NavUserDropdown = props => {
   const dropdownCass = props.userDrop ?
   'nav-user-dropdown open' : 'nav-user-dropdown';
+  // TODO nav bar closes when clicked outside
+  // TODO nav bar closes when page rerenders
   return (
     <div className={dropdownCass}>
       <ul>

@@ -3,6 +3,7 @@ import React from 'react';
 const TrackBanner = () => {
   // TODO save color to state in constructor so it doesn't change on rerender
   // TODO make play button toggle and sync with playbar
+  // TODO track and artist names instead of placeholders
   const randNum = () => Math.floor(Math.floor(255) * Math.random()).toString();
   return (
     <div
