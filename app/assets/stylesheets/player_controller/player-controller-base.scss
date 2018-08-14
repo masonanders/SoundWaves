@@ -1,0 +1,85 @@
+.player-controller-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0px;
+  height: 45px;
+  width: 97%;
+  min-width: 960px;
+  padding: 0 1.5% 0 1.5%;
+  background-color: #ececec;
+  border-top: 1px solid #bcbcbc;
+  z-index: 2;
+
+  .player-controlls {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 200px;
+
+    button {
+      height: 100%;
+      width: 20px;
+      margin-left: 15px;
+      background-color: rgba(0,0,0,0);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .back {
+      background-image: image_url('controller/back');
+    }
+    .play {
+      background-image: image_url('controller/play');
+    }
+    .play.pause {
+      background-image: image_url('controller/pause');
+    }
+    .forward {
+      background-image: image_url('controller/forward');
+    }
+    .shuffle {
+      background-image: image_url('controller/shuffle');
+    }
+    .repeat {
+      background-image: image_url('controller/repeat');
+    }
+  }
+
+  .player-progress {
+    height: 50%;
+    width: 40%;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .player-info {
+    height: 100%;
+    width: 350px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 30px;
+      width: 30px;
+      border: 1px solid #bbbbbb;
+    }
+
+    p {
+      font-size: 11px;
+      margin: 4px 0 4px 0;
+      padding-left: 10px;
+      filter: brightness(125%);
+    }
+
+    .artist-header {
+      color: gray;
+    }
+
+    .track-header {
+      color: #333333;
+    }
+  }
+
+}

@@ -5,6 +5,7 @@ import ArtistThumbnail from './artist_thumbnail_container';
 import TrackThumbnailList from './track_thumbnail_container';
 import NavBar from '../nav_bar/nav_bar_container';
 import StreamTrackIndex from '../tracks/track_index_container';
+import PlayerController from '../player_controller/player_controller_container';
 
 const Stream = (props) => {
   const users = props.state.entities.users;
@@ -42,6 +43,8 @@ const Stream = (props) => {
           </div>
         </div>
       </div>
+
+      <PlayerController />
     </div>
   );
 };
