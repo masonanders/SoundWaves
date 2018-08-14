@@ -29,22 +29,22 @@
     }
 
     .back {
-      background-image: image_url('controller/back');
+      background-image: image_url('controller/back'); // image by Interactivemania on iconfinder.com, license info below
     }
     .play {
-      background-image: image_url('controller/play');
+      background-image: image_url('controller/play'); // image by Interactivemania on iconfinder.com, license info below
     }
     .play.pause {
-      background-image: image_url('controller/pause');
+      background-image: image_url('controller/pause'); // image by Interactivemania on iconfinder.com, license info below
     }
     .forward {
-      background-image: image_url('controller/forward');
+      background-image: image_url('controller/forward'); // image by Interactivemania on iconfinder.com, license info below
     }
     .shuffle {
-      background-image: image_url('controller/shuffle');
+      background-image: image_url('controller/shuffle'); // image by Interactivemania on iconfinder.com, license info below
     }
     .repeat {
-      background-image: image_url('controller/repeat');
+      background-image: image_url('controller/repeat'); // image by Interactivemania on iconfinder.com, license info below
     }
   }
 
@@ -83,3 +83,8 @@
   }
 
 }
+
+
+// Playbutton controllers by Interactive media are under the
+// Creative Commons Attribution-NoDerivs 3.0 Unported
+// licence: https://creativecommons.org/licenses/by-nd/3.0/
