@@ -2,17 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class PlayerController extends React.Component{
+
+  handlePlayButton() {
+    const { play, pause, state } = this.props;
+    const { playing } = state.ui.player;
+    playing ? pause() : play();
+  }
+
   getTrack() {
     const { state } = this.props;
     const track = state.entities.tracks[state.ui.player.currentTrack];
+    const artist = state.entities.users[track.artist_id];
 
-    return {track, artist: state.entities.users[track.artist_id]};
+    return {track, artist };
   }
 
   _nullTrack() {
     return ({
-      track: {title: ''},
-      artist: ''
+      track: { title: '' },
+      artist: { username: '' }
     });
   }
 
@@ -27,7 +35,9 @@ class PlayerController extends React.Component{
       <div className='player-controller-container'>
         <div className='player-controlls' >
           <button className='back' />
-          <button className={playButtonText} />
+          <button
+            className={playButtonText}
+            onClick={() => this.handlePlayButton()}/>
           <button className='forward' />
           <button className='shuffle' />
           <button className='repeat' />
@@ -37,17 +47,17 @@ class PlayerController extends React.Component{
         </div>
 
         <div className='player-info'>
-          <Link to={`/${artist}/${track.title}`} >
+          <Link to={`/${artist.username}/${track.title}`} >
             <img src={window.images.defaultTrackIcon} />
           </Link>
 
           <div className='player-headers'>
-            <Link to={`/${artist}`}>
-              <p className='artist-header'>ARTIST{artist}</p>
+            <Link to={`/${artist.username}`}>
+              <p className='artist-header'>{artist.username}</p>
             </Link>
 
-            <Link to={`/${artist}/${track.title}`}>
-              <p className='track-header'>TRACK{track.title}</p>
+            <Link to={`/${artist.username}/${track.title}`}>
+              <p className='track-header'>{track.title}</p>
             </Link>
           </div>
         </div>
