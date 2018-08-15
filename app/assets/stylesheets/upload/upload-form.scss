@@ -6,6 +6,7 @@
   border: 1px solid $background-grey;
   border-radius: 2.5px;
   margin-top: 90px;
+
 }
 
 form {
@@ -123,6 +124,19 @@ form {
   button {
     background-color: $button-orange;
     color: white;
+    border-radius: 5px;
+    height: 25px;
+    width: 50px;
+    font-size: 15px;
+    font-weight: 300;
+    margin-right: 22px;
+  }
+
+  input {
+    cursor: pointer;
+    background-color: $button-orange;
+    color: white;
+    border: none;
     border-radius: 5px;
     height: 25px;
     width: 50px;

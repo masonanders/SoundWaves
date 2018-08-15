@@ -7,7 +7,12 @@ import Errors from '../errors/errors';
 class Upload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { audioFile: null, title: '', description: '', redirect: false };
+    this.state = {
+      audioFile: null,
+      title: '',
+      description: '',
+      redirect: false
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -51,8 +56,10 @@ class Upload extends React.Component {
     const formData = new FormData();
     formData.append('track[title]', this.state.title);
     formData.append('track[description]', this.state.description);
-    formData.append('track[audio]', this.state.audioFile);
     formData.append('track[artist_id]', this.props.state.session.currentUser);
+    if (this.state.audioFile !== 'default') {
+      formData.append('track[audio]', this.state.audioFile);
+    }
 
     this.props.createTrack(formData).then(res => this.handleRes(res));
   }
@@ -84,11 +91,12 @@ class Upload extends React.Component {
           onChange={ this.handleFile() }
           type='file'
           id='file'/>
-        <button
-        >Select a track to upload</button>
+        <label
+          htmlFor='file'
+        >Select a track to upload</label>
         <h3>or</h3>
         <button
-          onClick={ this.handleDefault() }
+          onClick={ () => this.setState({ audioFile: 'default' }) }
           className='demo'>Upload a demo track
         </button>
       </div>

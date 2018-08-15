@@ -66,7 +66,29 @@
     font-weight: 300;
   }
 
+  label {
+    cursor: pointer;
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 12px;
+    background-color: $button-orange;
+    color: white;
+    border-radius: 5px;
+    height: 28px;
+    width: 200px;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
   .demo {
     margin-top: 0px;
+  }
+
+  input {
+    height: 0.1px;
+    width: 0.1px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
   }
 }
