@@ -25,11 +25,13 @@ class Api::TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(track_params)
-    if @track.save
+    track = Track.new(track_params)
+    if track.save
+      @track = Track.last
+      @user = @track.artist
       render :show, status: 200
     else
-      render json: @track.errors.full_messages, status: 400
+      render json: track.errors.full_messages, status: 400
     end
   end
 
@@ -62,7 +64,7 @@ class Api::TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :artist_id, :description)
+    params.require(:track).permit(:title, :artist_id, :description, :audio)
   end
 
   def all_track_params

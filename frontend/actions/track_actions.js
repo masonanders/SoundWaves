@@ -47,7 +47,8 @@ export const deleteTrack = id => dispatch => (
 
 const receiveTrack = ({ track, user }) => ({
   type: RECEIVE_TRACK,
-  track
+  track,
+  user
 });
 
 const receiveTracks = ({ tracks, users }) => ({

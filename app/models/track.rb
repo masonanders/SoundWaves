@@ -12,6 +12,7 @@
 
 class Track < ApplicationRecord
   validates :title, :artist_id, presence: true
+  validates :title, uniqueness: true
   validates :title, length: { maximum: 100 }
   validates :description, length: { maximum: 500 }
 

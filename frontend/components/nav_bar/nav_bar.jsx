@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     userDrop ? closeUserDrop() : openUserDrop();
   }
 
+  // TODO fix error when logging out
   // TODO home button only dark when on the '/stream' page
   render() {
     const { user, endSession, userDrop, closeUserDrop } = this.props;

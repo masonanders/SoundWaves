@@ -6,7 +6,7 @@ import {
   REMOVE_USER
 } from '../../actions/user_actions';
 import { START_SESSION } from '../../actions/session_actions';
-import { RECEIVE_TRACKS } from '../../actions/track_actions';
+import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../../actions/track_actions';
 
 const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -14,6 +14,7 @@ const UsersReducer = (oldState = {}, action) => {
   const users = {};
   switch (action.type) {
     case START_SESSION:
+    case RECEIVE_TRACK:
     case RECEIVE_USER:
       return merge(newState, oldState, { [action.user.id]: action.user });
     case RECEIVE_USERS:

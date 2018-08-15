@@ -17,7 +17,9 @@ export const createTrack = track => (
   $.ajax({
     url: `/api/tracks`,
     method: 'post',
-    data: { track }
+    data: track,
+    contentType: false,
+    processData: false
   })
 );
 
