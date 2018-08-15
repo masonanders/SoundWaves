@@ -20,8 +20,8 @@ class PlayerController extends React.Component{
   }
 
   getAudioSrc() {
-    if (this.currentTrack.audioPath) {
-      return [this.currentTrack.audioPath];
+    if (this.currentTrack.audioUrl) {
+      return [this.currentTrack.audioUrl];
     } else {
       return [window.audio.defaultAudio];
     }

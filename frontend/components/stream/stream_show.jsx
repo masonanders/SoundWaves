@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import ArtistThumbnail from './artist_thumbnail_container';
 import TrackThumbnailList from './track_thumbnail_container';
-import NavBar from '../nav_bar/nav_bar_container';
 import StreamTrackIndex from '../tracks/track_index_container';
 import PlayerController from '../player_controller/player_controller_container';
 
@@ -12,7 +11,6 @@ const Stream = (props) => {
   const currentUser = props.state.session.currentUser;
   return (
     <div>
-      <NavBar />
       <div className='content'>
 
         <div className='stream-content'>

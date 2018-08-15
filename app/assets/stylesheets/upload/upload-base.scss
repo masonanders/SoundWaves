@@ -1,0 +1,72 @@
+@import './util/colors';
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.upload-header {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 90px;
+  width: 100%;
+  border-bottom: 1px solid $background-grey;
+
+  .upload {
+    position: absolute;
+    bottom: -1px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $button-orange;
+    margin-left: 30px;
+    h4 {
+      width: 100%;
+      font-weight: 200;
+      color: $button-orange;
+    }
+  }
+}
+
+.upload-body {
+  display: flex;
+  justify-content: center;
+  height: 700px;
+}
+
+.select-track-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  width: 700px;
+  border: 1px solid $background-grey;
+  border-radius: 2.5px;
+  margin-top: 90px;
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 400;
+    color: #353535;
+  }
+
+  h3 {
+    padding: 20px;
+    font-weight: 400;
+  }
+
+  button {
+    background-color: $button-orange;
+    height: 40px;
+    width: 200px;
+    margin-top: 100px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .demo {
+    margin-top: 0px;
+  }
+}

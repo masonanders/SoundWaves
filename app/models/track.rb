@@ -15,6 +15,8 @@ class Track < ApplicationRecord
   validates :title, length: { maximum: 100 }
   validates :description, length: { maximum: 500 }
 
+  has_one_attached :audio
+
   belongs_to :artist,
     foreign_key: :artist_id,
     primary_key: :id,
