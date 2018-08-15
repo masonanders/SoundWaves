@@ -16,11 +16,11 @@ user_2 = User.create!(username: 'user_2', password: 'password', email: "user_2@s
 user_3 = User.create!(username: 'user_3', password: 'password', email: "user_3@soundwaves.com")
 
 track1 = Track.create!(title: 'track_1', artist_id: user_1.id, description: 'track number 1')
-track2 = Track.create!(title: 'track_1', artist_id: user_1.id, description: 'track number 1')
-track3 = Track.create!(title: 'track_2', artist_id: user_2.id, description: 'track number 2')
-track4 = Track.create!(title: 'track_2', artist_id: user_2.id, description: 'track number 2')
-track5 = Track.create!(title: 'track_3', artist_id: user_3.id, description: 'track number 3')
-track6 = Track.create!(title: 'track_3', artist_id: user_3.id, description: 'track number 3')
+track2 = Track.create!(title: 'track_2', artist_id: user_1.id, description: 'track number 2')
+track3 = Track.create!(title: 'track_3', artist_id: user_2.id, description: 'track number 3')
+track4 = Track.create!(title: 'track_4', artist_id: user_2.id, description: 'track number 4')
+track5 = Track.create!(title: 'track_5', artist_id: user_3.id, description: 'track number 5')
+track6 = Track.create!(title: 'track_6', artist_id: user_3.id, description: 'track number 6')
 
 demo_track1 = Track.create!(title: 'demo_track_1', artist_id: demo_user.id, description: 'demo track number 1')
 demo_track2 = Track.create!(title: 'demo_track_2', artist_id: demo_user.id, description: 'demo track number 2')
