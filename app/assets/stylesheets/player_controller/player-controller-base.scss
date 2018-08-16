@@ -43,8 +43,14 @@
     .shuffle {
       background-image: image_url('controller/shuffle'); // image by Interactivemania on iconfinder.com, license info below
     }
+    .shuffle.on {
+      background-image: image_url('controller/shuffle-on'); // image by Interactivemania on iconfinder.com, license info below
+    }
     .repeat {
       background-image: image_url('controller/repeat'); // image by Interactivemania on iconfinder.com, license info below
+    }
+    .repeat.on {
+      background-image: image_url('controller/repeat-on'); // image by Interactivemania on iconfinder.com, license info below
     }
   }
 

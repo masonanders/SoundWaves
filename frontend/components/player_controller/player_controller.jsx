@@ -5,6 +5,7 @@ import {Howl, Howler} from 'howler';
 class PlayerController extends React.Component{
   constructor(props) {
     super(props);
+    this.state = { loop: false, shuffle: false };
     this.audio = {once: () => null, volume: () => null, fade: () => null};
     this.volume = 1.0;
     this.currentTrack = { id: null };
@@ -15,7 +16,7 @@ class PlayerController extends React.Component{
     this.audio = new Howl({
       src: this.getAudioSrc(),
       preload: true,
-      loop: false,
+      loop: this.state.loop,
     });
   }
 
@@ -40,6 +41,21 @@ class PlayerController extends React.Component{
     this.playing = false;
     audio.once( 'fade', () => { audio.pause( audio.id ); }, audio.id );
     audio.fade( audio.volume(), 0, 100, audio.id );
+  }
+
+  toggle(button) {
+    this.setState({[button]: Boolean(!this.state[button])});
+  }
+
+  status(name) {
+    switch (name) {
+      case 'loop':
+        return this.audio.loop ? 'repeat on' : 'repeat';
+      case 'shuffle':
+        return this.state.shuffle ? 'shuffle on' : 'shuffle';
+      default:
+        null;
+    }
   }
 
   handlePlayButton() {
@@ -89,8 +105,8 @@ class PlayerController extends React.Component{
             className={playButtonText}
             onClick={() => this.handlePlayButton()}/>
           <button className='forward' />
-          <button className='shuffle' />
-          <button className='repeat' />
+          <button onClick={() => this.toggle('shuffle')} className={this.status('shuffle')} />
+          <button onClick={() => this.toggle('loop')} className={this.status('loop')} />
         </div>
 
         <div className='player-progress'>
