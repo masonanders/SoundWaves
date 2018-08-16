@@ -2,9 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class TrackThumbnailList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { tracks: [] };
+  }
   componentWillMount() {
     this.props.fetchTracksBy({ all: "" }, 3)
-      .then(this.setState());
+      .then(res => this.setState({ tracks: res.tracks }));
   }
 
   getTracksByIds() {
@@ -27,8 +31,7 @@ class TrackThumbnailList extends React.Component {
   }
 
   render () {
-    this.getTracksByIds();
-    const tracks = this.getTracksByIds().map(track => this.trackLi(track));
+    const tracks = this.state.tracks.map(track => this.trackLi(track));
     return (
       <div className='track-thumbnail-list'>
         <ul>

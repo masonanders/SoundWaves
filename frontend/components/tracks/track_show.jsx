@@ -77,7 +77,6 @@ class TrackShow extends React.Component {
         break;
       default:
         if (res.track.title !== oldTrack.title) {
-          debugger;
           this.props.history.push(`/${res.user.username}/${this.state.title}`);
         }
         this.resetState();
@@ -128,17 +127,13 @@ class TrackShow extends React.Component {
   renderBody() {
     if (this.state.edit) {
       return(
-        <div>
+        <div className='description'>
           <form id='Edit' onSubmit={() => this.state.action.execute()}>
-            <label id='title' >Title</label>
             <input
-              htmlFor='title'
               value={this.state.title}
               onChange={this.handleChange('title')}/>
 
-            <label id='description' >Description</label>
             <textarea
-              htmlFor='description'
               value={this.state.description}
               onChange={this.handleChange('description')}>
             </textarea>
@@ -148,8 +143,8 @@ class TrackShow extends React.Component {
     } else {
       const track = this.props.track ? this.props.track : { description: '' };
       return(
-        <div>
-          <h1>Description</h1>
+        <div className='description'>
+          <h3>{track.title}</h3>
           <h5>{track.description}</h5>
         </div>
       );
