@@ -1,3 +1,5 @@
+@import '../util/colors';
+
 .player-controller-container {
   display: flex;
   justify-content: space-between;
@@ -54,10 +56,29 @@
     }
   }
 
+  p {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 2px 15px 0 15px;
+  }
+
+  .progress {
+    color: $button-orange;
+  }
+
   .player-progress {
+    position: relative;
     height: 50%;
     width: 40%;
     border-bottom: 1px solid #cccccc;
+
+    .progress-line {
+      position: absolute;
+      height: 100%;
+      border-bottom: 1px solid $button-orange;
+    }
   }
 
   .player-info {
@@ -94,3 +115,4 @@
 // Playbutton controllers by Interactive media are under the
 // Creative Commons Attribution-NoDerivs 3.0 Unported
 // licence: https://creativecommons.org/licenses/by-nd/3.0/
+// modificatons to repeat-on and shuffle-on: made orange

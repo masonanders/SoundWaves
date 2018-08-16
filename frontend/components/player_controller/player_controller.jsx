@@ -5,8 +5,19 @@ import {Howl, Howler} from 'howler';
 class PlayerController extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { loop: false, shuffle: false };
-    this.audio = {once: () => null, volume: () => null, fade: () => null};
+    this.state = {
+      loop: false,
+      shuffle: false,
+      duration: '0:00',
+      progress: '0:00'
+    };
+    this.audio = {
+      once: () => null,
+      volume: () => null,
+      fade: () => null,
+      duration: () => null,
+      seek: () => null
+    };
     this.volume = 1.0;
     this.currentTrack = { id: null };
     this.playing = false;
@@ -17,7 +28,34 @@ class PlayerController extends React.Component{
       src: this.getAudioSrc(),
       preload: true,
       loop: this.state.loop,
+      onpause: () => clearInterval(this.time),
+      onplay: () => {
+        this.setState({ duration: this.durationToString(this.audio.duration()) });
+        this.time = setInterval(() => {
+          this.setState({ progress: this.durationToString(this.audio.seek()) });
+        }, 1000);
+      },
+      onend: () => this.audio.pause()
     });
+  }
+
+  durationToString(duration) {
+    let seconds = Math.floor(duration % 60);
+    let minutes = Math.floor(duration / 60);
+    let hours = 0;
+    if (minutes > 60) {
+      hours = Math.floor(minutes / 60);
+      minutes = Math.floor(minutes % 60);
+    }
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    minutes = minutes < 10 ? (hours > 0 ? `0${minutes}` : minutes) : minutes;
+    hours = hours > 0 ? `${hours}:` : '';
+    return (`${hours}${minutes}:${seconds}`);
+  }
+
+  calculateProgress() {
+    const percent = (this.audio.seek() / this.audio.duration()) * 100;
+    return `${percent}%`;
   }
 
   getAudioSrc() {
@@ -50,7 +88,7 @@ class PlayerController extends React.Component{
   status(name) {
     switch (name) {
       case 'loop':
-        return this.audio.loop ? 'repeat on' : 'repeat';
+        return this.state.loop ? 'repeat on' : 'repeat';
       case 'shuffle':
         return this.state.shuffle ? 'shuffle on' : 'shuffle';
       default:
@@ -109,8 +147,12 @@ class PlayerController extends React.Component{
           <button onClick={() => this.toggle('loop')} className={this.status('loop')} />
         </div>
 
+        <p className='progress'>{this.state.progress}</p>
         <div className='player-progress'>
+          <div style={{width: this.calculateProgress()}}className='progress-line'>
+          </div>
         </div>
+        <p className='duration'>{this.state.duration}</p>
 
         <div className='player-info'>
           <Link to={`/${artist.username}/${track.title}`} >
