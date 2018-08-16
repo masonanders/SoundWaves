@@ -32,7 +32,7 @@ class TrackIndex extends React.Component {
     return (
       <div className='track-index'>
         <ul className='track-list'>
-          {tracks}
+          {tracks.reverse()}
         </ul>
         <div className='track-index-footer'>
         </div>

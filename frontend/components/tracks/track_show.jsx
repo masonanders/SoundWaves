@@ -68,7 +68,6 @@ class TrackShow extends React.Component {
   }
 
   handleResponse(res, oldTrack) {
-    console.log(res);
     switch (res.type) {
       case RECEIVE_TRACK_ERRORS:
         break;

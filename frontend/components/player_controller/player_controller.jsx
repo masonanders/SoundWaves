@@ -16,7 +16,8 @@ class PlayerController extends React.Component{
       volume: () => null,
       fade: () => null,
       duration: () => null,
-      seek: () => null
+      seek: () => null,
+      state: () => null
     };
     this.volume = 1.0;
     this.currentTrack = { id: null };
@@ -27,7 +28,6 @@ class PlayerController extends React.Component{
     this.audio = new Howl({
       src: this.getAudioSrc(),
       preload: true,
-      loop: this.state.loop,
       onpause: () => clearInterval(this.time),
       onplay: () => {
         this.setState({ duration: this.durationToString(this.audio.duration()) });
@@ -35,8 +35,60 @@ class PlayerController extends React.Component{
           this.setState({ progress: this.durationToString(this.audio.seek()) });
         }, 1000);
       },
-      onend: () => this.audio.pause()
+      onend: () => {
+        this.pause();
+        this.handleNextSong();
+      }
     });
+  }
+
+  handleNextSong(string) {
+    this.pause();
+    const tracks = Object.keys(this.props.state.entities.tracks).reverse();
+    const trackIdx = this.getSongIndex(this.currentTrack.id, tracks);
+    let nextTrack = trackIdx;
+    switch (string) {
+      case 'next':
+        if (this.state.shuffle) {
+          nextTrack = Math.floor(Math.floor(tracks.length - 1) * Math.random());
+        } else {
+          nextTrack += 1;
+        }
+        break;
+      case 'prev':
+        if (this.audio.seek() < 5 && nextTrack > 0) {
+          nextTrack -= 1;
+        }
+        break;
+      default:
+        if (this.state.loop) {
+          null;
+        } else if (this.state.shuffle) {
+          while (nextTrack === trackIdx && tracks.length > 1) {
+            nextTrack = Math.floor(Math.floor(tracks.length - 1) * Math.random());
+          }
+        } else {
+          nextTrack += 1;
+        }
+      }
+    if (nextTrack >= tracks.length || nextTrack < 0) {
+      this.audio.stop();
+      this.stop();
+    } else {
+      this.currentTrack = this.props.state.entities.tracks[tracks[nextTrack]];
+      this.newHowler();
+      this.props.playNew(this.currentTrack);
+      this.play();
+    }
+  }
+
+  getSongIndex(id, arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === id.toString()) {
+        return i;
+      }
+    }
+    return null;
   }
 
   durationToString(duration) {
@@ -50,7 +102,11 @@ class PlayerController extends React.Component{
     seconds = seconds < 10 ? `0${seconds}` : seconds;
     minutes = minutes < 10 ? (hours > 0 ? `0${minutes}` : minutes) : minutes;
     hours = hours > 0 ? `${hours}:` : '';
-    return (`${hours}${minutes}:${seconds}`);
+    if (isNaN(seconds)) {
+      return '-:-';
+    } else {
+      return (`${hours}${minutes}:${seconds}`);
+    }
   }
 
   calculateProgress() {
@@ -79,6 +135,23 @@ class PlayerController extends React.Component{
     this.playing = false;
     audio.once( 'fade', () => { audio.pause( audio.id ); }, audio.id );
     audio.fade( audio.volume(), 0, 100, audio.id );
+  }
+
+  stop() {
+    const audio = this.audio;
+    audio.stop();
+    this.playing = false;
+    this.props.stop();
+    this.currentTrack = { id: null };
+    this.audio = {
+      once: () => null,
+      volume: () => null,
+      fade: () => null,
+      duration: () => null,
+      seek: () => null,
+      state: () => null
+    };
+    this.setState({ duration: '0:00', progress: '0:00' });
   }
 
   toggle(button) {
@@ -114,7 +187,7 @@ class PlayerController extends React.Component{
       this.currentTrack = track;
       this.newHowler();
     }
-    return {track, artist };
+    return { track, artist };
   }
 
   _nullTrack() {
@@ -138,13 +211,26 @@ class PlayerController extends React.Component{
     return (
       <div className='player-controller-container'>
         <div className='player-controlls' >
-          <button className='back' />
           <button
+            disabled={this.audio.state() === 'loading' || this.audio.state() === null}
+            onClick={() => this.handleNextSong('prev')}
+            className='back' />
+          <button
+            disabled={this.audio.state() === 'loading' || this.audio.state() === null}
             className={playButtonText}
             onClick={() => this.handlePlayButton()}/>
-          <button className='forward' />
-          <button onClick={() => this.toggle('shuffle')} className={this.status('shuffle')} />
-          <button onClick={() => this.toggle('loop')} className={this.status('loop')} />
+          <button
+            disabled={this.audio.state() === 'loading' || this.audio.state() === null}
+            onClick={() => this.handleNextSong('next')}
+            className='forward' />
+          <button
+            disabled={this.audio.state() === 'loading'}
+            onClick={() => this.toggle('shuffle')}
+            className={this.status('shuffle')} />
+          <button
+            disabled={this.audio.state() === 'loading'}
+            onClick={() => this.toggle('loop')}
+            className={this.status('loop')} />
         </div>
 
         <p className='progress'>{this.state.progress}</p>

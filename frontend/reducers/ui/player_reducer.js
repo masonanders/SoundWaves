@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 import {
   PLYAER_PLAY,
   PLYAER_PAUSE,
+  PLAYER_STOP,
   PLAY_NEW_TRACK
 } from '../../actions/player_actions';
 
@@ -20,6 +21,9 @@ const PlayerReducer = (oldState = _nullTrack, action) => {
       return merge(newState, oldState, { playing: true });
     case PLYAER_PAUSE:
       return merge(newState, oldState, { playing: false });
+    case PLAYER_STOP:
+    console.log('stop reducer');
+      return merge(newState, oldState, _nullTrack);
     case PLAY_NEW_TRACK:
     return merge(
       newState,

@@ -20,35 +20,6 @@ class Upload extends React.Component {
     return (e) => this.setState({ audioFile: e.currentTarget.files[0] });
   }
 
-  handleDefault() {
-    // const getFileBlob = (url, cb) => {
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.open("GET", url);
-    //   xhr.responseType = "blob";
-    //   xhr.addEventListener('load', function() {
-    //       cb(xhr.response);
-    //   });
-    //   xhr.send();
-    // };
-    //
-    // const blobToFile = (blob, name) => {
-    //   blob.lastModifiedDate = new Date();
-    //   blob.name = name;
-    //   return blob;
-    // };
-    //
-    // const getFileObject = (filePathOrUrl, cb) => {
-    //   getFileBlob(filePathOrUrl, (blob) => {
-    //     cb(blobToFile(blob, 'defualt_audio.mp3'));
-    //   });
-    // };
-    //
-    // getFileObject(window.audio.defualtAudio, (fileObject) => {
-    //      console.log(fileObject);
-    // });
-    // return (e) => this.setState({ audioFile: new File([window.audio.defaultAudio], 'default.mp3') });
-  }
-
   handleSubmit(e) {
     this.props.clearErrors();
 
