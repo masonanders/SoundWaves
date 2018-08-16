@@ -76,6 +76,7 @@ class TrackShow extends React.Component {
         break;
       default:
         if (res.track.title !== oldTrack.title) {
+          console.error('shouldnt work');
           this.props.history.replace(`/${res.user.username}/${this.state.title}`);
         }
         this.resetState();

@@ -17,11 +17,12 @@ class PlayerController extends React.Component{
       fade: () => null,
       duration: () => null,
       seek: () => null,
-      state: () => null
+      state: () => null,
+      playing: () => false
     };
     this.volume = 1.0;
     this.currentTrack = { id: null };
-    this.playing = false;
+    this.playing = this.props.state.ui.player.playing;
   }
 
   newHowler() {
@@ -38,7 +39,9 @@ class PlayerController extends React.Component{
       onend: () => {
         this.pause();
         this.handleNextSong();
-      }
+      },
+      onplayerror: () => console.error('PLAY ERRROR'),
+      onloaderror: () => console.error('LOAD ERRROR')
     });
   }
 
@@ -123,7 +126,7 @@ class PlayerController extends React.Component{
   }
 
   play() {
-    if (!this.playing) {
+    if (!this.audio.playing()) {
       this.playing = true;
       this.audio.play();
       this.audio.fade(0, this.volume, 300);
@@ -147,8 +150,8 @@ class PlayerController extends React.Component{
       once: () => null,
       volume: () => null,
       fade: () => null,
-      duration: () => null,
-      seek: () => null,
+      duration: () => 0,
+      seek: () => 0,
       state: () => null
     };
     this.setState({ duration: '0:00', progress: '0:00' });
@@ -182,10 +185,13 @@ class PlayerController extends React.Component{
     const { state } = this.props;
     const track = state.entities.tracks[state.ui.player.currentTrack];
     const artist = state.entities.users[track.artist_id];
+
     if (this.currentTrack.id !== track.id) {
       this.pause();
       this.currentTrack = track;
       this.newHowler();
+    } else {
+      this.currentTrack = track;
     }
     return { track, artist };
   }
