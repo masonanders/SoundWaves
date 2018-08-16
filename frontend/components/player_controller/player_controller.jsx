@@ -204,6 +204,7 @@ class PlayerController extends React.Component{
       this.getTrack() :
       this._nullTrack();
 
+    const hideLinks = this.props.state.ui.player.currentTrack ? null : {visibility: 'hidden'};
     const playing = this.props.state.ui.player.playing;
     const playButtonText = playing ? 'play pause' : 'play';
     playing ? this.play() : this.pause();
@@ -241,16 +242,22 @@ class PlayerController extends React.Component{
         <p className='duration'>{this.state.duration}</p>
 
         <div className='player-info'>
-          <Link to={`/${artist.username}/${track.title}`} >
+          <Link
+            style={hideLinks}
+            to={`/${artist.username}/${track.title}`} >
             <img src={window.images.defaultTrackIcon} />
           </Link>
 
           <div className='player-headers'>
-            <Link to={`/${artist.username}`}>
+            <Link
+              style={hideLinks}
+              to={`/${artist.username}`}>
               <p className='artist-header'>{artist.username}</p>
             </Link>
 
-            <Link to={`/${artist.username}/${track.title}`}>
+            <Link
+              style={hideLinks}
+              to={`/${artist.username}/${track.title}`}>
               <p className='track-header'>{track.title}</p>
             </Link>
           </div>

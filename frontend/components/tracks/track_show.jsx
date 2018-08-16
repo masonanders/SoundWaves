@@ -72,11 +72,11 @@ class TrackShow extends React.Component {
       case RECEIVE_TRACK_ERRORS:
         break;
       case REMOVE_TRACK:
-        this.props.history.push('/');
+        this.props.history.replace('/');
         break;
       default:
         if (res.track.title !== oldTrack.title) {
-          this.props.history.push(`/${res.user.username}/${this.state.title}`);
+          this.props.history.replace(`/${res.user.username}/${this.state.title}`);
         }
         this.resetState();
     }

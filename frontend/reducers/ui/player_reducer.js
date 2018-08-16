@@ -22,7 +22,6 @@ const PlayerReducer = (oldState = _nullTrack, action) => {
     case PLYAER_PAUSE:
       return merge(newState, oldState, { playing: false });
     case PLAYER_STOP:
-    console.log('stop reducer');
       return merge(newState, oldState, _nullTrack);
     case PLAY_NEW_TRACK:
     return merge(
