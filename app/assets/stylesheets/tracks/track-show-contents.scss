@@ -1,0 +1,77 @@
+@import '../util/colors';
+
+.track-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.track-artist-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 200px;
+  width: 170px;
+
+  .artist-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 170px;
+
+    img {
+      margin-top: 20px;
+      height: 120px;
+      width: 120px;
+      border-radius: 65px;
+      border: 1px solid #aaaaaa;
+    }
+
+    h5 {
+      position: relative;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 300;
+    }
+  }
+
+  .track-buttons {
+    button {
+      color: black;
+      background-color: white;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .edit {
+      height: 21px;
+      width: 41px;
+      color: white;
+      background-color: $button-orange;
+    }
+
+    .delete {
+      height: 20px;
+      width: 50px;
+      margin-right: 20px;
+      border: 1px solid black;
+    }
+
+    h3 {
+      color: red;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 300;
+    }
+  }
+}
+
+.comment-body {
+}
+
+.track-sidebar {
+  border-left: 1px solid black;
+  width: 360px;
+}

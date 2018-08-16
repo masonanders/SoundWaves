@@ -41,6 +41,7 @@ class Api::TracksController < ApplicationController
     if logged_in &&
       @track.artist_id == current_user.id &&
       @track.update_attributes(track_params)
+      @user = @track.artist
       render :show, status: 200
     elsif !logged_in || @track.artist_id != current_user.id
       render json: ['You do not have permissiion to edit this track'], status: 401

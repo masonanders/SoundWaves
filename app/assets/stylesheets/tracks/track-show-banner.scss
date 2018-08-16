@@ -6,10 +6,12 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  top: 45px;
-  height: 340px;
+  margin-top: 45px;
+  height: 380px;
   width: 100%;
   padding: 20px;
+  box-sizing: border-box;
+
 
   .track-present {
     position: relative;
