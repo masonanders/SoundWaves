@@ -8,7 +8,6 @@ class NavBar extends React.Component {
   }
 
   handleUserDropdown(e) {
-    console.log(e);
     const { userDrop, openUserDrop, closeUserDrop} = this.props;
     userDrop ? closeUserDrop() : openUserDrop();
   }
@@ -16,7 +15,8 @@ class NavBar extends React.Component {
   // TODO fix error when logging out
   // TODO home button only dark when on the '/stream' page
   render() {
-    const { user, endSession, userDrop, closeUserDrop } = this.props;
+    const user = this.props.user ? this.props.user : { username: '' };
+    const { endSession, userDrop, closeUserDrop } = this.props;
     const userDropClass = userDrop ? 'user open' : 'user';
     return (
       <div className='nav-bar-container'>
@@ -24,7 +24,6 @@ class NavBar extends React.Component {
           <div className='home-container'>
             <button
               className="logo-button"
-              onClick={() => console.log('Logo')}
               ><div></div>
             </button>
             <button
