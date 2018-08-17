@@ -15,9 +15,9 @@ class Comments extends React.Component {
     this.props.fetchComments(track.id);
   }
 
-  // componentDidUnmount() {
-  //   this.props.clearComments();
-  // }
+  componentWillMount() {
+    this.props.clearComments();
+  }
 
   render() {
     const comments = Object.keys(this.props.comments).map(
