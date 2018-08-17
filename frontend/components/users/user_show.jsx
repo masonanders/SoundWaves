@@ -35,10 +35,6 @@ class UserShow extends React.Component {
   }
 
   render() {
-    console.log('comments', this.state.comments);
-    console.log('com_tracks', this.state.comment_tracks);
-    console.log('users', this.state.user);
-    console.log('tracks', this.state.tracks);
     const comments = this.state.comments.map(comment =>
       <UserComment
         key={comment.id}
