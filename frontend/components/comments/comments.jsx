@@ -12,7 +12,7 @@ class Comments extends React.Component {
       this.props.state,
       this.props.trackTitle
     );
-    this.props.fetchComments(track.id);
+    this.props.fetchComments({ track_id: track.id });
   }
 
   componentWillMount() {

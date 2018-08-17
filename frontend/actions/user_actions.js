@@ -66,7 +66,7 @@ export const updateUser = updUser => dispatch => (
 export const deleteUser = userId => dispatch => (
   UserAPIUtil.deleteUser(userId)
     .then(
-      id => dispatch(removeUser(id)),
+      () => dispatch(removeUser()),
       errors => dispatch(receiveErrors(errors))
     )
 );

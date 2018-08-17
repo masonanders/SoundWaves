@@ -11,10 +11,11 @@ const receiveComment = comment => ({
   comment
 });
 
-const receiveComments = ({ comments, users }) => ({
+const receiveComments = ({ comments, users, tracks }) => ({
   type: RECEIVE_COMMENTS,
   comments,
-  users
+  users,
+  tracks
 });
 
 const removeComment = id => ({
@@ -27,8 +28,8 @@ const receiveCommentErrors = errors => ({
   errors
 });
 
-export const fetchComments = (trackId) => dispatch => (
-  CommentAPIUtil.fetchComments(trackId)
+export const fetchComments = (param) => dispatch => (
+  CommentAPIUtil.fetchComments(param)
     .then(
       comments => dispatch(receiveComments(comments)),
       errors => dispatch(receiveCommentErrors(errors))

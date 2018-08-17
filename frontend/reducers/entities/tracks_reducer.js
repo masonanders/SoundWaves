@@ -5,6 +5,8 @@ import {
   RECEIVE_TRACKS,
   REMOVE_TRACK
 } from '../../actions/track_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
+
 
 const TracksReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -24,6 +26,8 @@ const TracksReducer = (oldState = {}, action) => {
     case REMOVE_TRACK:
       newState = merge(newState, oldState);
       delete newState[action.id];
+      return newState;
+    case QUIT_SESSION:
       return newState;
     default:
       return oldState;

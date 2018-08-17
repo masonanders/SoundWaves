@@ -10,15 +10,18 @@
 .user-body-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-grow: 5;
   margin: 0 30px;
   height: 45px;
   border-bottom: 1px solid $background-grey;
 
   .user-headers {
-    position: absolute;
+    position: relative;
 
     h2 {
+      position: absolute;
+      top: -23px;
       font-size: 18px;
       font-weight: 500;
       padding-bottom: 7px;
@@ -26,5 +29,53 @@
       color: $button-orange;
       border-bottom: 1px solid $button-orange;
     }
+  }
+
+  button {
+    font-size: 11px;
+    border: 1px solid $background-grey;
+    border-radius: 5px;
+    color: $background-grey;
+    height: 30px;
+    width: 100px;
+  }
+
+  button:hover {
+    color: black;
+    border: 1px solid black;
+  }
+
+}
+
+.confirm-delete-account {
+  height: 100%;
+
+  h4 {
+    font-size: 12px;
+    font-weight: 400;
+    color: red;
+  }
+
+  .confirm-delete-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    height: 20px;
+    width: 40px;
+    margin: 0 10px;
+    color: black;
+    border: 1px solid black;
+  }
+
+  button:hover {
+    color: black;
+    border: 1px solid black;
+  }
+
+  .confirm-yes:hover {
+    color: red;
+    border: 1px solid red;
   }
 }

@@ -7,6 +7,8 @@ import {
   RECEIVE_COMMENT_ERRORS
 } from '../../actions/comment_actions';
 import { CLEAR_ERRORS } from '../../actions/errors_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
+
 
 const CommentErrorsReducer = (oldState = [], action) => {
   let newState = [];
@@ -16,6 +18,7 @@ const CommentErrorsReducer = (oldState = [], action) => {
     case RECEIVE_COMMENT:
     case RECEIVE_COMMENTS:
     case REMOVE_COMMENT:
+    case QUIT_SESSION:
     case CLEAR_ERRORS:
       return newState;
     default:

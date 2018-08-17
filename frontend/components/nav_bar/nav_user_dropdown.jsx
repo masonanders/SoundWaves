@@ -10,7 +10,7 @@ const NavUserDropdown = props => {
     <div className={dropdownCass}>
       <ul>
         <li>
-          <Link to={`${props.username}`} >Profile</Link>
+          <Link to={`/${props.username}`} >Profile</Link>
         </li>
         <li>
           <button onClick={() => props.logout()}><h3>Log out</h3></button>

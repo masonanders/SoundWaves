@@ -56,7 +56,7 @@ class Api::TracksController < ApplicationController
   def destroy
     @track = Track.find(params[:id])
     if logged_in && @track.artist_id == current_user.id
-      @track.delete
+      @track.destroy
       render json: @track.id, status: 200
     elsif !logged_in || @track.artist_id != current_user.id
       render json: ['You do not have permissiion to delete this track'], status: 401

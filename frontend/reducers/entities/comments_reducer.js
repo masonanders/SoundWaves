@@ -7,6 +7,7 @@ import {
   RECEIVE_COMMENT_ERRORS,
   CLEAR_COMMENTS
 } from '../../actions/comment_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const CommentsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -22,6 +23,7 @@ const CommentsReducer = (oldState = {}, action) => {
       newState = merge(newState, oldState);
       delete newState[action.id];
       return newState;
+    case QUIT_SESSION:
     case CLEAR_COMMENTS:
       return newState;
     default:

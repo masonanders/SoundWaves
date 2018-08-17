@@ -8,6 +8,7 @@ import {
 } from '../../actions/user_actions';
 import { CLOSE_SESSION_MODAL } from '../../actions/session_modal_actions';
 import { CLEAR_ERRORS } from '../../actions/errors_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const UserErrorsReducer = (oldState = [], action) => {
   let newState = [];
@@ -18,6 +19,7 @@ const UserErrorsReducer = (oldState = [], action) => {
     case RECEIVE_USER:
     case RECEIVE_USERS:
     case REMOVE_USER:
+    case QUIT_SESSION:
     case CLEAR_ERRORS:
       return newState;
     default:

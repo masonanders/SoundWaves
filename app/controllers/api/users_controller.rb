@@ -43,9 +43,9 @@ class Api::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if @user == current_user
+    if @user
       logout!
-      @user.delete
+      @user.destroy
       render json: @user.id, status: 200
     else
       render json: ['Something went wrong...'], status: 500

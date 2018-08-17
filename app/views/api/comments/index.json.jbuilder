@@ -13,3 +13,13 @@ json.set! :users do
     json.id user.id
   end
 end
+
+json.set! :tracks do
+  @tracks.each do |track|
+    json.set! track.id do
+      json.title track.title
+      json.id track.id
+      json.artist track.artist.username
+    end
+  end
+end

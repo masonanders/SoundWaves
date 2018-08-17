@@ -7,6 +7,7 @@ import {
   RECEIVE_TRACK_ERRORS
 } from '../../actions/track_actions';
 import { CLEAR_ERRORS } from '../../actions/errors_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const TrackErrorsReducer = (oldState = [], action) => {
   let newState = [];
@@ -16,6 +17,7 @@ const TrackErrorsReducer = (oldState = [], action) => {
     case RECEIVE_TRACK:
     case RECEIVE_TRACKS:
     case REMOVE_TRACK:
+    case QUIT_SESSION:
     case CLEAR_ERRORS:
       return newState;
     default:

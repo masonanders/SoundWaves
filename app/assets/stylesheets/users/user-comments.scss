@@ -1,0 +1,38 @@
+@import '../util/colors';
+
+.user-comments {
+  margin-top: 0;
+}
+
+.user-comment-item {
+  min-height: 40px;
+  padding: 10px 0;
+  border-bottom: 1px solid $background-grey;
+
+  .user_comment_link {
+    p {
+      margin: 0 5px 0 0;
+      color: black;
+    }
+
+    h4 {
+      border-bottom: none;
+    }
+
+    h5 {
+      font-size: 15px;
+      font-weight: 300;
+      color: black;
+      margin-left: 20px;
+    }
+  }
+}
+
+.user-comment-item:hover {
+  background-color: #f7f7f7;
+  color: black;
+
+  h5 {
+    color: black;
+  }
+}

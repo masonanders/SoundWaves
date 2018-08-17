@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_USERS } from '../../actions/user_actions';
+import { QUIT_SESSION } from '../../actions/session_actions';
 
 const UsersSearchReducer = (oldState = [], action) => {
   Object.freeze(oldState);
@@ -10,6 +11,8 @@ const UsersSearchReducer = (oldState = [], action) => {
     case RECEIVE_USERS:
       const userIds = action.users.map(user => user.id);
       return newState.concat(userIds);
+    case QUIT_SESSION:
+      return newState;
     default:
       return oldState;
   }

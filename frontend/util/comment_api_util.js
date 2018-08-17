@@ -14,11 +14,11 @@ export const updateComment = comment => (
   })
 );
 
-export const fetchComments = trackId => (
+export const fetchComments = comment_params => (
   $.ajax({
     url: 'api/comments',
     method: 'get',
-    data: {id: trackId}
+    data: { comment_params }
   })
 );
 

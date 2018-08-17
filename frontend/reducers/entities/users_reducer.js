@@ -5,7 +5,7 @@ import {
   RECEIVE_USERS,
   REMOVE_USER
 } from '../../actions/user_actions';
-import { START_SESSION } from '../../actions/session_actions';
+import { START_SESSION, QUIT_SESSION } from '../../actions/session_actions';
 import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../../actions/track_actions';
 import { RECEIVE_COMMENTS } from '../../actions/comment_actions';
 
@@ -29,6 +29,8 @@ const UsersReducer = (oldState = {}, action) => {
     case RECEIVE_TRACKS:
       action.users.forEach(user => {users[user.id] = user;});
       return merge(newState, oldState, users);
+    case QUIT_SESSION:
+      return newState;
     default:
       return oldState;
   }
