@@ -42,7 +42,13 @@
     }
 
     .home {
+      filter: brightness(60%);
       width: 105px;
+      color: white;
+    }
+
+    .home.highlight {
+      filter: brightness(100%);
       background-color: rgb(15, 15, 15);
       color: white;
     }
@@ -50,6 +56,11 @@
     .home:hover {
       filter: brightness(175%);
     }
+  }
+
+  .highlight {
+    background-color: rgb(15, 15, 15);
+    color: white;
   }
 
   .nav-searchbar-container {
@@ -93,6 +104,11 @@
     justify-content: space-between;
     align-items: center;
     width: 40%;
+
+    .upload {
+      height: 100%;
+      padding: 0 25px;
+    }
 
     a {
       position: relative;

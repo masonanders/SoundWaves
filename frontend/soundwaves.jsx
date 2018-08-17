@@ -3,14 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-
-// TODO Remove following after development!
-import * as UserActions from './actions/user_actions';
-import * as SessionActions from './actions/session_actions';
-import * as SessionModalActions from './actions/session_modal_actions';
-import * as TrackActions from './actions/track_actions';
-import * as CommentActions from './actions/comment_actions';
-
 document.addEventListener('DOMContentLoaded', () => {
   let preState = {};
   if (window.currentUser) {
@@ -23,12 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 
-  // TODO Remove following after development!
-  window.store = store;
-  window.state = () => store.getState();
-  window.userActions = UserActions;
-  window.sessionActions = SessionActions;
-  window.sessionModalActions = SessionModalActions;
-  window.trackActions = TrackActions;
-  window.commentActions = CommentActions;
 });

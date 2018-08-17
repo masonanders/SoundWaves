@@ -7,13 +7,24 @@ class NavBar extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps() {
+  }
+
   handleUserDropdown(e) {
     const { userDrop, openUserDrop, closeUserDrop} = this.props;
     userDrop ? closeUserDrop() : openUserDrop();
   }
 
-  // TODO home button only dark when on the '/stream' page
+  highlightLocation(address, className) {
+    const currentPage = this.props.location.pathname;
+    if (address === currentPage) {
+      className = `${className} highlight`;
+    }
+    return className;
+  }
+
   render() {
+    console.log(this.props);
     const user = this.props.user ? this.props.user : { username: '' };
     const { endSession, userDrop, closeUserDrop } = this.props;
     const userDropClass = userDrop ? 'user open' : 'user';
@@ -26,8 +37,7 @@ class NavBar extends React.Component {
               ><div></div>
             </button>
             <button
-              className="home"
-              onClick={() => console.log('Home')}
+              className={this.highlightLocation('/stream', 'home')}
               ><h3>Home</h3>
             </button>
           </div>
@@ -56,8 +66,7 @@ class NavBar extends React.Component {
 
             <Link to='/upload' >
               <button
-                className="upload"
-                onClick={() => console.log('Upload')}
+                className={this.highlightLocation('/upload', 'upload')}
                 ><h3>Upload</h3>
               </button>
             </Link>
