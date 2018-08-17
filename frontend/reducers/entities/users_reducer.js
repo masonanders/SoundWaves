@@ -7,6 +7,7 @@ import {
 } from '../../actions/user_actions';
 import { START_SESSION } from '../../actions/session_actions';
 import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../../actions/track_actions';
+import { RECEIVE_COMMENTS } from '../../actions/comment_actions';
 
 const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -17,6 +18,7 @@ const UsersReducer = (oldState = {}, action) => {
     case RECEIVE_TRACK:
     case RECEIVE_USER:
       return merge(newState, oldState, { [action.user.id]: action.user });
+    case RECEIVE_COMMENTS:
     case RECEIVE_USERS:
       action.users.forEach(user => {users[user.id] = user;});
       return merge(newState, oldState, users);

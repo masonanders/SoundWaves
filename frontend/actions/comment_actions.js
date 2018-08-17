@@ -4,15 +4,17 @@ export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
+export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
 
 const receiveComment = comment => ({
   type: RECEIVE_COMMENT,
   comment
 });
 
-const receiveComments = comments => ({
+const receiveComments = ({ comments, users }) => ({
   type: RECEIVE_COMMENTS,
-  comments
+  comments,
+  users
 });
 
 const removeComment = id => ({
@@ -55,4 +57,8 @@ export const deleteComment = id => dispatch => (
       comId => dispatch(removeComment(comId)),
       errors => dispatch(receiveCommentErrors(errors))
     )
+);
+
+export const clearComments = () => dispatch => (
+  dispatch({ type: CLEAR_COMMENTS })
 );

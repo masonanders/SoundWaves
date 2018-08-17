@@ -2,12 +2,13 @@ import React from 'react';
 import { Redirect } from 'react-router';
 
 import TrackBanner from './track_show_banner';
+import Comments from '../comments/comments_container';
 import { REMOVE_TRACK, RECEIVE_TRACK_ERRORS } from '../../actions/track_actions';
 
 class TrackShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { action: {} };
+    this.state = { action: {}, comments: null };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,7 +20,8 @@ class TrackShow extends React.Component {
       .then(action => this.setState({
           title: action.tracks[0].title,
           description: action.tracks[0].description,
-          id: action.tracks[0].id
+          id: action.tracks[0].id,
+          loadComments: true
       })
     );
   }
@@ -32,6 +34,21 @@ class TrackShow extends React.Component {
     track.id = state.id;
 
     return track;
+  }
+
+  submitComment(e) {
+    if (e.currentTarget.id === 'comment' &&
+      e.key === 'Enter' &&
+      e.target.value !== ''
+    ) {
+      const comment = {
+        author_id:this.props.state.session.currentUser,
+        track_id: this.state.id,
+        content: e.target.value
+      };
+      this.props.createComment(comment);
+      e.target.value = '';
+    }
   }
 
   resetState() {
@@ -95,6 +112,7 @@ class TrackShow extends React.Component {
       description: this.props.track.description
     });
   }
+
 
   renderUserButtons() {
     const deleteEdit = (
@@ -166,22 +184,42 @@ class TrackShow extends React.Component {
               pause: this.props.pause,
               playNew: this.props.playNew
             }}
-            />
+          />
 
-            <div className='track-body'>
-              <div className='track-artist-info'>
-                <div className='artist-icon'>
+          <div className='track-body'>
+            <div className='track-main'>
+              <div className='comment-form-wraper'>
+                <div className='comment-form'>
                   <img src={window.images.defaultUserIcon}/>
-                  <h5>{artist.username}</h5>
+                    <input
+                      id='comment'
+                      type='text'
+                      onKeyPress={(e) => this.submitComment(e)}
+                      placeholder='Write a comment'/>
                 </div>
-                { artist.id === currentUser ? this.renderUserButtons() : null }
+                <div>
+                </div>
               </div>
 
-              <div className='comment-body'>
-                { this.renderBody() }
-              </div>
+              <div className='track-main-body'>
+                <div className='track-artist-info'>
+                  <div className='artist-icon'>
+                    <img src={window.images.defaultUserIcon}/>
+                    <h5>{artist.username}</h5>
+                  </div>
+                  { artist.id === currentUser ? this.renderUserButtons() : null }
+                </div>
 
-              <div className='track-sidebar'>
+                <div className='comment-body'>
+                  { this.renderBody() }
+                  { this.state.loadComments ?
+                      <Comments trackTitle={this.props.match.params.title} />
+                      : null }
+                </div>
+              </div>
+            </div>
+
+            <div className='track-sidebar'>
             </div>
           </div>
 

@@ -2,6 +2,7 @@ class Api::CommentsController < ApplicationController
   def index
     @comments = Track.find(params[:id]).comments
     if @comments
+      @users = @comments.map{ |comment| comment.author }.uniq
       render :index
     else
       render json: ['Comments not found'], status: 404

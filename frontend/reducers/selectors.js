@@ -12,7 +12,7 @@ export const findTrackByTitle = (state, title) => {
 
 export const findArtistByTrackTitle = (state, title) => {
   const track = findTrackByTitle(state, title);
-  
+
   if (track) {
     const artist = state.entities.users[track.artist_id];
 
