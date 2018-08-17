@@ -8,6 +8,6 @@
 
 User.delete_all
 Track.delete_all
-Comments.delete_all
+Comment.delete_all
 
 demo_user = User.create(username: 'demo_user', password: 'iliketodemo')
