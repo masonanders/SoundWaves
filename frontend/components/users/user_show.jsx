@@ -1,4 +1,5 @@
 import React from 'react';
+import UserTrackIndex from './user_track_index_container';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -15,11 +16,15 @@ class UserShow extends React.Component {
       }))
       .then(() => this.props.fetchTrackBy({ artist_id: this.state.user.id }))
       .then(res => this.setState({
-        tracks: res.tracks
+        tracks: res.tracks,
+        loadedTracks: true
       }));
   }
 
+// TODO Delete account button if own user page
+
   render() {
+    const comments = [1,2,3,4,5];
     console.log('user', this.state.user);
     console.log('tracks', this.state.tracks);
     return (
@@ -43,11 +48,14 @@ class UserShow extends React.Component {
 
           <div className='user-body'>
             <div className='user-track-index'>
-              <h1>Track Index</h1>
+              {this.state.loadedTracks ?
+                <UserTrackIndex tracks={this.state.tracks}/> :
+                null
+              }
             </div>
 
             <div className='user-sidebar'>
-              <h1>Comments</h1>
+              <h4><div></div>{`${comments.length} comments`}</h4>
             </div>
           </div>
         </div>

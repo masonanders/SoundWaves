@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {Howl, Howler} from 'howler';
 
+// TODO indicate loading somehow
+
 class PlayerController extends React.Component{
   constructor(props) {
     super(props);

@@ -24,12 +24,14 @@ class TrackIndexItem extends React.Component {
 
     return (
       <li key={track.title} className='track-item'>
+        { this.props.usersIndex ? null :
         <h2 className='track-header'>
           <Link to={`/${artist}`}>
             <img src={window.images.defaultUserIcon} />
             <h4>{artist}</h4>
           </Link> posted this
         </h2>
+        }
 
 
           <div className='track-controls'>
