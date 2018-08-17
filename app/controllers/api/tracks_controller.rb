@@ -3,6 +3,7 @@ class Api::TracksController < ApplicationController
     @track = Track.find(params[:id])
     if @track
       @user = @track.artist
+      @comments = @track.comments
       render :show
     else
       render json: ['Track not found'], status: 404
@@ -55,7 +56,7 @@ class Api::TracksController < ApplicationController
     if logged_in && @track.artist_id == current_user.id
       @track.delete
       render json: @track.id, status: 200
-    elsif !logged_in || @track.id != current_user.id
+    elsif !logged_in || @track.artist_id != current_user.id
       render json: ['You do not have permissiion to delete this track'], status: 401
     else
       render json: ['Something went wrong...'], status: 500

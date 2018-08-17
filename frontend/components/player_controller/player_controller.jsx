@@ -40,8 +40,6 @@ class PlayerController extends React.Component{
         this.pause();
         this.handleNextSong();
       },
-      onplayerror: () => console.error('PLAY ERRROR'),
-      onloaderror: () => console.error('LOAD ERRROR')
     });
   }
 

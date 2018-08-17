@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index, :create, :update, :destroy]
     resource :session, only: [:create, :destroy]
     resources :tracks, except: [:edit, :new]
+    resources :comments, only: [:index, :create, :update, :destroy]
   end
   root "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
