@@ -35,6 +35,10 @@ class UserShow extends React.Component {
   }
 
   render() {
+    console.log('comments', this.state.comments);
+    console.log('com_tracks', this.state.comment_tracks);
+    console.log('users', this.state.user);
+    console.log('tracks', this.state.tracks);
     const comments = this.state.comments.map(comment =>
       <UserComment
         key={comment.id}
@@ -42,11 +46,6 @@ class UserShow extends React.Component {
         track={this.state.comment_tracks[comment.track_id]}
         />
     );
-    console.log('user', this.state.user);
-    console.log('current user', this.props.currentUser);
-    console.log('tracks', this.state.tracks);
-    console.log('comments', this.state.comments);
-    console.log('comment_tracks', this.state.comment_tracks);
     return (
       <div className='content'>
         <div className='user-content'>
@@ -91,7 +90,7 @@ class UserShow extends React.Component {
             <div className='user-sidebar'>
               <h4><div></div>{`${comments.length} comments`}</h4>
               <ul className='user-comments'>
-                { comments }
+                { comments.reverse() }
               </ul>
             </div>
           </div>

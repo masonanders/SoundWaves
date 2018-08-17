@@ -24,7 +24,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const user = this.props.user ? this.props.user : { username: '' };
     const { endSession, userDrop, closeUserDrop } = this.props;
     const userDropClass = userDrop ? 'user open' : 'user';
@@ -45,13 +44,17 @@ class NavBar extends React.Component {
 
           <div className="nav-searchbar-container">
             <input
+              onChange={(e) => {
+                e.target.placeholder = 'Not yet implemented';
+                e.target.value = '';
+              }}
               className="nav-searchbar"
               type='search'
               placeholder='Search'
             />
           <button
             className="nav-search-button"
-            onClick={() => console.log('Search')}
+            onClick={null}
             />
           </div>
 
@@ -59,7 +62,6 @@ class NavBar extends React.Component {
             <a href='https://www.linkedin.com/in/mason-anders-416274130/' >
               <button
                 className="self-promotion"
-                onClick={() => console.log('Meet me')}
                 ><h3>Meet the developer</h3>
               </button>
             </a>

@@ -4,8 +4,8 @@ class Api::CommentsController < ApplicationController
     value = params[:comment_params].values.first
     @comments = Comment.where(key => value)
     if @comments
-      @users = @comments.map{ |comment| comment.author }.uniq
-      @tracks = @comments.map{ |comment| comment.track }.uniq
+      @users = @comments.map{ |comment| comment.author }.uniq.reject{ |item| item.nil? }
+      @tracks = @comments.map{ |comment| comment.track }.uniq.reject{ |item| item.nil? }
       render :index
     else
       render json: ['Comments not found'], status: 404
