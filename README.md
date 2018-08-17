@@ -54,4 +54,7 @@ As my first large-scale project, this has been an incredible learning experience
 After the two weeks of intense work I feel satisfied with my product but plan to continue working to make improvements to it during my free time.
 
 #### Future features may include:
----
+* Search for tracks by keyword.
+* The ability to upload user icons and track artwork.
+* The ability to 'favorite' tracks and view tracks by favorite
+* Track and display the amount of plays each track has
