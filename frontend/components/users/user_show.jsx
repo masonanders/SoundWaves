@@ -28,6 +28,25 @@ class UserShow extends React.Component {
       }));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.user !== this.state.user.username) {
+      this.props.fetchUserBy({ username: this.props.username })
+        .then(res => this.setState({
+          user: res.users[0]
+        }))
+        .then(() => this.props.fetchTrackBy({ artist_id: this.state.user.id }))
+        .then(res => this.setState({
+          tracks: res.tracks,
+          loadedTracks: true
+        }))
+        .then(() => this.props.fetchComments({ author_id: this.state.user.id }))
+        .then(res => this.setState({
+          comments: res.comments,
+          comment_tracks: res.tracks
+        }));
+    }
+  }
+
   handleDelete() {
     const userId = this.state.user.id;
     this.props.endSession()
