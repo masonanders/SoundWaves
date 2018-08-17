@@ -14,10 +14,12 @@ class Api::TracksController < ApplicationController
     # TODO search by keywords, return index with limit instead of all
     key = all_track_params.keys[0]
     value = all_track_params.values[0]
-    limit = params[:limit] || 1
+    limit = params[:limit] || false
     tracks = key == 'all' ? Track.all : Track.where(key => value)
     if tracks
-      @tracks = [].concat(tracks).shuffle.shift(limit.to_i)
+      found = [].concat(tracks).shuffle
+      send = (limit ? found.shift(limit.to_i) : found)
+      @tracks = send
       @users = @tracks.map { |track| track.artist }
       render :index, status: 200
     else

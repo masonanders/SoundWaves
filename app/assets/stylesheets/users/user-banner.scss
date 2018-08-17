@@ -1,0 +1,32 @@
+.user-banner {
+  display: flex;
+  align-items: center;
+  height: 260px;
+  width: 100%;
+  background-image: image_url('splash/splash-header');
+  background-size: cover;
+  background-position: 0 -80px;
+
+  img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    margin-left: 30px;
+  }
+
+  .banner-user-info {
+    height: 100%;
+    width: 200px;
+    margin-left: 30px;
+
+    h2 {
+      font-size: 25px;
+      font-weight: 400;
+      position: absolute;
+      padding: 13px 10px;
+      color: white;
+      background-color: rgba(0,0,0,0.8);
+      margin-top: 30px;
+    }
+  }
+}
