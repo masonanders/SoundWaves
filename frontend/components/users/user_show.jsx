@@ -61,6 +61,9 @@ class UserShow extends React.Component {
         track={this.state.comment_tracks[comment.track_id]}
         />
     );
+
+    const s = comments.length === 1 ? '' : 's';
+
     return (
       <div className='content'>
         <div className='user-content'>
@@ -103,7 +106,7 @@ class UserShow extends React.Component {
             </div>
 
             <div className='user-sidebar'>
-              <h4><div></div>{`${comments.length} comments`}</h4>
+              <h4><div></div>{`${comments.length} comment${s}`}</h4>
               <ul className='user-comments'>
                 { comments.reverse() }
               </ul>
