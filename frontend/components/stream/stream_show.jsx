@@ -18,7 +18,7 @@ const Stream = (props) => {
             <Link to='/stream'><h1>Stream</h1></Link>
           </div>
 
-          <h2>Here are some recent tracks we think you would enjoy:</h2>
+          <h2>Here are some recent tracks we think you would enjoy</h2>
 
           <StreamTrackIndex />
         </div>
