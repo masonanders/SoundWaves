@@ -56,7 +56,7 @@ class UserShow extends React.Component {
   warning() {
     setTimeout(() => this.setState({ delete: null }), 4000 );
     return this.state.user.username === 'demo_user' ?
-    <h4>Nice try. But I cant let you delete the demo account.</h4> :
+    <h4>Nice try. But I can't let you delete the demo account.</h4> :
     <div>
       <h4>Are you sure you want to delete your account?</h4>
       <div className='confirm-delete-buttons'>
