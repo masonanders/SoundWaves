@@ -36,6 +36,8 @@ const Splash = (props) => {
           <Search />
         </section>
       </div>
+      <div style={{height: '500px'}}>
+      </div>
     </div>
   );
 };
