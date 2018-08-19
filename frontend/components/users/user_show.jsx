@@ -53,6 +53,19 @@ class UserShow extends React.Component {
       .then(() => this.props.deleteUser(userId));
   }
 
+  warning() {
+    setTimeout(() => this.setState({ delete: null }), 4000 );
+    return this.state.user.username === 'demo_user' ?
+    <h4>Nice try. But I cant let you delete the demo account.</h4> :
+    <div>
+      <h4>Are you sure you want to delete your account?</h4>
+      <div className='confirm-delete-buttons'>
+        <button className='confirm-yes' onClick={() => this.handleDelete()}>Yes</button>
+        <button className='confirm-no' onClick={() => this.setState({ delete: false })}>No</button>
+      </div>
+    </div>;
+  }
+
   render() {
     const comments = this.state.comments.map(comment =>
       <UserComment
@@ -80,15 +93,10 @@ class UserShow extends React.Component {
             </div>
 
             <div className='user-buttons'>
-              {  this.props.currentUser === this.state.user.id &&
-                this.state.user.username !== 'demo_user' ?
+              {  this.props.currentUser === this.state.user.id ?
                   this.state.delete ?
                     <div className='confirm-delete-account'>
-                      <h4>Are you sure you want to delete your account?</h4>
-                      <div className='confirm-delete-buttons'>
-                        <button className='confirm-yes' onClick={() => this.handleDelete()}>Yes</button>
-                        <button className='confirm-no' onClick={() => this.setState({ delete: false })}>No</button>
-                      </div>
+                      {this.warning()}
                     </div> :
                   <button
                   onClick={ () => this.setState({ delete: true }) }>
