@@ -22,6 +22,8 @@ Features
 #### Sliding Modal
 Upon clicking on the log-in/create-account button, the page fades slightly as a small window smoothly slides down from the top of the screen with fields to type in a user's credentials.
 
+<img src="http://media.giphy.com/media/idM8YHkDB2buwZz2kx/giphy.gif" height="500" />
+
 This was accomplished by use of a `ui.sesion_modal` slice in the global Redux state. When the `openModal()` function was dispatched it would set the slice of state to `true` and cause the session component to re-render.
 
 Using conditional logic within the modal component the boolean value of it's state would change it's CSS class name and as a result cause it to toggle on or off it's `visibility` and use `transition` the linearly change the `opacity` of the component as well as the horizontal `position` of the form.
@@ -30,12 +32,16 @@ Using conditional logic within the modal component the boolean value of it's sta
 #### Demo User ghost typing
 If the user opts to log in with the demo account, at the push of a single button the modal opens and a username and password are typed into the input fields automatically.
 
+<img src="http://media.giphy.com/media/g0mkkySaz5kXEmxFGW/giphy.gif" height="500" />
+
 This was all done in vanilla JavaScript. Upon the click of the Demo Account button, a function is invoked that starts a series of `setTimeout()` functions.
 
 The initial function houses a string which contains the username or password that will be going into their appropriate input fields. After a short delay (to account for the the sliding modal) the function splits the string into an array and passes it to a different `setTimeout()` function which, after another short delay to simulate human typing speeds, `shift()`s an element off it's given array and returns it where it is then added to the current value of the input. If the array is then empty the `setTimeout()` function sets a boolean which instantiates the next series of events but if there are elements still in it's given array it will call itself until that array is empty.
 
 #### Uploading and playing tracks
 Users can navigate the website freely without the concern of interrupting their listening experience.
+
+<img src="http://media.giphy.com/media/9P597Z3uVd44KfbeYe/giphy.gif" height="500" />
 
 A React component is rendered on the outer scope of the app as log as a user is currently logged in. This component locally holds an Howler.js object that contains the audio data needed for music to play.
 
