@@ -36,7 +36,9 @@ If the user opts to log in with the demo account, at the push of a single button
 
 This was all done in vanilla JavaScript. Upon the click of the Demo Account button, a function is invoked that starts a series of `setTimeout()` functions.
 
-The initial function houses a string which contains the username or password that will be going into their appropriate input fields. After a short delay (to account for the the sliding modal) the function splits the string into an array and passes it to a different `setTimeout()` function which, after another short delay to simulate human typing speeds, `shift()`s an element off it's given array and returns it where it is then added to the current value of the input. If the array is then empty the `setTimeout()` function sets a boolean which instantiates the next series of events but if there are elements still in it's given array it will call itself until that array is empty.
+<img src="https://i.imgur.com/x6XiQGh.png" height="500" />
+
+The initial function houses a string which contains the username that will be going into the input value of the `username` slice of local state. The function splits the string into an array and then after a short delay (to account for the the sliding modal) passes it to a contained function which, after another short delay to simulate human typing speeds, `.shift()`s an element off it's given array and adds it to the value of it's given field. The function will continue the process by calling itself and passing on the `.shift()`ed array until the array is empty. It will then proceed on to the next series of events by invoking the function behind the 'Continue' button and providing a password by calling itself to repeat the process if no password has already been entered.
 
 #### Uploading and playing tracks
 Users can navigate the website freely without the concern of interrupting their listening experience.
