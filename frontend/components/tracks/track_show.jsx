@@ -185,18 +185,20 @@ class TrackShow extends React.Component {
   }
 
   render() {
+    const { state } = this.props;
     const artist = this.props.artist
       ? this.props.artist
       : { username: "", id: null };
-    const currentUser = this.props.state.session.currentUser;
+    const currentUserId = state.session.currentUser;
+    const currentUser = state.entities.users[currentUserId];
 
     return (
       <div className="content">
         <div className="track-show-content">
           <TrackBanner
-            state={this.props.state}
+            state={state}
             track={this.props.track}
-            artist={this.props.artist}
+            artist={artist}
             functions={{
               play: this.props.play,
               pause: this.props.pause,
@@ -208,7 +210,7 @@ class TrackShow extends React.Component {
             <div className="track-main">
               <div className="comment-form-wraper">
                 <div className="comment-form">
-                  <img src={window.images.defaultUserIcon} />
+                  <img src={window.images.userIcons[currentUser.imageId]} />
                   <input
                     id="comment"
                     type="text"
@@ -222,10 +224,12 @@ class TrackShow extends React.Component {
               <div className="track-main-body">
                 <div className="track-artist-info">
                   <div className="artist-icon">
-                    <img src={window.images.defaultUserIcon} />
+                    <img src={window.images.userIcons[artist.imageId]} />
                     <h5>{artist.username}</h5>
                   </div>
-                  {artist.id === currentUser ? this.renderUserButtons() : null}
+                  {artist.id === currentUser.id
+                    ? this.renderUserButtons()
+                    : null}
                 </div>
 
                 <div className="comment-body">

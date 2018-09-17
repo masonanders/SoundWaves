@@ -31,6 +31,7 @@ class PlayerController extends React.Component {
     this.audio = new Howl({
       src: this.getAudioSrc(),
       preload: true,
+      html5: true,
       onpause: () => clearInterval(this.time),
       onplay: () => {
         this.setState({
@@ -274,7 +275,7 @@ class PlayerController extends React.Component {
 
         <div className="player-info">
           <Link style={hideLinks} to={`/${artist.username}/${track.title}`}>
-            <img src={window.images.defaultTrackIcon} />
+            <img src={window.images.trackImages[track.imageId]} />
           </Link>
 
           <div className="player-headers">

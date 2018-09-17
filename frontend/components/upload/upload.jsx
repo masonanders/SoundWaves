@@ -83,7 +83,7 @@ class Upload extends React.Component {
 
           <div className="form-body">
             <div className="form-image">
-              <img src={window.images.defaultTrackArtwork} />
+              <img src={window.images.uploadTrackArtwork} />
             </div>
             <div className="form-input">
               <label>

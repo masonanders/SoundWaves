@@ -103,7 +103,7 @@ class UserShow extends React.Component {
       <div className="content">
         <div className="user-content">
           <div className="user-banner">
-            <img src={window.images.defaultUserIcon} />
+            <img src={window.images.userIcons[this.state.user.imageId]} />
             <div className="banner-user-info">
               <h2>{this.state.user.username}</h2>
             </div>

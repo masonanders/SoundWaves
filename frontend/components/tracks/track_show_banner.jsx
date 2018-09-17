@@ -58,7 +58,7 @@ class TrackBanner extends React.Component {
         </div>
 
         <div className="track-artwork">
-          <img src={window.images.defaultTrackArtwork} />
+          <img src={window.images.trackImages[track.imageId]} />
         </div>
       </div>
     );
