@@ -66,3 +66,44 @@ After the two weeks of intense work I feel satisfied with my product but plan to
 * The ability to upload user icons and track artwork.
 * The ability to 'favorite' tracks and view tracks by favorite
 * Track and display the amount of plays each track has
+
+---
+
+#### Accreditations 
+
+User_1 by Bogomil Mihaylov
+User_2 by Kelly Sikkema
+User_3 by ian dooley
+User_4 by chuttersnap
+User_5 by Kwinten De Pauw
+User_6 by John Fornander
+User_7 by Clark Young
+User_8 by Alphacolor 13
+User_9 by Flavio Gasperini
+User_10 by Jamille Queiroz
+
+Track_1 by Edward Cisneros
+Track_2 by Valentino Funghi
+Track_3 by Gabriel Barletta
+Track_4 by Mark Solarski
+Track_5 by Michael Weibel
+Track_6 by Alphacolor 13
+Track_7 by Benjamin Patin
+Track_8 by Mitch Lensink
+Track_9 by Nahir Giorgio
+Track_10 by Austin Neill
+Track_11 by Michael Aleo
+Track_12 by Adi Goldstein
+Track_13 by Joseph Pearson
+Track_14 by William Fleury
+Track_15 by Matthew Kalapuch
+Track_16 by Akshay Chauhan
+Track_17 by Robson Hatsukami Morgan
+Track_18 by Lorenzo Spoleti
+Track_19 by Darius Soodmand
+Track_20 by Ricardo Abreu
+Track_21 by Adi Goldstein
+Track_22 by Wesley Tingey
+Track_23 by The Nigmatic
+Track_24 by Kyle Arcilla
+Track_25 by rawpixel
