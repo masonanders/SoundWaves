@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavUserDropdown = props => {
-  const dropdownCass = props.userDrop
+  const dropdownClass = props.userDrop
     ? "nav-user-dropdown open"
     : "nav-user-dropdown";
   // TODO nav bar closes when clicked outside
   // TODO nav bar closes when page rerenders
   return (
-    <div className={dropdownCass}>
+    <div className={dropdownClass}>
       <ul>
         <li>
           <Link to={`/${props.username}`}>Profile</Link>

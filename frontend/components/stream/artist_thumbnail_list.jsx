@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ArtistThumbnailItem from "./artist_thumbnail_item";
 
 class ArtistThumbnailList extends React.Component {
   componentWillMount() {
@@ -12,20 +12,11 @@ class ArtistThumbnailList extends React.Component {
     return state.search.users.map(id => users[id]);
   }
 
-  userLi(user) {
-    return (
-      <li key={user.id} className="user-thumbnail">
-        <Link to={`/${user.username}`}>
-          <img src={window.images.defaultUserIcon} />
-          <h4>{user.username}</h4>
-        </Link>
-      </li>
-    );
-  }
-
   render() {
     this.getUsersByIds();
-    const users = this.getUsersByIds().map(user => this.userLi(user));
+    const users = this.getUsersByIds().map(user => (
+      <ArtistThumbnailItem key={user.id} user={user} />
+    ));
     return (
       <div className="artist-thumbnail-list">
         <ul>{users}</ul>

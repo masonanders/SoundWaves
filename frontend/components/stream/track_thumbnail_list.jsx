@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { randomNumber } from "../../util/tools";
+import TrackThumbnailItem from "./track_thumbnail_item";
 
 class TrackThumbnailList extends React.Component {
   constructor(props) {
@@ -18,21 +20,14 @@ class TrackThumbnailList extends React.Component {
     return state.search.tracks.slice(0, 3).map(id => tracks[id]);
   }
 
-  trackLi(track) {
-    const { users } = this.props.state.entities;
-    return (
-      <li key={track.id} className="track-thumbnail">
-        <Link to={`/${users[track.artist_id].username}/${track.title}`}>
-          <img src={window.images.defaultTrackIcon} />
-          <h3>{users[track.artist_id].username}</h3>
-          <h4>{track.title}</h4>
-        </Link>
-      </li>
-    );
-  }
-
   render() {
-    const tracks = this.state.tracks.map(track => this.trackLi(track));
+    const tracks = this.state.tracks.map(track => (
+      <TrackThumbnailItem
+        key={track.id}
+        track={track}
+        users={this.props.state.entities.users}
+      />
+    ));
     return (
       <div className="track-thumbnail-list">
         <ul>{tracks}</ul>

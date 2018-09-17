@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { randomNumber } from "../../util/tools";
 
 class TrackIndexItem extends React.Component {
   handlePlayButton() {
@@ -17,6 +18,7 @@ class TrackIndexItem extends React.Component {
     const { track, state } = this.props;
     const { player } = state.ui;
     const artist = state.entities.users[track.artist_id].username;
+    const artistImageId = state.entities.users[track.artist_id].imageId;
     const currentTrack = player.currentTrack === track.id ? true : false;
     const playButtonState =
       currentTrack && player.playing ? "play-button pause" : "play-button";
@@ -26,7 +28,7 @@ class TrackIndexItem extends React.Component {
         {this.props.usersIndex ? null : (
           <h2 className="track-header">
             <Link to={`/${artist}`}>
-              <img src={window.images.defaultUserIcon} />
+              <img src={window.images.userIcons[artistImageId]} />
               <h4>{artist}</h4>
             </Link>{" "}
             posted this
@@ -35,7 +37,7 @@ class TrackIndexItem extends React.Component {
 
         <div className="track-controls">
           <Link to={`/${artist}/${track.title}`}>
-            <img src={window.images.defaultTrackArtwork} />
+            <img src={window.images.trackImages[track.imageId]} />
           </Link>
 
           <div className="track-body">
