@@ -73,41 +73,44 @@ After the two weeks of intense work I feel satisfied with my product but plan to
 
 #### Accreditations
 
-User_1 by Bogomil Mihaylov
-User_2 by Kelly Sikkema
-User_3 by ian dooley
-User_4 by chuttersnap
-User_5 by Kwinten De Pauw
-User_6 by John Fornander
-User_7 by Clark Young
-User_8 by Alphacolor 13
-User_9 by Flavio Gasperini
-User_10 by Jamille Queiroz
+##### User photos from [Unsplash](https://unsplash.com/)
+    user_1 by Bogomil Mihaylov  
+    user_2 by Kelly Sikkema  
+    user_3 by ian dooley  
+    user_4 by chuttersnap  
+    user_5 by Kwinten De Pauw  
+    user_6 by John Fornander  
+    user_7 by Clark Young  
+    user_8 by Alphacolor 13  
+    user_9 by Flavio Gasperini  
+    user_10 by Jamille Queiroz  
 
-Track_1 by Edward Cisneros
-Track_2 by Valentino Funghi
-Track_3 by Gabriel Barletta
-Track_4 by Mark Solarski
-Track_5 by Michael Weibel
-Track_6 by Alphacolor 13
-Track_7 by Benjamin Patin
-Track_8 by Mitch Lensink
-Track_9 by Nahir Giorgio
-Track_10 by Austin Neill
-Track_11 by Michael Aleo
-Track_12 by Adi Goldstein
-Track_13 by Joseph Pearson
-Track_14 by William Fleury
-Track_15 by Matthew Kalapuch
-Track_16 by Akshay Chauhan
-Track_17 by Robson Hatsukami Morgan
-Track_18 by Lorenzo Spoleti
-Track_19 by Darius Soodmand
-Track_20 by Ricardo Abreu
-Track_21 by Adi Goldstein
-Track_22 by Wesley Tingey
-Track_23 by The Nigmatic
-Track_24 by Kyle Arcilla
-Track_25 by rawpixel
+##### Track photos from [Unsplash](https://unsplash.com/) 
 
-upload-track-artwork by kevin laminto on Unsplash
+    track_1 by Edward Cisneros  
+    track_2 by Valentino Funghi  
+    track_3 by Gabriel Barletta  
+    track_4 by Mark Solarski  
+    track_5 by Michael Weibel  
+    track_6 by Alphacolor 13  
+    track_7 by Benjamin Patin  
+    track_8 by Mitch Lensink  
+    track_9 by Nahir Giorgio  
+    track_10 by Austin Neill  
+    track_11 by Michael Aleo  
+    track_12 and track_21 by Adi Goldstein  
+    track_13 by Joseph Pearson  
+    track_14 by William Fleury  
+    track_15 by Matthew Kalapuch  
+    track_16 by Akshay Chauhan  
+    track_17 by Robson Hatsukami Morgan  
+    track_18 by Lorenzo Spoleti  
+    track_19 by Darius Soodmand  
+    track_20 by Ricardo Abreu  
+    track_22 by Wesley Tingey  
+    track_23 by The Nigmatic  
+    track_24 by Kyle Arcilla  
+    track_25 by rawpixel  
+
+##### Upload track artwork from [Unsplash](https://unsplash.com/)
+    upload-track-artwork by kevin laminto
