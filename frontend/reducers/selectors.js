@@ -20,5 +20,6 @@ export const findArtistByTrackTitle = (state, title) => {
       return artist;
     }
   }
+
   return null;
 };

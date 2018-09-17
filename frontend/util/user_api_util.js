@@ -1,38 +1,33 @@
-export const fetchUserBy = (userParams, limit) => (
+export const fetchUserBy = (userParams, limit) =>
   $.ajax({
-    url: '/api/users',
-    method: 'get',
+    url: "/api/users",
+    method: "get",
     data: { userParams, limit }
-  })
-);
+  });
 
-export const fetchUser = id => (
+export const fetchUser = id =>
   $.ajax({
     url: `/api/users/${id}`,
-    method: 'get'
-  })
-);
+    method: "get"
+  });
 
-export const createUser = user => (
+export const createUser = user =>
   $.ajax({
-    url: '/api/users',
-    method: 'post',
+    url: "/api/users",
+    method: "post",
     data: { user }
-  })
-);
+  });
 
-export const updateUser = user => (
+export const updateUser = user =>
   $.ajax({
     url: `/api/users/${user.id}`,
-    method: 'patch',
+    method: "patch",
     data: { user }
-  })
-);
+  });
 
-export const deleteUser = id => (
+export const deleteUser = id =>
   $.ajax({
     url: `/api/users/${id}`,
-    method: 'delete',
+    method: "delete",
     data: { id }
-  })
-);
+  });

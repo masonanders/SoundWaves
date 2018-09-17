@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import Comments from  './comments.jsx';
+import { connect } from "react-redux";
+import Comments from "./comments.jsx";
 
 import {
   fetchComments,
@@ -7,10 +7,10 @@ import {
   updateComment,
   deleteComment,
   clearComments
-} from '../../actions/comment_actions';
-import { findTrackByTitle } from '../../reducers/selectors';
+} from "../../actions/comment_actions";
+import { findTrackByTitle } from "../../reducers/selectors";
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   state: state,
   comments: state.entities.comments,
   users: state.entities.users,
@@ -26,4 +26,7 @@ const mapDispatchToProps = dispatch => ({
   clearComments: () => dispatch(clearComments())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Comments);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Comments);

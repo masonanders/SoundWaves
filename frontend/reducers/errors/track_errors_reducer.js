@@ -1,13 +1,13 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
 import {
   RECEIVE_TRACK,
   RECEIVE_TRACKS,
   REMOVE_TRACK,
   RECEIVE_TRACK_ERRORS
-} from '../../actions/track_actions';
-import { CLEAR_ERRORS } from '../../actions/errors_actions';
-import { QUIT_SESSION } from '../../actions/session_actions';
+} from "../../actions/track_actions";
+import { CLEAR_ERRORS } from "../../actions/errors_actions";
+import { QUIT_SESSION } from "../../actions/session_actions";
 
 const TrackErrorsReducer = (oldState = [], action) => {
   let newState = [];

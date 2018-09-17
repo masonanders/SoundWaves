@@ -1,10 +1,10 @@
-import React from 'react';
-import CommentListItem from './comment_list_item';
+import React from "react";
+import CommentListItem from "./comment_list_item";
 
 class Comments extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { content: '' };
+    this.state = { content: "" };
   }
 
   componentDidMount() {
@@ -20,28 +20,26 @@ class Comments extends React.Component {
   }
 
   render() {
-    const comments = Object.keys(this.props.comments).map(
-      id => {
-        const comment = this.props.comments[id];
-        const user = this.props.users[comment.author_id];
-        const destroy = (user.id === this.props.currentUserId ? true : false);
-        return <CommentListItem
+    const comments = Object.keys(this.props.comments).map(id => {
+      const comment = this.props.comments[id];
+      const user = this.props.users[comment.author_id];
+      const destroy = user.id === this.props.currentUserId ? true : false;
+      return (
+        <CommentListItem
           destroy={destroy}
           key={id}
           id={id}
           comment={comment}
           author={user}
           deleteComment={this.props.deleteComment}
-          />;
-      }
-    );
+        />
+      );
+    });
 
     return (
       <div>
-        <div className='comment-list'>
-          <ul>
-            {comments.reverse()}
-          </ul>
+        <div className="comment-list">
+          <ul>{comments.reverse()}</ul>
         </div>
       </div>
     );

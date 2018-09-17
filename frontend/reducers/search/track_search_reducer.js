@@ -1,7 +1,7 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
-import { RECEIVE_TRACKS } from '../../actions/track_actions';
-import { QUIT_SESSION } from '../../actions/session_actions';
+import { RECEIVE_TRACKS } from "../../actions/track_actions";
+import { QUIT_SESSION } from "../../actions/session_actions";
 
 const TrackSearchReducer = (oldState = [], action) => {
   Object.freeze(oldState);

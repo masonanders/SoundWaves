@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import UserShow from './user_show';
+import { connect } from "react-redux";
+import UserShow from "./user_show";
 
-import { fetchTrackBy } from '../../actions/track_actions';
-import { fetchUserBy, deleteUser } from '../../actions/user_actions';
-import { fetchComments } from '../../actions/comment_actions';
-import { endSession } from '../../actions/session_actions';
+import { fetchTrackBy } from "../../actions/track_actions";
+import { fetchUserBy, deleteUser } from "../../actions/user_actions";
+import { fetchComments } from "../../actions/comment_actions";
+import { endSession } from "../../actions/session_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   state: state,
@@ -20,4 +20,7 @@ const mapDispatchToProps = dispatch => ({
   endSession: () => dispatch(endSession())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserShow);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserShow);

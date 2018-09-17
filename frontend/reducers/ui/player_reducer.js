@@ -1,12 +1,12 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
 import {
   PLYAER_PLAY,
   PLYAER_PAUSE,
   PLAYER_STOP,
   PLAY_NEW_TRACK
-} from '../../actions/player_actions';
-import { QUIT_SESSION } from '../../actions/session_actions';
+} from "../../actions/player_actions";
+import { QUIT_SESSION } from "../../actions/session_actions";
 
 const _nullTrack = {
   currentTrack: null,
@@ -25,11 +25,10 @@ const PlayerReducer = (oldState = _nullTrack, action) => {
     case PLAYER_STOP:
       return merge(newState, oldState, _nullTrack);
     case PLAY_NEW_TRACK:
-      return merge(
-        newState,
-        oldState,
-        { playing: true, currentTrack: action.newTrack.id }
-      );
+      return merge(newState, oldState, {
+        playing: true,
+        currentTrack: action.newTrack.id
+      });
     case QUIT_SESSION:
       return newState;
     default:

@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 
-export default (props) => (
-  <li key={props.id} className='comment-list-item'>
+export default props => (
+  <li key={props.id} className="comment-list-item">
+    <div>
+      <img src={window.images.defaultUserIcon} />
       <div>
-        <img src={window.images.defaultUserIcon}/>
-        <div>
-          <h4>{props.author.username}</h4>
-          <p>{props.comment.content}</p>
-        </div>
+        <h4>{props.author.username}</h4>
+        <p>{props.comment.content}</p>
       </div>
-      { props.destroy ?
-        <button onClick={() => props.deleteComment(props.id)} /> :
-          null
-        }
+    </div>
+    {props.destroy ? (
+      <button onClick={() => props.deleteComment(props.id)} />
+    ) : null}
   </li>
 );

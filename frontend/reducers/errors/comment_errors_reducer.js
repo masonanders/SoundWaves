@@ -1,14 +1,13 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
 import {
   RECEIVE_COMMENTS,
   RECEIVE_COMMENT,
   REMOVE_COMMENT,
   RECEIVE_COMMENT_ERRORS
-} from '../../actions/comment_actions';
-import { CLEAR_ERRORS } from '../../actions/errors_actions';
-import { QUIT_SESSION } from '../../actions/session_actions';
-
+} from "../../actions/comment_actions";
+import { CLEAR_ERRORS } from "../../actions/errors_actions";
+import { QUIT_SESSION } from "../../actions/session_actions";
 
 const CommentErrorsReducer = (oldState = [], action) => {
   let newState = [];

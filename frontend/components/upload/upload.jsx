@@ -1,23 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
-import Errors from '../errors/errors';
+import Errors from "../errors/errors";
 
 class Upload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       audioFile: null,
-      title: '',
-      description: '',
+      title: "",
+      description: "",
       redirect: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFile() {
-    return (e) => this.setState({ audioFile: e.currentTarget.files[0] });
+    return e => this.setState({ audioFile: e.currentTarget.files[0] });
   }
 
   handleSubmit(e) {
@@ -25,11 +25,11 @@ class Upload extends React.Component {
 
     e.preventDefault();
     const formData = new FormData();
-    formData.append('track[title]', this.state.title);
-    formData.append('track[description]', this.state.description);
-    formData.append('track[artist_id]', this.props.state.session.currentUser);
-    if (this.state.audioFile !== 'default') {
-      formData.append('track[audio]', this.state.audioFile);
+    formData.append("track[title]", this.state.title);
+    formData.append("track[description]", this.state.description);
+    formData.append("track[artist_id]", this.props.state.session.currentUser);
+    if (this.state.audioFile !== "default") {
+      formData.append("track[audio]", this.state.audioFile);
     }
 
     this.props.createTrack(formData).then(res => this.handleRes(res));
@@ -47,28 +47,25 @@ class Upload extends React.Component {
 
   renderRedirect() {
     const { artistUsername, trackTitle } = this.state;
-    return (<Redirect to={`/${artistUsername}/${trackTitle}`} />);
+    return <Redirect to={`/${artistUsername}/${trackTitle}`} />;
   }
 
   handleChange(field) {
-    return (e) => this.setState({ [field]: e.target.value });
+    return e => this.setState({ [field]: e.target.value });
   }
 
   selectTrack() {
     return (
-      <div className='select-track-container'>
+      <div className="select-track-container">
         <h2>Upload a track to SoundWaves</h2>
-        <input
-          onChange={ this.handleFile() }
-          type='file'
-          id='file'/>
-        <label
-          htmlFor='file'
-        >Select a track to upload</label>
+        <input onChange={this.handleFile()} type="file" id="file" />
+        <label htmlFor="file">Select a track to upload</label>
         <h3>or</h3>
         <button
-          onClick={ () => this.setState({ audioFile: 'default' }) }
-          className='demo'>Upload a demo track
+          onClick={() => this.setState({ audioFile: "default" })}
+          className="demo"
+        >
+          Upload a demo track
         </button>
       </div>
     );
@@ -76,40 +73,46 @@ class Upload extends React.Component {
 
   inputForm() {
     return (
-      <div className='upload-form-container'>
-        <form id='upload-form' onSubmit={this.handleSubmit} >
-          <div className='form-header'>
-            <div className='info'>
+      <div className="upload-form-container">
+        <form id="upload-form" onSubmit={this.handleSubmit}>
+          <div className="form-header">
+            <div className="info">
               <h2>Track info</h2>
             </div>
           </div>
 
-          <div className='form-body'>
-            <div className='form-image'>
-              <img src={window.images.defaultTrackArtwork}/>
+          <div className="form-body">
+            <div className="form-image">
+              <img src={window.images.defaultTrackArtwork} />
             </div>
-            <div className='form-input'>
-                <label>Title<p>*</p></label>
-                  <input
-                    onChange={ this.handleChange('title') }
-                    value={ this.state.value }/>
-                <label>Description</label>
-                  <textarea
-                    onChange={ this.handleChange('description') }
-                    value={ this.state.description } />
+            <div className="form-input">
+              <label>
+                Title
+                <p>*</p>
+              </label>
+              <input
+                onChange={this.handleChange("title")}
+                value={this.state.value}
+              />
+              <label>Description</label>
+              <textarea
+                onChange={this.handleChange("description")}
+                value={this.state.description}
+              />
             </div>
           </div>
 
-          <div className='form-footer'>
+          <div className="form-footer">
             <div>
-              <p>*</p><h5>Required field</h5>
+              <p>*</p>
+              <h5>Required field</h5>
             </div>
-            <Errors track={ this.props.state.errors.tracks } />
+            <Errors track={this.props.state.errors.tracks} />
             <div>
-              <Link to='/' >
-                <button className='cancel'>Cancel</button>
+              <Link to="/">
+                <button className="cancel">Cancel</button>
               </Link>
-              <input type='submit' htmlFor='upload-form' value='Save'/>
+              <input type="submit" htmlFor="upload-form" value="Save" />
             </div>
           </div>
         </form>
@@ -119,17 +122,17 @@ class Upload extends React.Component {
 
   render() {
     return (
-      <div className='content'>
-        { this.state.redirect ? this.renderRedirect() : null }
-        <div className='upload-content'>
-          <div className='upload-header'>
-            <div className='upload'>
+      <div className="content">
+        {this.state.redirect ? this.renderRedirect() : null}
+        <div className="upload-content">
+          <div className="upload-header">
+            <div className="upload">
               <h4>Upload</h4>
             </div>
           </div>
 
-          <div className='upload-body'>
-            { this.state.audioFile ? this.inputForm() : this.selectTrack() }
+          <div className="upload-body">
+            {this.state.audioFile ? this.inputForm() : this.selectTrack()}
           </div>
         </div>
       </div>

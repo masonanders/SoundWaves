@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import NavBar from './nav_bar';
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import NavBar from "./nav_bar";
 
-import { endSession } from '../../actions/session_actions';
-import { openUserDrop, closeUserDrop } from '../../actions/nav_bar_actions';
+import { endSession } from "../../actions/session_actions";
+import { openUserDrop, closeUserDrop } from "../../actions/nav_bar_actions";
 
 const mapStateToProps = state => ({
   user: state.entities.users[state.session.currentUser],
@@ -17,4 +17,9 @@ const mapDispatchToProps = dispatch => ({
   closeUserDrop: () => dispatch(closeUserDrop())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(NavBar)
+);

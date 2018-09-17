@@ -1,7 +1,7 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
-import { RECEIVE_USERS } from '../../actions/user_actions';
-import { QUIT_SESSION } from '../../actions/session_actions';
+import { RECEIVE_USERS } from "../../actions/user_actions";
+import { QUIT_SESSION } from "../../actions/session_actions";
 
 const UsersSearchReducer = (oldState = [], action) => {
   Object.freeze(oldState);

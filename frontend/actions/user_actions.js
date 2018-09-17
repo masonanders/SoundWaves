@@ -1,5 +1,5 @@
-import * as UserAPIUtil from '../util/user_api_util';
-import { START_SESSION } from './session_actions';
+import * as UserAPIUtil from "../util/user_api_util";
+import { START_SESSION } from "./session_actions";
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
@@ -31,42 +31,32 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const fetchUserBy = (userParams, limit) => dispatch => (
-  UserAPIUtil.fetchUserBy(userParams, limit)
-    .then(
-      users => dispatch(receiveUsers(users)),
-      errors => dispatch(receiveErrors(errors))
-    )
-);
+export const fetchUserBy = (userParams, limit) => dispatch =>
+  UserAPIUtil.fetchUserBy(userParams, limit).then(
+    users => dispatch(receiveUsers(users)),
+    errors => dispatch(receiveErrors(errors))
+  );
 
-export const fetchUser = id => dispatch => (
-  UserAPIUtil.fetchUser(id)
-    .then(
-      user => dispatch(receiveUser(user())),
-      errors => dispatch(receiveErrors(errors))
-    )
-);
+export const fetchUser = id => dispatch =>
+  UserAPIUtil.fetchUser(id).then(
+    user => dispatch(receiveUser(user())),
+    errors => dispatch(receiveErrors(errors))
+  );
 
-export const createUser = newUser => dispatch => (
-  UserAPIUtil.createUser(newUser)
-    .then(
-      user => dispatch(receiveNewUser(user)),
-      errors => dispatch(receiveErrors(errors))
-    )
-);
+export const createUser = newUser => dispatch =>
+  UserAPIUtil.createUser(newUser).then(
+    user => dispatch(receiveNewUser(user)),
+    errors => dispatch(receiveErrors(errors))
+  );
 
-export const updateUser = updUser => dispatch => (
-  UserAPIUtil.updateUser(updUser)
-    .then(
-      user => dispatch(receiveUser(user)),
-      errors => dispatch(receiveErrors(errors))
-    )
-);
+export const updateUser = updUser => dispatch =>
+  UserAPIUtil.updateUser(updUser).then(
+    user => dispatch(receiveUser(user)),
+    errors => dispatch(receiveErrors(errors))
+  );
 
-export const deleteUser = userId => dispatch => (
-  UserAPIUtil.deleteUser(userId)
-    .then(
-      () => dispatch(removeUser()),
-      errors => dispatch(receiveErrors(errors))
-    )
-);
+export const deleteUser = userId => dispatch =>
+  UserAPIUtil.deleteUser(userId).then(
+    () => dispatch(removeUser()),
+    errors => dispatch(receiveErrors(errors))
+  );

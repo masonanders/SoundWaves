@@ -1,14 +1,12 @@
-export const beginSession = userParams => (
+export const beginSession = userParams =>
   $.ajax({
-    url: '/api/session',
-    method: 'post',
+    url: "/api/session",
+    method: "post",
     data: { user: userParams }
-  })
-);
+  });
 
-export const endSession = () => (
+export const endSession = () =>
   $.ajax({
-    url: '/api/session',
-    method: 'delete'
-  })
-);
+    url: "/api/session",
+    method: "delete"
+  });

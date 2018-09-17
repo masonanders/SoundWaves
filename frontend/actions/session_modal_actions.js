@@ -13,10 +13,10 @@ const open = (action, demo) => {
   if (demo) {
     action.demoLogin = true;
   }
-  return ({
+  return {
     type: OPEN_SESSION_MODAL,
     action
-  });
+  };
 };
 
 const close = username => ({

@@ -1,13 +1,9 @@
-import { connect } from 'react-redux';
-import UserIndex from './user_track_index';
+import { connect } from "react-redux";
+import UserIndex from "./user_track_index";
 
-import {
-  play,
-  pause,
-  playNew
-} from '../../actions/player_actions';
+import { play, pause, playNew } from "../../actions/player_actions";
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   state: state
 });
 
@@ -17,4 +13,7 @@ const mapDispatchToProps = dispatch => ({
   playNew: track => dispatch(playNew(track))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserIndex);

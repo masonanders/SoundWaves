@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import Banner from './splash_banner';
-import Search from './splash_search';
-import SessionModal from '../session-modal/new_session_modal';
+import Banner from "./splash_banner";
+import Search from "./splash_search";
+import SessionModal from "../session-modal/new_session_modal";
 
-const Splash = (props) => {
+const Splash = props => {
   const modalOn = props.state.ui.sessionModal.modalOn;
   return (
     <div>
       <SessionModal
         wState={props.state}
         session={props.state.session}
-        errors={ props.state.errors }
-        state={ props.state.ui.sessionModal }
-        action={ props.state.ui.sessionModal.action }
+        errors={props.state.errors}
+        state={props.state.ui.sessionModal}
+        action={props.state.ui.sessionModal.action}
         functions={{
           createUser: props.createUser,
           beginSession: props.beginSession,
@@ -26,18 +26,18 @@ const Splash = (props) => {
         modalOn={modalOn}
       />
 
-      <div className='content' >
-        <section className='splash-content' >
-          <Banner state={ props.state }
-            beginSession={ props.beginSession }
-            createUser={ props.createUser }
-            openModal={ props.openModal }
+      <div className="content">
+        <section className="splash-content">
+          <Banner
+            state={props.state}
+            beginSession={props.beginSession}
+            createUser={props.createUser}
+            openModal={props.openModal}
           />
           <Search />
         </section>
       </div>
-      <div style={{height: '500px'}}>
-      </div>
+      <div style={{ height: "500px" }} />
     </div>
   );
 };
