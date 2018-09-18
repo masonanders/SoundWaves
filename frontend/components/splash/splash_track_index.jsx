@@ -36,13 +36,15 @@ class TrackIndex extends Component {
 
   render() {
     const tracks = this.makeTrackItems();
+    window.tracks = tracks;
 
     return (
       <div className="splash-track-index">
         <header>
-          <h1>Listen to these tracks and more</h1>
+          <h1>Check out these tracks and more</h1>
         </header>
-        <section>{tracks}</section>
+        <section>{tracks.slice(0, 6)}</section>
+        <section>{tracks.slice(6)}</section>
       </div>
     );
   }

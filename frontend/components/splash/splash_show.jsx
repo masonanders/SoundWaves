@@ -39,7 +39,6 @@ const Splash = props => {
           <SplashTrackIndex />
         </section>
       </div>
-      <div style={{ height: "500px" }} />
     </div>
   );
 };

@@ -1,0 +1,59 @@
+.splash-track-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+
+  header {
+    margin: 35px 0;
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    .splash-track-thumbnail {
+      transition: width, height, 300ms; 
+      width: 130px;
+      height: 130px;
+      @media only screen and (min-width: 1020px) {
+        transition: width, height, 300ms; 
+        width: 145px;
+        height: 145px;
+      }
+      @media only screen and (min-width: 1230px) {
+        transition: width, height, 300ms; 
+        width: 175px;
+        height: 175px;
+      }
+      margin: 0 10px 80px 10px;
+
+      img {
+        border: 1px solid lightgray;
+        width: 100%;
+        height: 100%;
+      }
+      
+      h3 {
+        max-width: 180px;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: black;
+      }
+
+      h4 {
+        max-width: 180px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: gray;
+      }
+    }
+  }
+}
