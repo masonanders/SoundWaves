@@ -30,7 +30,14 @@
         position: absolute;
         left: 70px;
         bottom: 33px;
-        width: 150px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      
+      h3:before {
+        content: '';
+        background:linear-gradient(to right, transparent 80px, white);
       }
 
       h4:before {

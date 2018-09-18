@@ -10,12 +10,26 @@
     padding: 0 10px 20px 10px;
 
     h4 {
+      content: '';
       font-size: 15px;
       font-weight: 200;
       position: absolute;
       left: 70px;
       bottom: 20px;
-      width: 100%
+      width: 150px;
+      overflow: hidden;
+      white-space: nowrap;
+      background: linear-gradient(to right, transparent 80px, white);
+    }
+
+    h4:before {
+      content: '';
+      width: 175px;
+      height: 100%;
+      position:absolute;
+      left:0;
+      top:0;
+      background:linear-gradient(to right, transparent 80px, white);
     }
   }
 
