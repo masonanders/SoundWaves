@@ -37,11 +37,13 @@
     border: 1px solid #eaeaea;
     margin-right: 10px;
   }
-
+  
   #sign-in:hover {
-    filter: brightness(90%);
+    color: $button-orange;
+    border: 1px solid $button-orange;
+    filter: brightness(140%);
   }
-
+  
   .splash-header {
     display: flex;
     justify-content: center;

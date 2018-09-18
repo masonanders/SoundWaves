@@ -3,6 +3,7 @@ import React from "react";
 import Banner from "./splash_banner";
 import Search from "./splash_search";
 import SessionModal from "../session-modal/new_session_modal";
+import SplashTrackIndex from "./splash_index_container";
 
 const Splash = props => {
   const modalOn = props.state.ui.sessionModal.modalOn;
@@ -35,6 +36,7 @@ const Splash = props => {
             openModal={props.openModal}
           />
           <Search />
+          <SplashTrackIndex />
         </section>
       </div>
       <div style={{ height: "500px" }} />
