@@ -5,8 +5,7 @@ const NavUserDropdown = props => {
   const dropdownClass = props.userDrop
     ? "nav-user-dropdown open"
     : "nav-user-dropdown";
-  // TODO nav bar closes when clicked outside
-  // TODO nav bar closes when page rerenders
+
   return (
     <div className={dropdownClass}>
       <ul>

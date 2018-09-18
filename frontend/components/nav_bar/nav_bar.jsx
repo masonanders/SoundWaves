@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavUserDropdown from "./nav_user_dropdown";
+import EventListener from "react-event-listener";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -10,8 +11,13 @@ class NavBar extends React.Component {
   componentWillReceiveProps() {}
 
   handleUserDropdown(e) {
-    const { userDrop, openUserDrop, closeUserDrop } = this.props;
-    userDrop ? closeUserDrop() : openUserDrop();
+    const { closeUserDrop, openUserDrop } = this.props;
+    let userDrop =
+      (e.path[0].className === "dropdown-button" ||
+        e.path[1].className === "dropdown-button") &&
+      !this.props.userDrop
+        ? openUserDrop()
+        : closeUserDrop();
   }
 
   highlightLocation(address, className) {
@@ -24,7 +30,7 @@ class NavBar extends React.Component {
 
   render() {
     const user = this.props.user ? this.props.user : { username: "" };
-    const { endSession, userDrop, closeUserDrop } = this.props;
+    const { endSession, userDrop } = this.props;
     const userDropClass = userDrop ? "user open" : "user";
     return (
       <div className="nav-bar-container">
@@ -66,10 +72,11 @@ class NavBar extends React.Component {
           </Link>
 
           <div className={userDropClass}>
-            <button
-              className="dropdown-button"
+            <EventListener
+              target="window"
               onClick={e => this.handleUserDropdown(e)}
-            >
+            />
+            <button className="dropdown-button">
               <img src={window.images.userIcons[user.imageId]} />
               <h3>{`${user.username} ⌄`}</h3>
             </button>
@@ -77,7 +84,6 @@ class NavBar extends React.Component {
               username={user.username}
               logout={endSession}
               userDrop={userDrop}
-              closeUserDrop={closeUserDrop}
             />
           </div>
         </div>
