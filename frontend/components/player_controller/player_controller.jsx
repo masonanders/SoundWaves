@@ -31,7 +31,6 @@ class PlayerController extends React.Component {
     this.audio = new Howl({
       src: this.getAudioSrc(),
       preload: true,
-      html5: true,
       onpause: () => clearInterval(this.time),
       onplay: () => {
         this.setState({
