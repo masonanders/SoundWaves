@@ -25,7 +25,11 @@ class TrackIndex extends Component {
     return tracks.map(trackObj => {
       const { track, user } = trackObj;
       return (
-        <div key={track.id} className="splash-track-thumbnail">
+        <div
+          key={track.id}
+          className="splash-track-thumbnail"
+          onClick={() => this.props.openModal(this.props.beginSession)}
+        >
           <img src={window.images.trackImages[track.imageId]} />
           <h3>{track.title}</h3>
           <h4>{user.username}</h4>

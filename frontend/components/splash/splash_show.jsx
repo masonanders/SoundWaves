@@ -35,8 +35,14 @@ const Splash = props => {
             createUser={props.createUser}
             openModal={props.openModal}
           />
-          <Search />
-          <SplashTrackIndex />
+          <Search
+            beginSession={props.beginSession}
+            openModal={props.openModal}
+          />
+          <SplashTrackIndex
+            beginSession={props.beginSession}
+            openModal={props.openModal}
+          />
         </section>
       </div>
     </div>

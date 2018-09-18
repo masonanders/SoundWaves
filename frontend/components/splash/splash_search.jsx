@@ -1,6 +1,6 @@
 import React from "react";
 
-export default () => {
+export default props => {
   return (
     <section className="splash-search">
       <input
@@ -18,7 +18,12 @@ export default () => {
         <h4>or</h4>
       </div>
 
-      <button className="big-button">Upload your own</button>
+      <button
+        className="big-button"
+        onClick={() => props.openModal(props.beginSession)}
+      >
+        Upload your own
+      </button>
     </section>
   );
 };
