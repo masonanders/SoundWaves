@@ -16,23 +16,26 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-
+    
     .splash-track-thumbnail {
-      transition: width, height, 300ms; 
-      width: 130px;
-      height: 130px;
+      cursor: pointer;
+      transition: width, height, 200ms; 
+      width: 135px;
+      height: 135px;
+      margin: 0 10px 80px 10px;
+
       @media only screen and (min-width: 1020px) {
-        transition: width, height, 300ms; 
+        transition: width, height, 200ms; 
         width: 145px;
         height: 145px;
       }
+
       @media only screen and (min-width: 1230px) {
-        transition: width, height, 300ms; 
+        transition: width, height, 200ms; 
         width: 175px;
         height: 175px;
       }
-      margin: 0 10px 80px 10px;
-
+      
       img {
         border: 1px solid lightgray;
         width: 100%;
