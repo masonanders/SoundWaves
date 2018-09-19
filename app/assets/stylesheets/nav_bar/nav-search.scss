@@ -1,0 +1,50 @@
+.nav-search-results {
+  background-color: rgb(58, 60, 63);
+  width: calc(80% + 40px);
+
+  .nav-track-search-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: white;
+    padding: 10px;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 200;
+      width: 60%;
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    h5 {
+      color: lightgray;
+      font-size: 13px;
+      font-weight: 200;
+      width: 30%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: end;
+    }
+  }
+
+  .nav-track-search-item:hover {
+    background-color: rgb(15, 15, 15);
+  }
+
+  .nav-search-no-results {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+
+    h4 {
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 15px;
+      font-weight: 200;
+      width: 60%;
+    }
+  }
+}
