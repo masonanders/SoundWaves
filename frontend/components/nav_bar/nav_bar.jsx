@@ -9,8 +9,6 @@ class NavBar extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps() {}
-
   handleUserDropdown(e) {
     const { closeUserDrop, openUserDrop } = this.props;
     let userDrop =
