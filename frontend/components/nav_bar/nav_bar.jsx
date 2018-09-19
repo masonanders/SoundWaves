@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavUserDropdown from "./nav_user_dropdown";
 import EventListener from "react-event-listener";
+import NavSearch from "./nav_search_container";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -45,18 +46,7 @@ class NavBar extends React.Component {
           </div>
         </Link>
 
-        <div className="nav-searchbar-container">
-          <input
-            onChange={e => {
-              e.target.placeholder = "Not yet implemented";
-              e.target.value = "";
-            }}
-            className="nav-searchbar"
-            type="search"
-            placeholder="Search"
-          />
-          <button className="nav-search-button" onClick={null} />
-        </div>
+        <NavSearch />
 
         <div className="navigation">
           <a href="https://www.linkedin.com/in/mason-anders-416274130/">
