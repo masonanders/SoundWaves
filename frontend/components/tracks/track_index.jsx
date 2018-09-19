@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 import TrackIndexItem from "./track_index_item";
 
 class TrackIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { tracks: [] };
+  }
   componentWillMount() {
-    this.props.fetchTracksBy({ all: "" }, 7).then(this.setState());
+    this.props
+      .fetchTracksBy({ all: "" }, 10)
+      .then(res => this.setState({ tracks: res.tracks }));
   }
 
   getTracksByIds() {
@@ -16,7 +22,7 @@ class TrackIndex extends React.Component {
 
   render() {
     const { state } = this.props;
-    const tracks = this.getTracksByIds().map(track => (
+    const tracks = this.state.tracks.map(track => (
       <TrackIndexItem
         key={track.id}
         track={track}
