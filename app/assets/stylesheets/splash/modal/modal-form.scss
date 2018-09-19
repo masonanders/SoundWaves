@@ -14,7 +14,7 @@
   border: 1px solid lightgray;
   position: relative;
   margin-top: 25px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 25px;
   height: 320px;
   width: 400px;
@@ -24,7 +24,9 @@
     position: absolute;
     top: 10;
     background-color: rgba(0, 0, 0, 0);
-    background-image: image_url('splash/back-arrow'); // image by Anastasya Bolshakova at https://www.iconfinder.com/nastu_bol
+    background-image: image_url(
+      "splash/back-arrow"
+    ); // image by Anastasya Bolshakova at https://www.iconfinder.com/nastu_bol
     background-size: cover;
     height: 30px;
     width: 30px;

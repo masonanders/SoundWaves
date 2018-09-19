@@ -2,7 +2,7 @@
   transition: opacity 0.3s linear;
   display: block;
   position: fixed;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   border: none;
   height: 100%;
   width: 100%;
@@ -16,7 +16,9 @@
 
     button {
       background-color: rgba(0, 0, 0, 0);
-      background-image: image_url('splash/close-modal'); // image by Appercuts at https://www.iconfinder.com/appercuts
+      background-image: image_url(
+        "splash/close-modal"
+      ); // image by Appercuts at https://www.iconfinder.com/appercuts
       background-size: cover;
       height: 20px;
       width: 20px;
@@ -25,9 +27,9 @@
 }
 
 .new-session-modal.off {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.5s, opacity 0.3s linear;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.3s linear;
 
   .new-session-form-container {
     top: -500px;
