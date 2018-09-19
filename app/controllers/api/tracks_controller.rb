@@ -11,11 +11,10 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    # TODO search by keywords, return index with limit instead of all
     key = all_track_params.keys[0]
     value = all_track_params.values[0]
     limit = params[:limit] || false
-    tracks = key == 'all' ? Track.all : Track.where(key => value)
+    tracks = key == 'all' ? Track.all : search(key, value)
     if tracks
       found = [].concat(tracks).shuffle
       send = (limit ? found.shift(limit.to_i) : found)
@@ -67,11 +66,20 @@ class Api::TracksController < ApplicationController
 
   private
 
+  def search(key, value)
+    if key == 'search'
+      value = '%' + value + '%'
+      Track.where('title LIKE ?', value)
+    else 
+      Track.where(key => value)
+    end 
+  end
+
   def track_params
     params.require(:track).permit(:title, :artist_id, :description, :audio)
   end
 
   def all_track_params
-    params.require(:trackParams).permit(:id, :title, :artist_id, :keywords, :limit, :all)
+    params.require(:trackParams).permit(:id, :title, :artist_id, :keywords, :limit, :all, :search)
   end
 end
