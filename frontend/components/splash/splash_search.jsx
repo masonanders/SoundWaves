@@ -45,7 +45,7 @@ class SplashSearch extends Component {
       <div
         className="splash-track-search-item"
         key={id}
-        onClick={e => this.handleRedirect(e)}
+        onClick={e => this.props.openModal(this.props.beginSession)}
       >
         <h4>{track.title}</h4>
         <h5>{track.artist}</h5>
@@ -55,10 +55,10 @@ class SplashSearch extends Component {
 
   toggleVisibility(e) {
     const visibility =
-      e.path[0].className === "slpash-searchbar-container" ||
-      e.path[1].className === "slpash-searchbar-container" ||
-      e.path[0].className === "slpash-search-no-results" ||
-      e.path[1].className === "slpash-search-no-results"
+      e.path[0].className === "splash-searchbar" ||
+      e.path[1].className === "splash-searchbar" ||
+      e.path[0].className === "splash-search-no-results" ||
+      e.path[1].className === "splash-search-no-results"
         ? "visible"
         : "hidden";
     if (this.state.visibility !== visibility) {
@@ -73,14 +73,16 @@ class SplashSearch extends Component {
     const { noResults } = this.state;
     return (
       <section className="splash-search">
-        <div className="slpash-searchbar-container">
-          <input
-            onChange={e => this.handleChange(e)}
-            className="splash-searchbar"
-            type="search"
-            placeholder="Search for artists or tracks!"
-          />
-          <button id="search-button" />
+        <div className="splash-searchbar-container">
+          <div className="splash-searchbar">
+            <input
+              onChange={e => this.handleChange(e)}
+              className="splash-searchbar-input"
+              type="search"
+              placeholder="Search for tracks!"
+            />
+            <button id="search-button" />
+          </div>
           <div
             className="splash-search-results"
             style={{ visibility: this.state.visibility }}
