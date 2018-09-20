@@ -20,6 +20,19 @@ class TrackIndex extends React.Component {
     return Object.keys(tracks).map(id => tracks[id]);
   }
 
+  toggleVisibility(e) {
+    const visibility =
+      e.path[0].className === "nav-searchbar-container" ||
+        e.path[1].className === "nav-searchbar-container" ||
+        e.path[0].className === "nav-search-no-results" ||
+        e.path[1].className === "nav-search-no-results"
+        ? "visible"
+        : "hidden";
+    if (this.state.visibility !== visibility) {
+      this.setState({ visibility });
+    }
+  }
+  
   render() {
     const { state } = this.props;
     const tracks = this.state.tracks.map(track => (

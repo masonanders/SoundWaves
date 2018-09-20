@@ -38,6 +38,7 @@ const Splash = props => {
           <Search
             beginSession={props.beginSession}
             openModal={props.openModal}
+            fetchTrackBy={props.fetchTrackBy}
           />
           <SplashTrackIndex
             beginSession={props.beginSession}
