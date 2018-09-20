@@ -10,7 +10,17 @@
   }
 }
 
+.splash-searchbar-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 .splash-searchbar {
+  display: flex;
+}
+
+.splash-searchbar-input {
   -webkit-appearance: none;
   background-color: $background-grey;
   font-size: 15px;
@@ -19,6 +29,60 @@
   border: none;
   border-radius: 4px 0 0 4px;
   padding-left: 20px;
+}
+
+.splash-search-results {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  background-color: $background-grey;
+  border-radius: 0 0 4px 4px;
+
+  .splash-track-search-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: black;
+    padding: 10px;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 200;
+      width: 60%;
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    h5 {
+      color: grey;
+      font-size: 13px;
+      font-weight: 200;
+      width: 30%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: end;
+    }
+  }
+}
+
+.splash-track-search-item:hover {
+  background-color: lightgray;
+}
+
+.splash-search-no-results {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+
+  h4 {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    font-weight: 300;
+    width: 60%;
+  }
 }
 
 .splash-searchbar-or {
@@ -34,12 +98,14 @@
   min-width: 46px;
   min-height: 46px;
   border-radius: 0 4px 4px 0;
-  background-image: image_url('splash/search-icon.png'); // Image by Yannick Lung at https://www.iconfinder.com/yanlu
+  background-image: image_url(
+    "splash/search-icon.png"
+  ); // Image by Yannick Lung at https://www.iconfinder.com/yanlu
   background-size: 30px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #search-button {
-  filter: none
+  filter: none;
 }
