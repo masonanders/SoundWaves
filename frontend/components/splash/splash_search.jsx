@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EventListener from "react-event-listener";
 
 class SplashSearch extends Component {
   constructor(props) {
@@ -52,6 +53,19 @@ class SplashSearch extends Component {
     );
   }
 
+  toggleVisibility(e) {
+    const visibility =
+      e.path[0].className === "slpash-searchbar-container" ||
+      e.path[1].className === "slpash-searchbar-container" ||
+      e.path[0].className === "slpash-search-no-results" ||
+      e.path[1].className === "slpash-search-no-results"
+        ? "visible"
+        : "hidden";
+    if (this.state.visibility !== visibility) {
+      this.setState({ visibility });
+    }
+  }
+
   render() {
     const tracks = this.state.tracks.map((track, idx) =>
       this.makeTrackItem(track, idx)
@@ -59,7 +73,7 @@ class SplashSearch extends Component {
     const { noResults } = this.state;
     return (
       <section className="splash-search">
-        <div>
+        <div className="slpash-searchbar-container">
           <input
             onChange={e => this.handleChange(e)}
             className="splash-searchbar"
@@ -67,8 +81,17 @@ class SplashSearch extends Component {
             placeholder="Search for artists or tracks!"
           />
           <button id="search-button" />
-          {tracks}
-          {noResults}
+          <div
+            className="splash-search-results"
+            style={{ visibility: this.state.visibility }}
+          >
+            {tracks}
+            {noResults}
+          </div>
+          <EventListener
+            target="window"
+            onClick={e => this.toggleVisibility(e)}
+          />
         </div>
 
         <div className="splash-searchbar-or">
