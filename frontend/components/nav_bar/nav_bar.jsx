@@ -47,7 +47,11 @@ class NavBar extends React.Component {
         <NavSearch />
 
         <div className="navigation">
-          <a href="https://www.linkedin.com/in/mason-anders" target='_blank'>
+          <a
+            href="https://www.linkedin.com/in/mason-anders"
+            target="_blank"
+            rel="noopener"
+          >
             <button className="self-promotion">
               <h3>Meet the developer</h3>
             </button>
