@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router";
 
 import TrackBanner from "./track_show_banner";
 import Comments from "../comments/comments_container";
@@ -14,11 +13,15 @@ class TrackShow extends React.Component {
     this.state = { action: {}, comments: null };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.resetState();
+  componentWillReceiveProps() {
+    if (this.props.match.params.title !== this.state.title) this.resetState();
   }
 
   componentDidMount() {
+    this.fetchTrack();
+  }
+
+  fetchTrack() {
     this.props
       .fetchTrackBy({ title: this.props.match.params.title })
       .then(action =>
@@ -59,6 +62,7 @@ class TrackShow extends React.Component {
 
   resetState() {
     this.setState({ confirm: false, edit: false });
+    this.fetchTrack();
   }
 
   handleChange(field) {
@@ -69,18 +73,17 @@ class TrackShow extends React.Component {
     this.setState({
       action: {
         execute: () =>
-          this.props
-            .deleteTrack(this.props.track.id)
-            .then(res => this.handleResponse(res)),
+        this.props
+        .deleteTrack(this.props.track.id)
+        .then(res => this.handleResponse(res)),
         text: "Delete"
       },
       confirm: true
     });
   }
-
+  
   handleEdit() {
     const oldTrack = this.props.track;
-    const artist = this.props.artist;
     this.setState({
       action: {
         execute: () =>
@@ -152,7 +155,6 @@ class TrackShow extends React.Component {
         <h3>{`${this.state.action.text}`} this track?</h3>
       </div>
     );
-
     return this.state.confirm ? confirm : deleteEdit;
   }
 
