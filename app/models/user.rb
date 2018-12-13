@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validate :ensure_unique_session_token
+  validate :ensure_unique_session_token, :ensure_proper_username
 
   has_many :tracks,
     foreign_key: :artist_id,
@@ -70,4 +70,12 @@ class User < ApplicationRecord
       self.session_token = generate_session_token
     end
   end
+
+  def ensure_proper_username
+    if self.username.include?('/')
+      self.errors.add(:username, :invalid, message: "can't contain \" / \"")
+      return false
+    end 
+    return true
+  end 
 end

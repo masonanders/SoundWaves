@@ -36,17 +36,14 @@ class SessionModal extends React.Component {
         this.passwordErrorMessage();
       }
     } else {
-      if (this.state.username === "") {
-        this.functions.createCustomError("Username cannot be blank");
-      } else {
+      if (this.validUsername()) {
         this.functions
           .findExistingUser({ username: this.state.username })
-          .then(
-            () =>
-              this.state.wState.ui.sessionModal.action.name !== "createUser" &&
-              this.props.session.existingUser
-                ? this.setState({ action: this.functions.beginSession })
-                : this.setState({ action: this.functions.createUser })
+          .then(() =>
+            this.state.wState.ui.sessionModal.action.name !== "createUser" &&
+            this.props.session.existingUser
+              ? this.setState({ action: this.functions.beginSession })
+              : this.setState({ action: this.functions.createUser })
           )
           .then(res => {
             if (this.state.action.name === "beginSession") {
@@ -114,6 +111,17 @@ class SessionModal extends React.Component {
     if (e.key === "Enter") {
       this.handleContinue();
     }
+  }
+
+  validUsername() {
+    if (this.state.username.length === 0) {
+      this.functions.createCustomError("Username can't be blank");
+    } else if (this.state.username.includes("/")) {
+      this.functions.createCustomError('Username can\'t contain \" / \"');
+    } else {
+      return true;
+    }
+    return false;
   }
 
   validPasswords() {
