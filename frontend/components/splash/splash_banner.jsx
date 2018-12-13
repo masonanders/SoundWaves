@@ -17,6 +17,12 @@ class Banner extends React.Component {
 
         <div className="session-buttons">
           <button
+            onClick={() => this.props.openModal(this.props.beginSession, true)}
+            id="sign-in"
+          >
+            Demo
+          </button>
+          <button
             onClick={() => this.props.openModal(this.props.beginSession)}
             id="sign-in"
           >
