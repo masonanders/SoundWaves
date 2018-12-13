@@ -81,7 +81,7 @@ class SessionModal extends React.Component {
   handleDemoLogin(props) {
     props.action.demoLogin = false;
     this.setState({ username: "" });
-    setTimeout(() => this.delayedType("demo_user", "username"), 100);
+    setTimeout(() => this.delayedType("demo_user", "username"), 200);
   }
 
   handleCloseModal() {
@@ -117,7 +117,7 @@ class SessionModal extends React.Component {
     if (this.state.username.length === 0) {
       this.functions.createCustomError("Username can't be blank");
     } else if (this.state.username.includes("/")) {
-      this.functions.createCustomError('Username can\'t contain \" / \"');
+      this.functions.createCustomError('Username can\'t contain " / "');
     } else {
       return true;
     }
@@ -146,10 +146,12 @@ class SessionModal extends React.Component {
       } else {
         setTimeout(() => {
           this.handleContinue();
-          if (this.state.password1 === "") {
-            this.delayedType("iliketodemo", "password1");
-          }
-        }, 200);
+          setTimeout(() => {
+            if (this.state.password1 === "") {
+              this.delayedType("iliketodemo", "password1");
+            }
+          }, 200);
+        }, 150);
       }
     };
     setTimeout(() => delayLetter(string.split("")), 300);
