@@ -15,6 +15,7 @@ class Track < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, length: { maximum: 100 }
   validates :description, length: { maximum: 500 }
+  validate :ensure_proper_title
 
   has_one_attached :audio
 
@@ -27,4 +28,14 @@ class Track < ApplicationRecord
     foreign_key: :track_id,
     class_name: :Comment,
     dependent: :destroy
+
+  private
+
+  def ensure_proper_title
+    if self.title.include?('/')
+      self.errors.add(:title, :invalid, message: 'can\'t contain " / "')
+      return false
+    end
+    true
+  end 
 end

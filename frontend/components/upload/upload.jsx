@@ -21,9 +21,9 @@ class Upload extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.clearErrors();
-
     e.preventDefault();
+    this.props.clearErrors();
+    
     const formData = new FormData();
     formData.append("track[title]", this.state.title);
     formData.append("track[description]", this.state.description);
